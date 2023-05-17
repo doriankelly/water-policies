@@ -6,8 +6,11 @@ export const AppRouter = () => {
     <>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/intro" element={<IntroPage/>} />
+        <Route path="/welcome" element={<AssistantPage />} />
+        <Route path="/*" element={<Navigate to={"/"} />} />
+        <Route path="/intro" element={<IntroPage />} />
       </Routes>
+      ;
     </>
   );
 };
