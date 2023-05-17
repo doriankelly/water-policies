@@ -7,7 +7,7 @@ module.exports = {
         'primary': '#3485FE',
         'secondary': '#67A3FE',
         'terciary': '#CCE0FF',
-
+        'darkBlue': '#001433'
       },
       height: {
         'panel': '50rem'
@@ -16,7 +16,10 @@ module.exports = {
         'boton': '28rem',
       },
       backgroundImage: {
-        'backgroundZelda': "url('src/assets/background.jpg')",
+        'backgroundPrimary': "url('src/assets/background.png')"
+      },
+      fontFamily: {
+        'sans': ['Poppins', 'sans-serif'],
       },
     },
   },
