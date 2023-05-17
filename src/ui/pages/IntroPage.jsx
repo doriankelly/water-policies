@@ -3,7 +3,7 @@
 export const IntroPage = () => {
   return (
     <>
-  <article className="flex flex-col items-center justify-center min-h-screen">
+  <article className="flex flex-col items-center justify-center min-h-screen mt-14">
     <div className="flex justify-center transform rotate-10">
       <img src="src/assets/gota.png" alt="gotaInformadora" srcset="" />
     </div>
