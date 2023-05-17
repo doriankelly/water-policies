@@ -7,7 +7,8 @@ module.exports = {
         'primary': '#3485FE',
         'secondary': '#67A3FE',
         'terciary': '#CCE0FF',
-        'darkBlue': '#001433'
+        'darkBlue': '#001433',
+        'small-button': "#99C2FF"
       },
       height: {
         'panel': '50rem'

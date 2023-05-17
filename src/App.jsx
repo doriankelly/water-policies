@@ -2,7 +2,7 @@ import { AppRouter } from "./routes/AppRouter";
 
 function App() {
   return (
-    <main>
+    <main className="bg-backgroundPrimary">
       <AppRouter />
     </main>
   );
