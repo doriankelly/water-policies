@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { HomePage } from "../ui/pages/index";
+import { HomePage, IntroPage } from "../ui/pages";
 export const AppRouter = () => {
   //logica de si es logueado
   return (
