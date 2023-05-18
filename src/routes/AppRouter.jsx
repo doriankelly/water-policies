@@ -4,6 +4,8 @@ import {
   IntroPage,
   AssistantPage,
   UserProfilePage,
+  LoginPage,
+  SignupPage,
 } from "../ui/pages";
 export const AppRouter = () => {
   //logica de si es logueado
@@ -15,6 +17,8 @@ export const AppRouter = () => {
         <Route path="/*" element={<Navigate to={"/"} />} />
         <Route path="/intro" element={<IntroPage />} />
         <Route path="/profile" element={<UserProfilePage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
       </Routes>
     </>
   );
