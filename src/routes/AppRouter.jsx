@@ -4,8 +4,13 @@ import {
   IntroPage,
   AssistantPage,
   UserProfilePage,
+
+  QuestionPage,
+  FeedbackPage,
+
   LoginPage,
   SignupPage,
+
 } from "../ui/pages";
 
 import { MapData } from "../map/components";
@@ -21,8 +26,13 @@ export const AppRouter = () => {
         <Route path="/intro" element={<IntroPage />} />
         <Route path="/map" element={<MapData />} />
         <Route path="/profile" element={<UserProfilePage />} />
+
+        <Route path="/quiz/:questionNumber" element={<QuestionPage />} />
+        <Route path="/result/:number" element={<FeedbackPage />} />
+
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
+
       </Routes>
     </>
   );
