@@ -1,7 +1,9 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
 
 export const AddUserForm = () => {
+  const navigate = useNavigate();
   //capture text inputs with react hook
   const {
     register,

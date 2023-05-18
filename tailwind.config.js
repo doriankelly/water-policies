@@ -1,3 +1,4 @@
+import background from "./src/assets/background.png"
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
@@ -13,6 +14,7 @@ module.exports = {
         'form-border': "#002966",
         'emphasis': "#FF5432"
 
+
       },
       height: {
         'panel': '50rem'
@@ -21,7 +23,7 @@ module.exports = {
         'boton': '28rem',
       },
       backgroundImage: {
-        'backgroundPrimary': "url('src/assets/background.png')"
+        'backgroundPrimary': "url(https://firebasestorage.googleapis.com/v0/b/proyecto-final-backend-f0580.appspot.com/o/background.png?alt=media&token=56748177-1197-47f2-9338-990fe5f21de3)"
       },
       fontFamily: {
         'sans': ['Poppins', 'sans-serif'],
