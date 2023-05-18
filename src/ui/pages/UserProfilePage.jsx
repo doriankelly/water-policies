@@ -9,7 +9,7 @@ export const UserProfilePage = () => {
 
   return (
     <div className="bg-background">
-      <section className="pt-4">
+      <section>
         <div className="flex pt-12 mx-5">
           <button onClick={() => navigate(-1)}>
             <img src={backButton} alt="left arrow" />
