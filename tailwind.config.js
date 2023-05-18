@@ -8,7 +8,11 @@ module.exports = {
         'secondary': '#67A3FE',
         'terciary': '#CCE0FF',
         'darkBlue': '#001433',
-        'small-button': "#99C2FF"
+        'small-button': "#99C2FF",
+        'background': "#E6F0FE",
+        'form-border': "#002966",
+        'emphasis': "#FF5432"
+
       },
       height: {
         'panel': '50rem'

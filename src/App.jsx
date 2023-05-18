@@ -2,9 +2,11 @@ import { AppRouter } from "./routes/AppRouter";
 
 function App() {
   return (
-    <main className="bg-backgroundPrimary">
-      <AppRouter />
-    </main>
+    <div className="bg-background">
+      <main className="bg-backgroundPrimary font-sans">
+        <AppRouter />
+      </main>
+    </div>
   );
 }
 
