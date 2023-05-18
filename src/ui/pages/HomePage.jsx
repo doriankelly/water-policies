@@ -2,6 +2,7 @@ import React from "react";
 import logoText from "../../assets/logoText.png";
 import userButton from "../../assets/userButton.svg";
 import { Link } from "react-router-dom";
+import { MapContainerComp } from "../../map/components/MapContainerComp";
 
 export const HomePage = () => {
   return (
