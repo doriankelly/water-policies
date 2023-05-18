@@ -42,8 +42,10 @@ export const HomePage = () => {
         <button className="mb-8 drop-shadow w-11/12 border border-terciary bg-secondary hover:bg-primary text-white block text-center m-auto py-3 shadow-lg rounded-3xl">
           Curiosidades sobre (Insert)
         </button>
-        <div className="bg-white h-64 py-40 w-full text-center border border-black">
-          Map
+        <div className="relative bg-white h-64 w-full text-center border">
+          <div className="absolute top-0 bottom-0 left-0 right-0">
+            <MapContainerComp />
+          </div>
         </div>
         <Link className="mt-12 py-3 drop-shadow w-11/12 bg-primary hover:bg-secondary text-white block  text-center m-auto  shadow-lg rounded-3xl">
           Iniciar encuesta
