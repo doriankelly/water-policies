@@ -5,6 +5,9 @@ import {
   AssistantPage,
   UserProfilePage,
 } from "../ui/pages";
+
+import { MapData } from "../map/components";
+
 export const AppRouter = () => {
   //logica de si es logueado
   return (
@@ -14,6 +17,7 @@ export const AppRouter = () => {
         <Route path="/welcome" element={<AssistantPage />} />
         <Route path="/*" element={<Navigate to={"/"} />} />
         <Route path="/intro" element={<IntroPage />} />
+        <Route path="/map" element={<MapData />} />
         <Route path="/profile" element={<UserProfilePage />} />
       </Routes>
     </>
