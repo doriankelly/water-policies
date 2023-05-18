@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useLogin } from "../../hooks/useLoginForm";
+import { Link } from "react-router-dom";
 
 export const UserForm = () => {
   const { register, formState: { errors }, handleSubmit } = useForm({ mode: "all" });
@@ -25,7 +26,7 @@ export const UserForm = () => {
         className="p-5 font-sans flex flex-col items-center my-2 w-full sm:w-3/4 md:w-2/3 lg:w-1/2"
         onSubmit={handleSubmit((data) => sendLoginData(data))}
       >
-        <h3 className="font-sans flex flex-col my-2 w-full">LOGIN</h3>
+        <h3 className="font-sans flex flex-col my-2 w-full font-semibold">LOGIN</h3>
         <input
           {...register("email", {
             required: "Inserte email",
@@ -38,7 +39,7 @@ export const UserForm = () => {
           placeholder="Email"
           name="email"
           id="email"
-          className="mt-1 border border-form-border tracking-wide text-sm placeholder:text-black px-3 h-10 bg-gray-200 focus:outline-none focus:border-2 focus:border-solid rounded-md w-full"
+          className="font-medium mt-1 border border-form-border tracking-wide text-sm placeholder:text-black px-3 h-10 bg-gray-200 focus:outline-none focus:border-2 focus:border-solid rounded-md w-full"
         />
         <p className="mb-2 font-thin italic text-emphasis">
           {errors.email?.message}
@@ -52,10 +53,11 @@ export const UserForm = () => {
             },
           })}
           type="password"
+          
           placeholder="Contraseña"
           name="password"
           id="password"
-          className="mt-1 border border-form-border tracking-wide text-sm placeholder:text-black px-3 h-10 bg-gray-200 focus:outline-none focus:border-2 focus:border-solid rounded-md w-full"
+          className="font-medium mt-1 border border-form-border tracking-wide text-sm placeholder:text-black px-3 h-10 bg-gray-200 focus:outline-none focus:border-2 focus:border-solid rounded-md w-full"
         />
         <p className="mb-2 font-thin italic text-emphasis">
           {errors.password?.message}
@@ -67,13 +69,15 @@ export const UserForm = () => {
         {error && <p>Error al iniciar sesión: {error}</p>}
       </form>
 
-      <div className="flex flex-col items-center justify-center my-2 w-full sm:w-3/4 md:w-2/3 lg:w-1/2">
+      <div className="font-medium flex flex-col items-center justify-center my-2 w-full sm:w-3/4 md:w-2/3 lg:w-1/2">
         <button type="submit" className="mb-2 w-full">
           ¿Olvidaste la contraseña?
         </button>
-        <button type="submit" className="mt-2 w-full">
-          ¿No tienes cuenta? Crea una
-        </button>
+        <Link to="/signup" className="font-medium flex items-center justify-center mt-2 w-full">
+  ¿No tienes cuenta? Crea una
+</Link>
+
+
       </div>
 
       <div className="flex flex-col items-center justify-center my-2">
@@ -90,6 +94,10 @@ export const UserForm = () => {
           </button>
         </div>
       </div>
+      <footer  className="fixed inset-x-0 bottom-0 flex justify-center items-center">Términos y condiciones</footer>
     </div>
+
+          
+
   );
 };

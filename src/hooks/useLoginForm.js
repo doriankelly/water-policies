@@ -20,7 +20,8 @@ export const useLogin = () => {
         throw new Error("Error al iniciar sesión");
       }
 
-      // Aquí puedes realizar las acciones necesarias después de iniciar sesión exitosamente, como guardar el token de autenticación, redireccionar, etc.
+      // Redireccionar a localhost:3000
+      window.location.href = "http://localhost:5173/";
 
       setLoading(false);
     } catch (error) {
