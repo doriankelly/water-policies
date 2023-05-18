@@ -41,6 +41,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["postcss", "npm:8.4.23"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:18.2.0"],\
+            ["react-hook-form", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:7.43.9"],\
             ["react-redux", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:8.0.5"],\
             ["react-router-dom", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:6.11.1"],\
             ["redux", "npm:4.2.1"],\
@@ -3728,6 +3729,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["react-hook-form", [\
+        ["npm:7.43.9", {\
+          "packageLocation": "./.yarn/cache/react-hook-form-npm-7.43.9-3a3f4f3335-65b94de625.zip/node_modules/react-hook-form/",\
+          "packageDependencies": [\
+            ["react-hook-form", "npm:7.43.9"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:7.43.9", {\
+          "packageLocation": "./.yarn/__virtual__/react-hook-form-virtual-f3c9a36e2d/0/cache/react-hook-form-npm-7.43.9-3a3f4f3335-65b94de625.zip/node_modules/react-hook-form/",\
+          "packageDependencies": [\
+            ["react-hook-form", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:7.43.9"],\
+            ["@types/react", "npm:18.2.6"],\
+            ["react", "npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["react-is", [\
         ["npm:16.13.1", {\
           "packageLocation": "./.yarn/cache/react-is-npm-16.13.1-a9b9382b4f-f7a19ac349.zip/node_modules/react-is/",\
@@ -4424,6 +4447,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["postcss", "npm:8.4.23"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:18.2.0"],\
+            ["react-hook-form", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:7.43.9"],\
             ["react-redux", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:8.0.5"],\
             ["react-router-dom", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:6.11.1"],\
             ["redux", "npm:4.2.1"],\

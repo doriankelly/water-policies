@@ -1,6 +1,7 @@
 import React from "react";
 import logoText from "../../assets/logoText.png";
 import userButton from "../../assets/userButton.svg";
+import { Link } from "react-router-dom";
 
 export const HomePage = () => {
   return (
@@ -8,13 +9,13 @@ export const HomePage = () => {
       <section>
         <hgroup className="flex justify-between">
           <img className="mx-5 mb-7  w-36" src={logoText} alt="logo" />
-          <button>
+          <Link to="/profile">
             <img
               className="mx-5 mb-7 "
               src={userButton}
               alt="button to edit user details"
             />
-          </button>
+          </Link>
         </hgroup>
 
         <h2 className="text-xs mx-5 my-2">Selección de categoría</h2>
@@ -44,9 +45,9 @@ export const HomePage = () => {
         <div className="bg-white h-64 py-40 w-full text-center border border-black">
           Map
         </div>
-        <button className="mt-12 py-3 drop-shadow w-11/12 bg-primary hover:bg-white hover:text-primary text-white block  text-center m-auto  shadow-lg rounded-3xl">
+        <Link className="mt-12 py-3 drop-shadow w-11/12 bg-primary hover:bg-secondary text-white block  text-center m-auto  shadow-lg rounded-3xl">
           Iniciar encuesta
-        </button>
+        </Link>
       </section>
     </div>
   );

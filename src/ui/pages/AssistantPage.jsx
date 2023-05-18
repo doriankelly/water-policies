@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import gota from "../../assets/gota.png";
 
 export const AssistantPage = () => {
@@ -14,9 +15,12 @@ export const AssistantPage = () => {
         </p>
       </article>
       <img className="relative -top-48 block m-auto" src={gota} alt="logo" />
-      <button className="relative  -top-44 drop-shadow w-11/12 bg-primary text-white hover:bg-white hover:text-primary block  mb-10 text-center m-auto py-2 shadow-lg rounded-3xl">
+      <Link
+        to="/"
+        className="relative  -top-44 drop-shadow w-11/12 bg-primary text-white hover:bg-secondary  block  mb-10 text-center m-auto py-2 shadow-lg rounded-3xl"
+      >
         Siguiente
-      </button>
+      </Link>
 
       {/* transform-rotate-10 */}
     </div>
