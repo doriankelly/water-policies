@@ -37,7 +37,7 @@ export const AddUserForm = () => {
         placeholder="Nombre"
         name="name"
         id="name"
-        className="mt-3 border border-form-border tracking-wide text-sm  placeholder:text-black px-3 h-12 bg-terciary focus:outline-none focus:border-2 focus:border-solid rounded-md w-full"
+        className="mt-1 border border-form-border tracking-wide text-sm  placeholder:text-black px-3 h-10 bg-terciary focus:outline-none focus:border-2 focus:border-solid rounded-md w-full"
       />
       <p className="mb-4 font-thin italic text-emphasis">
         {errors.name?.message}
@@ -57,7 +57,7 @@ export const AddUserForm = () => {
         placeholder="Apellido"
         name="surname"
         id="surname"
-        className="mt-3 border border-form-border tracking-wide text-sm  placeholder:text-black px-3 h-12 bg-terciary focus:outline-none focus:border-2 focus:border-solid rounded-md w-full"
+        className="mt-1 border border-form-border tracking-wide text-sm  placeholder:text-black px-3 h-10 bg-terciary focus:outline-none focus:border-2 focus:border-solid rounded-md w-full"
       />
       <p className="mb-4 font-thin italic text-emphasis">
         {errors.surname?.message}
@@ -69,7 +69,7 @@ export const AddUserForm = () => {
         {...register("province", { required: "Seleccione provincia" })}
         name="province"
         id="province"
-        className="mt-3 border border-form-border tracking-wide text-sm   px-2 h-12 bg-terciary focus:outline-none focus:border-2 focus:border-solid rounded-md w-full"
+        className="mt-1 border border-form-border tracking-wide text-sm   px-2 h-10 bg-terciary focus:outline-none focus:border-2 focus:border-solid rounded-md w-full"
       >
         <option value="">Provincia</option>
         <option value="andalucia">Andalucía</option>
@@ -106,19 +106,19 @@ export const AddUserForm = () => {
         placeholder="Ciudad"
         name="city"
         id="city"
-        className="mt-3 border border-form-border tracking-wide text-sm  placeholder:text-black px-3 h-12 bg-terciary focus:outline-none focus:border-2 focus:border-solid rounded-md w-full"
+        className="mt-1 border border-form-border tracking-wide text-sm  placeholder:text-black px-3 h-10 bg-terciary focus:outline-none focus:border-2 focus:border-solid rounded-md w-full"
       />
-      <p className="mb-32 font-thin italic text-emphasis">
+      <p className="mb-24 font-thin italic text-emphasis">
         {errors.surname?.message}
       </p>
       <button
-        className="mb-5 bg-terciary text-emphasis w-full border border-emphasis px-3 h-12 rounded-2xl hover:outline-none hover:border-2 hover:border-solid"
+        className="mb-5 bg-terciary text-emphasis w-full border border-emphasis px-3 h-10 rounded-2xl hover:outline-none hover:border-2 hover:border-solid"
         onClick={() => navigate(-1)}
       >
         Cancelar
       </button>
       <input
-        className="mb-36 py-3 drop-shadow w-full bg-primary hover:bg-secondary text-white block  text-center m-auto  shadow-lg rounded-2xl"
+        className="mb-10 h-10 drop-shadow w-full bg-primary hover:bg-secondary text-white block  text-center m-auto  shadow-lg rounded-2xl"
         type="submit"
         value="Confirmar"
       />
