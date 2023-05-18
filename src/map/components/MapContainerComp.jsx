@@ -1,5 +1,6 @@
 import "leaflet/dist/leaflet.css";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer} from "react-leaflet";
+import { Markers } from "./Markers";
 
 export const MapContainerComp = () => {
 
@@ -10,7 +11,7 @@ export const MapContainerComp = () => {
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-
+        <Markers/>
       </MapContainer>
 
     </>
