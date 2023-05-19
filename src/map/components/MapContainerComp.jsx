@@ -21,9 +21,12 @@ export const MapContainerComp = () => {
       {markers.map((marker) => (
         <Marker key={marker.id} position={[marker.Lat, marker.Long]}>
           <Popup>
-            Río: {marker.Embalse}
+            Embalse: {marker.Embalse}
             <br />
-            Tramo: {marker.Cuenca}
+            Cuenca: {marker.Cuenca}
+            <br />
+            Volumen actual: {marker.porcentaje}%
+            
           </Popup>
         </Marker>
       ))}
