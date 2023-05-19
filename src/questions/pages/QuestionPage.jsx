@@ -4,13 +4,17 @@ import logoText from "../../assets/logoText.png";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { QuestionNumber } from "../components/QuestionNumber";
 import { Question1 } from "../components/Question1";
+import { Question2 } from "../components/Question2";
+import { Question3 } from "../components/Question3";
+import { Question4 } from "../components/Question4";
+import { Question5 } from "../components/Question5";
 
 export const QuestionPage = () => {
   const navigate = useNavigate();
   const { questionNumber } = useParams();
 
   return (
-    <div className="bg-backgroundPrimary min-h-screen pb-6">
+    <>
       <div className="flex pt-6 mx-5">
         <button onClick={() => navigate(-1)}>
           <h1>
@@ -23,12 +27,16 @@ export const QuestionPage = () => {
           alt="logo H2OH"
         />
       </div>
-      <h2 className="mt-1 py-2 text-center text-white bg-primary">
+      <h2 className="mt-1 py-2 text-center text-white text-lg font-thin bg-primary">
         ¿Cuánto sabes de Políticas azules?
       </h2>
 
       <QuestionNumber questionNumber={questionNumber} />
       {questionNumber == 1 && <Question1 />}
-    </div>
+      {questionNumber == 2 && <Question2 />}
+      {questionNumber == 3 && <Question3 />}
+      {questionNumber == 4 && <Question4 />}
+      {questionNumber == 5 && <Question5 />}
+    </>
   );
 };
