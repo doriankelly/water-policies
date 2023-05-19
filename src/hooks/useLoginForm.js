@@ -20,8 +20,11 @@ export const useLogin = () => {
         throw new Error("Error al iniciar sesión");
       }
 
+
+
+
       // Redireccionar a localhost:3000
-      window.location.href = "http://localhost:5173/";
+      window.location.href = "http://localhost:5173/welcome";
 
       setLoading(false);
     } catch (error) {

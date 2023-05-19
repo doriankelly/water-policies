@@ -75,6 +75,20 @@ export const SignupForm = () => {
         CREAR USUARIO
       </button>
     </form>
+    <div className="flex flex-col items-center justify-center my-2">
+        <p>O entra con</p>
+        <div className="flex mt-2 space-x-2">
+          <button type="submit" className="flex items-center justify-center w-6 h-6 rounded-full bg-gray-200">
+            <img src="ruta_del_logo_G" alt="Google" className="w-3 h-3" />
+          </button>
+          <button type="submit" className="flex items-center justify-center w-6 h-6 rounded-full bg-gray-200">
+            <img src="ruta_del_logo_F" alt="Facebook" className="w-3 h-3" />
+          </button>
+          <button type="submit" className="flex items-center justify-center w-6 h-6 rounded-full bg-gray-200">
+            <img src="ruta_del_logo_A" alt="Apple" className="w-3 h-3" />
+          </button>
+        </div>
+      </div>
     <footer  className="fixed inset-x-0 bottom-0 flex justify-center items-center">Términos y condiciones</footer>
     </div>
   );
