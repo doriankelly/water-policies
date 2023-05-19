@@ -54,7 +54,9 @@ export const HomePage = () => {
           <p className="text-xs font-bold text-darkBlue">
             Reservas de agua en España
           </p>
-          <p className="text-xs text-darkBlue">ver mapa</p>
+          <Link to="/viewmap" className="text-xs text-darkBlue">
+            ver mapa
+          </Link>
         </div>
 
         <div className="relative bg-white h-64 w-full text-center border">

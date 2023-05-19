@@ -1,7 +1,6 @@
 import React from "react";
 
 export const QuestionNumber = ({ questionNumber }) => {
-  console.log(questionNumber);
   return (
     <>
       <p className="mx-4 mt-4 text-xs">Pregunta {questionNumber}</p>
