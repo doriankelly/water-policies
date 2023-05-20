@@ -1,6 +1,16 @@
 import infoCard from "../../assets/infoCard.png";
 import testGraph from "../../assets/testGraph.png"
+import vector from "../../assets/vector.png"
+import { useState } from 'react';
+import { ShareButtons } from "./ShareButtons";
+
 export const LegislationInfo = () => {
+
+  const [showShare, setShowShare] = useState(false);
+
+  const handleClick = () => {
+    setShowShare(!showShare);
+  }
   return (
     <section className="mt-14 pb-10">
       <div>
@@ -29,9 +39,10 @@ export const LegislationInfo = () => {
           <img className="w-full" src={testGraph} alt="drought graph" />
         </div>
         <div className="m-6 flex justify-between">
-          <button className="mb-8 px-2 py-3 drop-shadow w-content border border-terciary bg-secondary hover:bg-primary text-white text-center  shadow-lg rounded-3xl">
-            RRSS
+        <button onClick={handleClick} className="mb-8 px-2 py-3 drop-shadow ">
+          <img className="" src={vector} alt="drought graph"/>
           </button>
+          {showShare && <ShareButtons url={"megustalapizza.com"} title={"Me gusta la pizza"} handleClick={handleClick} />}
           <button className="mb-8 px-5 py-3 drop-shadow w-content border border-terciary bg-secondary hover:bg-primary text-white text-center  shadow-lg rounded-3xl">
             +info
           </button>
