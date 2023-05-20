@@ -1,3 +1,4 @@
 export * from './MapContainerComp'
-export * from './Markers'
-export * from './MapData'
+
+// export * from './Markers'
+
