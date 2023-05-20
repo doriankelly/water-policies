@@ -117,7 +117,7 @@ export const SignupForm = () => {
         <p>O entra con</p>
         <div className="flex mt-2 space-x-2">
           <button type="submit" className="flex items-center justify-center w-6 h-6 rounded-full bg-gray-200">
-            <img src="ruta_del_logo_G" alt="Google" className="w-3 h-3" />
+            <img src="https://www.figma.com/file/SRGPnBvZkW5fvOlVUjmU0g/pantallas-para-full?type=design&node-id=88-1829&t=6sJQKM4EgCl3dqxV-4" alt="Google" className="w-3 h-3" />
           </button>
           <button type="submit" className="flex items-center justify-center w-6 h-6 rounded-full bg-gray-200">
             <img src="ruta_del_logo_F" alt="Facebook" className="w-3 h-3" />
