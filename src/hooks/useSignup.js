@@ -2,7 +2,7 @@ export const useSignup = async (data, provider) => {
   try {
     let url = `https://h2ohback.onrender.com/api/v1/auth/register`;
     if (provider === "google") {
-      url += "/google";
+      url = 'https://h2ohback.onrender.com/api/v1/auth/google';
     } else if (provider === "facebook") {
       url += "/facebook";
     } else if (provider === "apple") {

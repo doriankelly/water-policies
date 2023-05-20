@@ -1,8 +1,8 @@
 import React from 'react'
-import { UserForm } from '../components/LoginUser'
+import { LoginForm } from '../components/LoginUser'
 
 export const LoginPage = () => {
   return (
-    <UserForm/>
+    <LoginForm/>
   )
 }
