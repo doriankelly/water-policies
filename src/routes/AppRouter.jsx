@@ -8,7 +8,11 @@ import {
   SignupPage,
   MapPage,
 } from "../ui/pages";
-import { QuestionPage, FeedbackPage } from "../questions/pages";
+import {
+  QuestionPage,
+  FeedbackPage,
+  FinalResultPage,
+} from "../questions/pages";
 
 import { MapData } from "../map/components";
 
@@ -25,6 +29,7 @@ export const AppRouter = () => {
         <Route path="/profile" element={<UserProfilePage />} />
         <Route path="/quiz/:questionNumber" element={<QuestionPage />} />
         <Route path="/result/:number" element={<FeedbackPage />} />
+        <Route path="/final" element={<FinalResultPage />} />
         <Route path="/viewmap" element={<MapPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
