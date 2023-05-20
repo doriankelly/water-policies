@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useRef, useEffect } from "react";
 import logoText from "../../assets/logoText.png";
 import userButton from "../../assets/userButton.svg";
+import martillo from "../../assets/martillo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { MapContainerComp } from "../../map/components";
 import { LegislationInfo } from "../components/LegislationInfo";
@@ -69,19 +70,19 @@ export const HomePage = () => {
             Selección de categoría
           </h2>
           <article className="flex flex-wrap justify-start mx-3 md:justify-center">
-            <button className="my-1 ms-2 py-1 px-3 border border-white bg-small-button/80 hover:bg-secondary  text-center  text-xs rounded-3xl">
+            <button className="my-1 ms-2 py-1 px-3 border border-white bg-small-button/80 hover:bg-secondary  text-center  text-xs rounded-3xl font-semibold">
               Políticas azules
             </button>
-            <button className="my-1 ms-2 py-1 px-3 border border-white bg-small-button/80 hover:bg-secondary  text-center  text-xs rounded-3xl">
+            <button className="my-1 ms-2 py-1 px-3 border border-white bg-small-button/80 hover:bg-secondary  text-center  text-xs rounded-3xl font-semibold">
               Buenos usos
             </button>
-            <button className="my-1 ms-2 py-1 px-3 border border-white bg-small-button/80 hover:bg-secondary  text-center  text-xs rounded-3xl">
+            <button className="my-1 ms-2 py-1 px-3 border border-white bg-small-button/80 hover:bg-secondary  text-center  text-xs rounded-3xl font-semibold">
               Sequía
             </button>
-            <button className="my-1 ms-2  py-1 px-3 border border-white bg-small-button/80 hover:bg-secondary  text-center  text-xs rounded-3xl">
+            <button className="my-1 ms-2  py-1 px-3 border border-white bg-small-button/80 hover:bg-secondary  text-center  text-xs rounded-3xl font-semibold">
               Contaminación
             </button>
-            <button className="my-1 ms-2 py-1 px-3 border border-white bg-small-button/80 hover:bg-secondary  text-center  text-xs rounded-3xl">
+            <button className="my-1 ms-2 py-1 px-3 border border-white bg-small-button/80 hover:bg-secondary  text-center  text-xs rounded-3xl font-semibold">
               Mas cosas
             </button>
           </article>
@@ -90,16 +91,18 @@ export const HomePage = () => {
               <button
                 id="droughtVisited"
                 onClick={handleClick}
-                className="mb-4 mt-7 drop-shadow w-11/12 border border-terciary bg-secondary hover:bg-primary text-white block  text-center m-auto py-3 shadow-lg rounded-3xl"
+                className="mb-4 mt-7 drop-shadow w-11/12 border border-white bg-terciary hover:bg-primary text-darkBlue font-bold block  text-center m-auto py-3 shadow-lg rounded-3xl"
               >
-                Legislación sobre (Insert)
+                {/* <img className="" src={martillo} alt="drought graph"/> */}
+                Legislación sobre el agua
               </button>
               <button
                 id="contaminationVisited"
                 onClick={handleClick}
-                className="mb-8 drop-shadow w-11/12 border border-terciary bg-secondary hover:bg-primary text-white block text-center m-auto py-3 shadow-lg rounded-3xl"
+                className="mb-8 drop-shadow w-11/12 border border-terciary bg-terciary hover:bg-primary text-darkBlue font-bold block text-center m-auto py-3 shadow-lg rounded-3xl"
               >
-                Curiosidades sobre (Insert)
+                {/* <img className="" src={martillo} alt="drought graph"/> */}
+                Curiosidades sobre el agua
               </button>
             </article>
           )}
@@ -109,8 +112,8 @@ export const HomePage = () => {
             <p className="text-xs font-bold text-darkBlue">
               Reservas de agua en España
             </p>
-            <Link to="/viewmap" className="text-xs text-darkBlue">
-              ver mapa
+            <Link to="/viewmap" className="text-xs text-darkBlue font-semibold">
+              Ver mapa
             </Link>
           </div>
 
