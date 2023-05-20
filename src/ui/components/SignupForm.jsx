@@ -6,15 +6,16 @@ import { Link } from "react-router-dom";
 export const SignupForm = () => {
   const { register, formState: { errors }, handleSubmit } = useForm({ mode: "all" });
   const [provincia, setProvincia] = useState("");
+  const [provider, setProvider] = useState("");
 
   const comunidadesAutonomas = [
-    "Andalucía",
-    "Aragón",
+    "Andalucia",
+    "Aragon",
     "Asturias",
     "Baleares",
     "Canarias",
     "Cantabria",
-    "Castilla y León",
+    "Castilla y Leon",
     "Castilla-La Mancha",
     "Cataluña",
     "Extremadura",
@@ -23,14 +24,14 @@ export const SignupForm = () => {
     "Madrid",
     "Murcia",
     "Navarra",
-    "País Vasco",
+    "Pais Vasco",
     "Valencia"
   ];
 
   const onSubmit = async (data) => {
     try {
       data.provincia = provincia; // Agrega la provincia al objeto data
-      await useSignup(data);
+      await useSignup(data, provider);
       console.log("User created successfully");
       // Lógica adicional después de crear el usuario, como redireccionar a otra página
     } catch (error) {
@@ -94,7 +95,7 @@ export const SignupForm = () => {
           onChange={(e) => setProvincia(e.target.value)}
           className="mt-1 border border-form-border tracking-wide text-sm placeholder:text-black px-3 h-10 bg-gray-200 focus:outline-none focus:border-2 focus:border-solid rounded-md w-full"
         >
-          <option value="">Seleccione una provincia</option>
+          <option value="">Seleccione una Comunidad Autónoma</option>
           {comunidadesAutonomas.map((comunidad) => (
             <option key={comunidad} value={comunidad}>
               {comunidad}
@@ -116,14 +117,26 @@ export const SignupForm = () => {
       <div className="flex flex-col items-center justify-center my-2">
         <p>O entra con</p>
         <div className="flex mt-2 space-x-2">
-          <button type="submit" className="flex items-center justify-center w-6 h-6 rounded-full bg-gray-200">
-            <img src="https://www.figma.com/file/SRGPnBvZkW5fvOlVUjmU0g/pantallas-para-full?type=design&node-id=88-1829&t=6sJQKM4EgCl3dqxV-4" alt="Google" className="w-3 h-3" />
+          <button
+            type="button"
+            onClick={() => setProvider("google")}
+            className="flex items-center justify-center w-6 h-6 rounded-full bg-gray-200"
+          >
+            <img src="https://rotulosmatesanz.com/wp-content/uploads/2017/09/2000px-Google_G_Logo.svg_.png" alt="Google" className="w-3 h-3" />
           </button>
-          <button type="submit" className="flex items-center justify-center w-6 h-6 rounded-full bg-gray-200">
-            <img src="ruta_del_logo_F" alt="Facebook" className="w-3 h-3" />
+          <button
+            type="button"
+            onClick={() => setProvider("facebook")}
+            className="flex items-center justify-center w-6 h-6 rounded-full bg-gray-200"
+          >
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/640px-Facebook_Logo_%282019%29.png" alt="Facebook" className="w-3 h-3" />
           </button>
-          <button type="submit" className="flex items-center justify-center w-6 h-6 rounded-full bg-gray-200">
-            <img src="ruta_del_logo_A" alt="Apple" className="w-3 h-3" />
+          <button
+            type="button"
+            onClick={() => setProvider("apple")}
+            className="flex items-center justify-center w-6 h-6 rounded-full bg-gray-200"
+          >
+            <img src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c516.png" alt="Apple" className="w-3 h-3" />
           </button>
         </div>
       </div>
