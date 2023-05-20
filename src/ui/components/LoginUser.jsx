@@ -1,16 +1,31 @@
 import React from "react";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useLogin } from "../../hooks/useLoginForm";
 import { Link } from "react-router-dom";
+import { setVisitedLocal } from "../../helpers/localStorage";
 
 export const UserForm = () => {
-  const { register, formState: { errors }, handleSubmit } = useForm({ mode: "all" });
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm({ mode: "all" });
   const { loading, error, login } = useLogin();
 
   const sendLoginData = (data) => {
     const { email, password } = data;
     login(email, password);
   };
+
+  //esto aqui porque quiero que al iniciar una sesion, se  setea este informacion defecto al local....
+  useEffect(() => {
+    setVisitedLocal({
+      poiticsVisited: "false",
+      droughtVisited: "false",
+      contaminationVisited: "false",
+    });
+  }, []);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
@@ -26,7 +41,9 @@ export const UserForm = () => {
         className="p-5 font-sans flex flex-col items-center my-2 w-full sm:w-3/4 md:w-2/3 lg:w-1/2"
         onSubmit={handleSubmit((data) => sendLoginData(data))}
       >
-        <h3 className="font-sans flex flex-col my-2 w-full font-semibold">LOGIN</h3>
+        <h3 className="font-sans flex flex-col my-2 w-full font-semibold">
+          LOGIN
+        </h3>
         <input
           {...register("email", {
             required: "Inserte email",
@@ -53,7 +70,6 @@ export const UserForm = () => {
             },
           })}
           type="password"
-          
           placeholder="Contraseña"
           name="password"
           id="password"
@@ -63,7 +79,11 @@ export const UserForm = () => {
           {errors.password?.message}
         </p>
 
-        <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline w-full sm:w-3/4 md:w-2/3 lg:w-1/2 my-2" disabled={loading}>
+        <button
+          type="submit"
+          className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline w-full sm:w-3/4 md:w-2/3 lg:w-1/2 my-2"
+          disabled={loading}
+        >
           {loading ? "Cargando..." : "LOGIN"}
         </button>
         {error && <p>Error al iniciar sesión: {error}</p>}
@@ -73,11 +93,12 @@ export const UserForm = () => {
         <button type="submit" className="mb-2 w-full">
           ¿Olvidaste la contraseña?
         </button>
-        <Link to="/signup" className="font-medium flex items-center justify-center mt-2 w-full">
-  ¿No tienes cuenta? Crea una
-</Link>
-
-
+        <Link
+          to="/signup"
+          className="font-medium flex items-center justify-center mt-2 w-full"
+        >
+          ¿No tienes cuenta? Crea una
+        </Link>
       </div>
 
       <div className="flex flex-col items-center justify-center my-2">
@@ -88,20 +109,37 @@ export const UserForm = () => {
             onClick={() => setProvider("google")}
             className="flex items-center justify-center w-6 h-6 rounded-full bg-gray-200"
           >
-            <img src="https://rotulosmatesanz.com/wp-content/uploads/2017/09/2000px-Google_G_Logo.svg_.png" alt="Google" className="w-3 h-3" />
+            <img
+              src="https://rotulosmatesanz.com/wp-content/uploads/2017/09/2000px-Google_G_Logo.svg_.png"
+              alt="Google"
+              className="w-3 h-3"
+            />
           </button>
-          <button type="button" className="flex items-center justify-center w-6 h-6 rounded-full bg-gray-200">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/640px-Facebook_Logo_%282019%29.png" alt="Facebook" className="w-3 h-3" />
+          <button
+            type="button"
+            className="flex items-center justify-center w-6 h-6 rounded-full bg-gray-200"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/640px-Facebook_Logo_%282019%29.png"
+              alt="Facebook"
+              className="w-3 h-3"
+            />
           </button>
-          <button type="button" className="flex items-center justify-center w-6 h-6 rounded-full bg-gray-200">
-            <img src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c516.png" alt="Apple" className="w-3 h-3" />
+          <button
+            type="button"
+            className="flex items-center justify-center w-6 h-6 rounded-full bg-gray-200"
+          >
+            <img
+              src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c516.png"
+              alt="Apple"
+              className="w-3 h-3"
+            />
           </button>
         </div>
       </div>
-      <footer  className="fixed inset-x-0 bottom-0 flex justify-center items-center">Términos y condiciones</footer>
+      <footer className="fixed inset-x-0 bottom-0 flex justify-center items-center">
+        Términos y condiciones
+      </footer>
     </div>
-
-          
-
   );
 };
