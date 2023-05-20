@@ -24,6 +24,7 @@ export const useLogin = () => {
         },
         body: JSON.stringify({ email, password }),
       });
+      console.log(email)
 
       if (!response.ok) {
         throw new Error("Error al iniciar sesión");
