@@ -83,14 +83,18 @@ export const UserForm = () => {
       <div className="flex flex-col items-center justify-center my-2">
         <p>O entra con</p>
         <div className="flex mt-2 space-x-2">
-          <button type="submit" className="flex items-center justify-center w-6 h-6 rounded-full bg-gray-200">
-            <img src="ruta_del_logo_G" alt="Google" className="w-3 h-3" />
+          <button
+            type="button"
+            onClick={() => setProvider("google")}
+            className="flex items-center justify-center w-6 h-6 rounded-full bg-gray-200"
+          >
+            <img src="https://rotulosmatesanz.com/wp-content/uploads/2017/09/2000px-Google_G_Logo.svg_.png" alt="Google" className="w-3 h-3" />
           </button>
-          <button type="submit" className="flex items-center justify-center w-6 h-6 rounded-full bg-gray-200">
-            <img src="ruta_del_logo_F" alt="Facebook" className="w-3 h-3" />
+          <button type="button" className="flex items-center justify-center w-6 h-6 rounded-full bg-gray-200">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/640px-Facebook_Logo_%282019%29.png" alt="Facebook" className="w-3 h-3" />
           </button>
-          <button type="submit" className="flex items-center justify-center w-6 h-6 rounded-full bg-gray-200">
-            <img src="ruta_del_logo_A" alt="Apple" className="w-3 h-3" />
+          <button type="button" className="flex items-center justify-center w-6 h-6 rounded-full bg-gray-200">
+            <img src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c516.png" alt="Apple" className="w-3 h-3" />
           </button>
         </div>
       </div>
