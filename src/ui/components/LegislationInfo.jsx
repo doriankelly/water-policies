@@ -19,10 +19,10 @@ export const LegislationInfo = () => {
       <h2 className="m-4 font-semibold">Sequía y sus consecuencias</h2>
       <article>
         <div className="flex flex-wrap justify-start mx-3 md:justify-center ">
-          <p className="my-1 ms-2 py-1 px-3 border border-white bg-small-button/80  text-center  text-xs rounded-3xl">
+          <p className="my-1 ms-2 py-1 px-3 border border-white bg-small-button/80  text-center  text-xs rounded-3xl font-semibold">
             Políticas azules
           </p>
-          <p className="my-1 ms-2 py-1 px-3 border border-white bg-small-button/80  text-center  text-xs rounded-3xl">
+          <p className="my-1 ms-2 py-1 px-3 border border-white bg-small-button/80  text-center  text-xs rounded-3xl font-semibold">
             Sequía
           </p>
         </div>

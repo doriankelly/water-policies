@@ -65,7 +65,7 @@ export const AddUserForm = () => {
         {errors.surname?.message}
       </p>
       <label className="text-sm ps-2 font-medium tracking-wide" htmlFor="name">
-        Provincia
+        Comunidad Autónoma
       </label>
       <select
         {...register("province", { required: "Seleccione provincia" })}
@@ -73,7 +73,7 @@ export const AddUserForm = () => {
         id="province"
         className="mt-1 border border-form-border tracking-wide text-sm   px-2 h-10 bg-terciary focus:outline-none focus:border-2 focus:border-solid rounded-md w-full"
       >
-        <option value="">Provincia</option>
+        <option value="">Comunidad Autónoma</option>
         <option value="andalucia">Andalucía</option>
         <option value="murcia">Murcia</option>
         <option value="extremadura">Extremadura</option>
