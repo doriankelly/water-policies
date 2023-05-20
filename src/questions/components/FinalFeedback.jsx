@@ -8,6 +8,8 @@ export const FinalFeedback = () => {
   const [counter, setCounter] = useState(0);
   //collect current answers state
   const { answersObject } = useSelector((state) => state.answers);
+  //collect current visited pages state
+  const { visitedObject } = useSelector((state) => state.visited);
 
   useEffect(() => {
     setUserAnswers({ ...answersObject });

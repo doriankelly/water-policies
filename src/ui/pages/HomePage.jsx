@@ -1,20 +1,53 @@
 import React from "react";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import logoText from "../../assets/logoText.png";
 import userButton from "../../assets/userButton.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { MapContainerComp } from "../../map/components";
 import { LegislationInfo } from "../components/LegislationInfo";
+import { setVisited } from "../../store/slice/visited/visitedSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { setVisitedLocal } from "../../helpers/localStorage";
 
 export const HomePage = () => {
+  //collect current visited pages state
+  const { visitedObject } = useSelector((state) => state.visited);
+  const dispatch = useDispatch();
   const [infoButtons, setInfoButtons] = useState("drought");
   const [infoTopic, setInfoTopic] = useState("");
+  const info = useRef(null);
 
-  //click on info buttons
-  const handleClick = ({ target }) => {
-    console.log("here");
-    setInfoTopic(target.id);
+  //function to scroll to info
+  const scrollToInfo = (elementRef) => {
+    window.scrollTo({
+      top: elementRef.current.offsetTop,
+      behavior: "smooth",
+    });
   };
+
+  //click on info buttons, infoTopic is changed
+  const handleClick = ({ target }) => {
+    setInfoTopic(target.id);
+    console.log(infoTopic);
+  };
+
+  //on change of infoTopic
+  useEffect(() => {
+    //scroll to info section
+    scrollToInfo(info);
+    // set state that topic has been visited
+    console.log(infoTopic);
+    if (infoTopic != "") {
+      const visitedPages = { ...visitedObject, [infoTopic]: true };
+      dispatch(setVisited(visitedPages));
+    }
+  }, [infoTopic]);
+  console.log(visitedObject);
+
+  useEffect(() => {
+    setVisitedLocal(visitedObject);
+  }, [visitedObject]);
+
   return (
     <>
       <div className="bg-backgroundPrimary min-h-screen pb-6">
@@ -55,13 +88,17 @@ export const HomePage = () => {
           {infoButtons == "drought" && (
             <article>
               <button
-                id="drought-legislation"
+                id="droughtVisited"
                 onClick={handleClick}
                 className="mb-4 mt-7 drop-shadow w-11/12 border border-terciary bg-secondary hover:bg-primary text-white block  text-center m-auto py-3 shadow-lg rounded-3xl"
               >
                 Legislación sobre (Insert)
               </button>
-              <button className="mb-8 drop-shadow w-11/12 border border-terciary bg-secondary hover:bg-primary text-white block text-center m-auto py-3 shadow-lg rounded-3xl">
+              <button
+                id="contaminationVisited"
+                onClick={handleClick}
+                className="mb-8 drop-shadow w-11/12 border border-terciary bg-secondary hover:bg-primary text-white block text-center m-auto py-3 shadow-lg rounded-3xl"
+              >
                 Curiosidades sobre (Insert)
               </button>
             </article>
@@ -90,7 +127,9 @@ export const HomePage = () => {
           </Link>
         </section>
       </div>
-      <div>{infoTopic == "drought-legislation" && <LegislationInfo />}</div>
+      <div ref={info}>
+        {infoTopic == "droughtVisited" && <LegislationInfo />}
+      </div>
     </>
   );
 };
