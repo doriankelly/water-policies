@@ -8,11 +8,7 @@ export const visitedSlice = createSlice({
     name: 'visited',
     initialState: {
 
-        visitedObject: getVisitedLocal() || {
-            "poiticsVisited": "false",
-            "droughtVisited": "false",
-            "contaminationVisited": "false"
-        },//getVisitedLocal() ||
+        visitedObject: getVisitedLocal()
     },
     reducers: {
         setVisited: (state, action) => {

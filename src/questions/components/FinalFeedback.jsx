@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { consultation } from "../../api/fetch";
 
 export const FinalFeedback = () => {
+  console.log("component mounted");
   const [userAnswers, setUserAnswers] = useState("");
   const [counter, setCounter] = useState(0);
   //collect current answers state
@@ -32,18 +33,7 @@ export const FinalFeedback = () => {
     }
   }, [userAnswers]);
 
-  //define arguments for fetch
-  const url = import.meta.env.VITE_RESULT_URL;
-  const method = "POST";
-  const body = {
-    questions: { ...answersObject },
-    status: { ...visitedObject },
-  };
-  console.log(body);
-  //call fetch to send result data
-  useEffect(() => {
-    consultation(url, method, body);
-  }, []);
+  
 
   return <p>{`final result: Acertaste ${counter} preguntas!`}</p>;
 };

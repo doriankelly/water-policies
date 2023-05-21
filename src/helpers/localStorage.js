@@ -11,7 +11,12 @@ export const setLocal = (data) => {
 
 export const getVisitedLocal = () => {
 
-    return JSON.parse(localStorage.getItem("visited")) || [];
+    return JSON.parse(localStorage.getItem("visited")) ||
+    {
+        politicsVisited: false,
+        droughtVisited: false,
+        contaminationVisited: false,
+    };
 }
 
 
