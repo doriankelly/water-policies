@@ -5,5 +5,5 @@ export const Feedback5 = () => {
   //collect current answers state
   const { answersObject } = useSelector((state) => state.answers);
 
-  return <p className="text-center">Feedback para pregunta 4: informacion</p>;
+  return <p className="text-center">Feedback para pregunta 5: informacion</p>;
 };
