@@ -13,8 +13,6 @@ module.exports = {
         'background': "#E6F0FE",
         'form-border': "#002966",
         'emphasis': "#FF5432"
-
-
       },
       height: {
         'panel': '50rem'
@@ -28,6 +26,9 @@ module.exports = {
       fontFamily: {
         'sans': ['Poppins', 'sans-serif'],
       },
+      borderRadius: {
+        'xxl': '1.75rem'
+      }
     },
   },
   plugins: [],

@@ -1,6 +1,11 @@
-import { LinkedinShareButton, TwitterShareButton, FacebookShareButton, WhatsappShareButton, EmailShareButton,} from 'react-share';
-import { LinkedinIcon, TwitterIcon, FacebookIcon, WhatsappIcon, EmailIcon } from 'react-share';
-
+import { LinkedinShareButton, TwitterShareButton, FacebookShareButton, WhatsappShareButton, EmailShareButton } from 'react-share';
+import icmail from "../../assets/icemail.svg"
+import icfacebook from "../../assets/icfacebook.svg"
+import iclinkedin from "../../assets/iclinkedin.svg"
+import ictwitter from "../../assets/ictwitter.svg"
+import icwhatsapp from "../../assets/icwhatsapp.svg"
+import clipboard from "../../assets/clipboard.png"
+import cerrar from "../../assets/cerrar.png"
 export const ShareButtons = ({ url, title, handleClick }) => {
 
   const copyToClipboard = () => {
@@ -8,31 +13,42 @@ export const ShareButtons = ({ url, title, handleClick }) => {
   }
 
   return (
-    <div onClick={handleClick} className="fixed z-10 inset-0 flex items-center justify-center">
-      <div onClick={e => e.stopPropagation()} className="bg-white p-5 rounded shadow-lg">
-        <LinkedinShareButton url={url} title={title}>
-          <LinkedinIcon round />
-        </LinkedinShareButton>
+    <div onClick={handleClick} className="fixed z-10 inset-0 flex items-center justify-center bg-terciary bg-opacity-50 ">
 
-        <TwitterShareButton url={url} title={title}>
-          <TwitterIcon round />
-        </TwitterShareButton>
+      <div onClick={e => e.stopPropagation()} className="bg-white p-5 h-36 w-screen rounded-xxl shadow-lg">
+        <div className='mb-4 flex justify-between items-center'>
+        <p className="text-xs font-bold text-darkBlue">
+            Compartir en RRSS
+          </p>
+         
+          <p onClick={handleClick}> <img src={cerrar} alt="" srcset="" style={{ width: "20px", height: "20px" }}/></p>
+        </div>
+        <div  className='flex justify-between items-center'>
 
         <FacebookShareButton url={url} quote={title}>
-          <FacebookIcon round />
-        </FacebookShareButton>
+            <img src={icfacebook} alt="" srcset="" style={{ width: "50px", height: "50px" }}/>
+          </FacebookShareButton>
 
-        <WhatsappShareButton url={url} title={title}>
-          <WhatsappIcon round />
-        </WhatsappShareButton>
+          <TwitterShareButton url={url} title={title}>
+            <img src={ictwitter} alt="" srcset="" style={{ width: "50px", height: "50px" }}/>
+          </TwitterShareButton>
 
-        <EmailShareButton url={url} subject={title} body="¡Entra a este enlace!">
-          <EmailIcon round />
-        </EmailShareButton>
+          <WhatsappShareButton url={url} title={title}>
+            <img src={icwhatsapp} alt="" srcset="" style={{ width: "50px", height: "50px" }}/>
+          </WhatsappShareButton>
 
-        <button onClick={copyToClipboard}>
-          Copiar URL
-        </button>
+          <LinkedinShareButton url={url} title={title}>
+            <img src={iclinkedin} alt="" srcset="" style={{ width: "50px", height: "50px" }}/>
+          </LinkedinShareButton>    
+
+          <EmailShareButton url={url} subject={title} body="¡Entra a este enlace!">
+            <img src={icmail} alt="" srcset=""  style={{ width: "50px", height: "50px" }}/>
+          </EmailShareButton>
+
+          <button onClick={copyToClipboard}>
+          <img src={clipboard} alt="" srcset="" style={{ width: "50px", height: "50px" }}/>
+          </button>
+        </div>
       </div>
     </div>
   );
