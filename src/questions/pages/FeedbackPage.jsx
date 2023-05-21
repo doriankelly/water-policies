@@ -5,13 +5,30 @@ import { Feedback2 } from "../components/Feedback2";
 import { Feedback3 } from "../components/Feedback3";
 import { Feedback4 } from "../components/Feedback4";
 import { Feedback5 } from "../components/Feedback5";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { FinalFeedback } from "../components/FinalFeedback";
+import { useDispatch, useSelector } from "react-redux";
+import { consultation } from "../../api/fetch";
 
 export const FeedbackPage = () => {
   const { number } = useParams();
-  console.log(number);
-  //use number as condition for feedback
+  const navigate = useNavigate();
+  //collect states
+  const { answersObject } = useSelector((state) => state.answers);
+  const { visitedObject } = useSelector((state) => state.visited);
+
+  //after last page - send results to fetch
+  const handleClick = () => {
+    //define arguments for fetch
+    const url = import.meta.env.VITE_RESULT_URL;
+    const method = "POST";
+    const body = {
+      questions: { ...answersObject },
+      status: { ...visitedObject },
+    };
+    consultation(url, method, body);
+    navigate("/final");
+  };
   return (
     <div className="pt-16 bg-backgroundPrimary min-h-screen ">
       <article className="border border-white drop-shadow w-10/12 bg-primary/90 text-white block m-auto  pt-6  px-4 h-96 shadow-lg rounded-lg">
@@ -28,12 +45,13 @@ export const FeedbackPage = () => {
         alt="logo"
       />
       {number == 5 ? (
-        <Link
+        <button
+          onClick={handleClick}
           to="/final"
           className="fixed left-1/2 -translate-x-1/2 bottom-2 drop-shadow w-11/12 bg-primary text-white hover:bg-secondary  block  mb-10 text-center m-auto py-2 shadow-lg rounded-3xl"
         >
           Siguiente
-        </Link>
+        </button>
       ) : (
         <Link
           to={`/quiz/${parseInt(number) + 1}`}
