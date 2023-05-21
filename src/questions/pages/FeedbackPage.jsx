@@ -26,7 +26,7 @@ export const FeedbackPage = () => {
       questions: { ...answersObject },
       status: { ...visitedObject },
     };
-    consultation(url, method, body);
+    //consultation(url, method, body);
     navigate("/final");
   };
   return (

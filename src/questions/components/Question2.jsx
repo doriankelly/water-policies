@@ -23,7 +23,7 @@ export const Question2 = () => {
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.id);
   };
-  console.log(answersObject);
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     //configure button border colour options

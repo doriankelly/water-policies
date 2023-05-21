@@ -7,5 +7,6 @@ export const store = configureStore({
     reducer: {
         answers: answersSlice.reducer,
         visited: visitedSlice.reducer,
+
     },
 })

@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { consultation } from "../../api/fetch";
 
 export const FinalFeedback = () => {
-  console.log("component mounted");
   const [userAnswers, setUserAnswers] = useState("");
   const [counter, setCounter] = useState(0);
   //collect current answers state
@@ -32,8 +31,6 @@ export const FinalFeedback = () => {
       }
     }
   }, [userAnswers]);
-
-  
 
   return <p>{`final result: Acertaste ${counter} preguntas!`}</p>;
 };

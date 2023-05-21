@@ -5,7 +5,7 @@ import { setAnswers } from "../../store/slice/answers/answersSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { setLocal } from "../../helpers/localStorage";
 
-export const Question1 = () => {
+export const Question1 = ({ questionNumber }) => {
   const navigate = useNavigate();
   const correctAnswer = "option1";
   const [selectedOption, setSelectedOption] = useState("");
@@ -22,7 +22,7 @@ export const Question1 = () => {
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.id);
   };
-  console.log(answersObject);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     //configure button border colour options
