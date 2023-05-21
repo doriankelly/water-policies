@@ -1,26 +1,44 @@
-export const useSignup = async (data, provider) => {
-  try {
-    let url = `https://h2ohback.onrender.com/api/v1/auth/register`;
-    if (provider === "google") {
-      url = 'https://h2ohback.onrender.com/api/v1/auth/google';
-    } else if (provider === "facebook") {
-      url += "/facebook";
-    } else if (provider === "apple") {
-      url += "/apple";
-    }
+import { useState } from "react";
 
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data)
-    });
+export const useSignup = () => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-    if (!response.ok) {
-      throw new Error("Error creating user");
+  const singUp = async (email, password, provincia, provider) => {
+    setLoading(true);
+
+    try {
+      let url = "https://h2ohback.onrender.com/api/v1/auth";
+      if (provider) {
+        url += `/${provider}`;
+        console.log(url)
+      } else {
+        url += "/signup";
+        console.log(url)
+      }
+
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password, provincia }),
+      });
+      console.log(email)
+
+      if (!response.ok) {
+        throw new Error("Error al iniciar sesión");
+      }
+
+      // Redireccionar a localhost:3000
+      window.location.href = "http://localhost:5173/welcome";
+
+      setLoading(false);
+    } catch (error) {
+      setError(error.message);
+      setLoading(false);
     }
-  } catch (error) {
-    throw error;
-  }
+  };
+
+  return { loading, error, singUp };
 };

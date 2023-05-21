@@ -26,7 +26,7 @@ export const LoginForm = () => {
       </div>
 
       <form className="p-5 font-sans flex flex-col items-center my-2 w-full sm:w-3/4 md:w-2/3 lg:w-1/2" onSubmit={handleLogin}>
-        <h3 className="font-sans flex flex-col my-2 w-full">Inicia sesión</h3>
+        <h3 className="font-sans flex flex-col my-2 w-full">LOGIN</h3>
         <input
           type="email"
           placeholder="Email"
@@ -53,7 +53,7 @@ export const LoginForm = () => {
       </form>
 
       <div className="flex flex-col items-center justify-center my-2">
-        <p>No tienes una cuenta? <Link to="/signup" className="text-blue-500 hover:text-blue-600">Regístrate</Link></p>
+        <p>No tienes una cuenta? <Link to="/signup" className="text-black-500 hover:text-black-600">crea una</Link></p>
         <p>O ingresa con</p>
         <div className="flex mt-2 space-x-2">
           <button
