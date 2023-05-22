@@ -35,6 +35,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@vitejs/plugin-react", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:4.0.0"],\
             ["autoprefixer", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:10.4.14"],\
             ["chart.js", "npm:4.3.0"],\
+            ["chartjs-plugin-zoom", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:2.0.1"],\
             ["eslint", "npm:8.40.0"],\
             ["eslint-plugin-react", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:7.32.2"],\
             ["eslint-plugin-react-hooks", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:4.6.0"],\
@@ -1436,6 +1437,29 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["chartjs-plugin-zoom", [\
+        ["npm:2.0.1", {\
+          "packageLocation": "./.yarn/cache/chartjs-plugin-zoom-npm-2.0.1-3e6869111b-c0ca5ae475.zip/node_modules/chartjs-plugin-zoom/",\
+          "packageDependencies": [\
+            ["chartjs-plugin-zoom", "npm:2.0.1"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:2.0.1", {\
+          "packageLocation": "./.yarn/__virtual__/chartjs-plugin-zoom-virtual-bd1f29e282/0/cache/chartjs-plugin-zoom-npm-2.0.1-3e6869111b-c0ca5ae475.zip/node_modules/chartjs-plugin-zoom/",\
+          "packageDependencies": [\
+            ["chartjs-plugin-zoom", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:2.0.1"],\
+            ["@types/chart.js", null],\
+            ["chart.js", "npm:4.3.0"],\
+            ["hammerjs", "npm:2.0.8"]\
+          ],\
+          "packagePeers": [\
+            "@types/chart.js",\
+            "chart.js"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["chokidar", [\
         ["npm:3.5.3", {\
           "packageLocation": "./.yarn/cache/chokidar-npm-3.5.3-c5f9b0a56a-b49fcde401.zip/node_modules/chokidar/",\
@@ -2426,6 +2450,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/grapheme-splitter-npm-1.0.4-648f2bf509-0c22ec54de.zip/node_modules/grapheme-splitter/",\
           "packageDependencies": [\
             ["grapheme-splitter", "npm:1.0.4"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["hammerjs", [\
+        ["npm:2.0.8", {\
+          "packageLocation": "./.yarn/cache/hammerjs-npm-2.0.8-f656ba2573-b092da7d15.zip/node_modules/hammerjs/",\
+          "packageDependencies": [\
+            ["hammerjs", "npm:2.0.8"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -4632,6 +4665,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@vitejs/plugin-react", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:4.0.0"],\
             ["autoprefixer", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:10.4.14"],\
             ["chart.js", "npm:4.3.0"],\
+            ["chartjs-plugin-zoom", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:2.0.1"],\
             ["eslint", "npm:8.40.0"],\
             ["eslint-plugin-react", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:7.32.2"],\
             ["eslint-plugin-react-hooks", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:4.6.0"],\

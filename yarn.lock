@@ -1103,6 +1103,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"chartjs-plugin-zoom@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "chartjs-plugin-zoom@npm:2.0.1"
+  dependencies:
+    hammerjs: ^2.0.8
+  peerDependencies:
+    chart.js: ">=3.2.0"
+  checksum: c0ca5ae475bc3c7263e471258a7f16bd3d92c3642ded1395aeb841c9710d5af83e80410aa5e34869c4a1a5cc3899a166aec06a59bf9ecfda85f564618528b286
+  languageName: node
+  linkType: hard
+
 "chokidar@npm:^3.5.3":
   version: 3.5.3
   resolution: "chokidar@npm:3.5.3"
@@ -1998,6 +2009,13 @@ __metadata:
   version: 1.0.4
   resolution: "grapheme-splitter@npm:1.0.4"
   checksum: 0c22ec54dee1b05cd480f78cf14f732cb5b108edc073572c4ec205df4cd63f30f8db8025afc5debc8835a8ddeacf648a1c7992fe3dcd6ad38f9a476d84906620
+  languageName: node
+  linkType: hard
+
+"hammerjs@npm:^2.0.8":
+  version: 2.0.8
+  resolution: "hammerjs@npm:2.0.8"
+  checksum: b092da7d1565a165d7edb53ef0ce212837a8b11f897aa3cf81a7818b66686b0ab3f4747fbce8fc8a41d1376594639ce3a054b0fd4889ca8b5b136a29ca500e27
   languageName: node
   linkType: hard
 
@@ -3852,6 +3870,7 @@ __metadata:
     "@vitejs/plugin-react": ^4.0.0
     autoprefixer: ^10.4.14
     chart.js: ^4.3.0
+    chartjs-plugin-zoom: ^2.0.1
     eslint: ^8.38.0
     eslint-plugin-react: ^7.32.2
     eslint-plugin-react-hooks: ^4.6.0
