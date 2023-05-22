@@ -13,6 +13,7 @@ import {
   FeedbackPage,
   FinalResultPage,
 } from "../questions/pages";
+import { GraphicPage } from "../graphic/components/pages/GraphicPage";
 
 
 export const AppRouter = () => {
@@ -24,6 +25,7 @@ export const AppRouter = () => {
         <Route path="/welcome" element={<AssistantPage />} />
         <Route path="/*" element={<Navigate to={"/"} />} />
         <Route path="/intro" element={<IntroPage />} />
+        <Route path="/graphic" element={<GraphicPage />} />
 
         <Route path="/profile" element={<UserProfilePage />} />
         <Route path="/quiz/:questionNumber" element={<QuestionPage />} />

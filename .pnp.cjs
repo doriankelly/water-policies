@@ -34,6 +34,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react-dom", "npm:18.2.4"],\
             ["@vitejs/plugin-react", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:4.0.0"],\
             ["autoprefixer", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:10.4.14"],\
+            ["chart.js", "npm:4.3.0"],\
             ["eslint", "npm:8.40.0"],\
             ["eslint-plugin-react", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:7.32.2"],\
             ["eslint-plugin-react-hooks", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:4.6.0"],\
@@ -41,6 +42,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["leaflet", "npm:1.9.3"],\
             ["postcss", "npm:8.4.23"],\
             ["react", "npm:18.2.0"],\
+            ["react-chartjs-2", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:5.2.0"],\
             ["react-dom", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:18.2.0"],\
             ["react-hook-form", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:7.43.9"],\
             ["react-leaflet", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:4.2.1"],\
@@ -792,6 +794,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@kurkle/color", [\
+        ["npm:0.3.2", {\
+          "packageLocation": "./.yarn/cache/@kurkle-color-npm-0.3.2-98f2086013-79e97b31f8.zip/node_modules/@kurkle/color/",\
+          "packageDependencies": [\
+            ["@kurkle/color", "npm:0.3.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@nodelib/fs.scandir", [\
         ["npm:2.1.5", {\
           "packageLocation": "./.yarn/cache/@nodelib-fs.scandir-npm-2.1.5-89c67370dd-a970d595bd.zip/node_modules/@nodelib/fs.scandir/",\
@@ -1411,6 +1422,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["chalk", "npm:4.1.2"],\
             ["ansi-styles", "npm:4.3.0"],\
             ["supports-color", "npm:7.2.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["chart.js", [\
+        ["npm:4.3.0", {\
+          "packageLocation": "./.yarn/cache/chart.js-npm-4.3.0-8c27842bcb-157ceaa381.zip/node_modules/chart.js/",\
+          "packageDependencies": [\
+            ["chart.js", "npm:4.3.0"],\
+            ["@kurkle/color", "npm:0.3.2"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -3794,6 +3815,32 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["react-chartjs-2", [\
+        ["npm:5.2.0", {\
+          "packageLocation": "./.yarn/cache/react-chartjs-2-npm-5.2.0-03632f5179-ace702185b.zip/node_modules/react-chartjs-2/",\
+          "packageDependencies": [\
+            ["react-chartjs-2", "npm:5.2.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:5.2.0", {\
+          "packageLocation": "./.yarn/__virtual__/react-chartjs-2-virtual-0b2bdbd105/0/cache/react-chartjs-2-npm-5.2.0-03632f5179-ace702185b.zip/node_modules/react-chartjs-2/",\
+          "packageDependencies": [\
+            ["react-chartjs-2", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:5.2.0"],\
+            ["@types/chart.js", null],\
+            ["@types/react", "npm:18.2.6"],\
+            ["chart.js", "npm:4.3.0"],\
+            ["react", "npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/chart.js",\
+            "@types/react",\
+            "chart.js",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["react-dom", [\
         ["npm:18.2.0", {\
           "packageLocation": "./.yarn/cache/react-dom-npm-18.2.0-dd675bca1c-7d323310be.zip/node_modules/react-dom/",\
@@ -4584,6 +4631,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react-dom", "npm:18.2.4"],\
             ["@vitejs/plugin-react", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:4.0.0"],\
             ["autoprefixer", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:10.4.14"],\
+            ["chart.js", "npm:4.3.0"],\
             ["eslint", "npm:8.40.0"],\
             ["eslint-plugin-react", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:7.32.2"],\
             ["eslint-plugin-react-hooks", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:4.6.0"],\
@@ -4591,6 +4639,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["leaflet", "npm:1.9.3"],\
             ["postcss", "npm:8.4.23"],\
             ["react", "npm:18.2.0"],\
+            ["react-chartjs-2", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:5.2.0"],\
             ["react-dom", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:18.2.0"],\
             ["react-hook-form", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:7.43.9"],\
             ["react-leaflet", "virtual:f2b62ee0a4d78525f11643ec9ab9203988aaf6ccf061064b1b66815b11ca70c6b92f10d2aeaecdef0a47de2791e3210934c0a7fbc6757313098cab5d0b5ceabe#npm:4.2.1"],\
