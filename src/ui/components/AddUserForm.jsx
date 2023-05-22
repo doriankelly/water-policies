@@ -4,6 +4,13 @@ import { Link, useNavigate } from "react-router-dom";
 
 export const AddUserForm = () => {
   const navigate = useNavigate();
+
+  //manage logout
+  const logout = () => {
+    localStorage.removeItem("answers");
+    localStorage.removeItem("visited");
+    navigate("/");
+  };
   //capture text inputs with react hook
   const {
     register,
@@ -115,7 +122,7 @@ export const AddUserForm = () => {
       </p>
       <button
         className="mb-5 bg-terciary text-emphasis w-full border border-emphasis px-3 h-10 rounded-2xl hover:outline-none hover:border-2 hover:border-solid"
-        onClick={() => navigate(-1)}
+        onClick={logout}
       >
         Cerrar sesión
       </button>

@@ -1,4 +1,15 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 export const IntroPage = () => {
+  const navigate = useNavigate();
+  const start = () => {
+    navigate("/login");
+  };
+  useEffect(() => {
+    setTimeout(start, 1000);
+  }, []);
+
   return (
     <>
       <div className="bg-backgroundPrimary min-h-screen">
