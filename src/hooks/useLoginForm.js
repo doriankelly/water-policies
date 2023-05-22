@@ -30,6 +30,16 @@ export const useLogin = () => {
         throw new Error("Error al iniciar sesión");
       }
 
+      const data = await response.json();
+      console.log('esto es data:', data);
+
+      // Guardar email y uid en localStorage
+      
+      localStorage.setItem("uid", data.user._id);
+      localStorage.setItem("email", data.user.email);
+      localStorage.setItem("date", data.user.date);
+      localStorage.setItem("__v", data.user.__v);
+
       // Redireccionar a localhost:3000
       window.location.href = "http://localhost:5173/welcome";
 

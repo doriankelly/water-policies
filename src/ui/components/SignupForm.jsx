@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export const SignupForm = () => {
   const { register, formState: { errors }, handleSubmit } = useForm({ mode: "all" });
-  const [provincia, setProvincia] = useState("");
+  const [ccaa, setCcaa] = useState("");
   const [provider, setProvider] = useState("");
 
   const comunidadesAutonomas = [
@@ -28,10 +28,12 @@ export const SignupForm = () => {
     "Valencia"
   ];
 
+  const { singUp } = useSignup(); // Obtener la función 'singUp' del hook 'useSignup'
+
   const onSubmit = async (data) => {
     try {
-      data.provincia = provincia; // Agrega la provincia al objeto data
-      await useSignup(data, provider);
+      data.ccaa = ccaa; // Agrega la ccaa al objeto data
+      await singUp(data.email, data.password, data.ccaa, provider); // Llamar a la función 'singUp' con los datos necesarios
       console.log("User created successfully");
       // Lógica adicional después de crear el usuario, como redireccionar a otra página
     } catch (error) {
@@ -88,11 +90,11 @@ export const SignupForm = () => {
         </p>
 
         <select
-          {...register("provincia", {
+          {...register("ccaa", {
             required: "Please select a province",
           })}
-          value={provincia}
-          onChange={(e) => setProvincia(e.target.value)}
+          value={ccaa}
+          onChange={(e) => setCcaa(e.target.value)}
           className="mt-1 border border-form-border tracking-wide text-sm placeholder:text-black px-3 h-10 bg-gray-200 focus:outline-none focus:border-2 focus:border-solid rounded-md w-full"
         >
           <option value="">Seleccione una Comunidad Autónoma</option>
@@ -103,7 +105,7 @@ export const SignupForm = () => {
           ))}
         </select>
         <p className="mb-2 font-thin italic text-emphasis">
-          {errors.provincia?.message}
+          {errors.ccaa?.message}
         </p>
 
         <button
