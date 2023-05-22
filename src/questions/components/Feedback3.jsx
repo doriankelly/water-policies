@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 export const Feedback3 = () => {
   //collect current answers state
   const { answersObject } = useSelector((state) => state.answers);
-  if (answersObject.question3 == "option4") {
+  if (answersObject.question3 == "option2") {
     return (
       <p className="text-center">
         Feedback para pregunta 3: respuesta correcta

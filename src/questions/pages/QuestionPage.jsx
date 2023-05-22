@@ -8,6 +8,9 @@ import { Question2 } from "../components/Question2";
 import { Question3 } from "../components/Question3";
 import { Question4 } from "../components/Question4";
 import { Question5 } from "../components/Question5";
+import { Question6 } from "../components/Question6";
+import { Question7 } from "../components/Question7";
+import { Question8 } from "../components/Question8";
 
 export const QuestionPage = () => {
   const navigate = useNavigate();
@@ -37,6 +40,9 @@ export const QuestionPage = () => {
       {questionNumber == 3 && <Question3 />}
       {questionNumber == 4 && <Question4 />}
       {questionNumber == 5 && <Question5 />}
+      {questionNumber == 6 && <Question6 />}
+      {questionNumber == 7 && <Question7 />}
+      {questionNumber == 8 && <Question8 />}
     </>
   );
 };

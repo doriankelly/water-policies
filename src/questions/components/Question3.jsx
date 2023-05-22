@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { setAnswers } from "../../store/slice/answers/answersSlice";
+import { setScore } from "../../store/slice/score/scoreSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { setLocal } from "../../helpers/localStorage";
 
 export const Question3 = () => {
   const navigate = useNavigate();
-  const correctAnswer = "option4";
+  const correctAnswer = "option2";
   const [selectedOption, setSelectedOption] = useState("");
 
   const [answerResult, setAnswerResult] = useState("border-black");
@@ -15,6 +16,7 @@ export const Question3 = () => {
 
   //collect current answers state
   const { answersObject } = useSelector((state) => state.answers);
+  const { scoreObject } = useSelector((state) => state.score);
 
   const nextQuestion = () => {
     navigate("/result/3");
@@ -37,6 +39,17 @@ export const Question3 = () => {
     const answer = { ...answersObject, question3: selectedOption };
     dispatch(setAnswers(answer));
 
+    //asign weighting
+
+    switch (selectedOption) {
+      case "option1":
+        dispatch(setScore({ ...scoreObject, question3: 0.1 }));
+        break;
+      case "option2":
+        dispatch(setScore({ ...scoreObject, question3: 1 }));
+        break;
+    }
+
     //after half second, move to feedback page
     setTimeout(nextQuestion, 300);
   };
@@ -49,7 +62,7 @@ export const Question3 = () => {
   return (
     <section className="pb-20">
       <article className="mt-5 mx-4 px-5 py-5 text-center text-white bg-primary rounded-2xl leading-6 text-sm">
-        ¿Cuál es la cuenca con más embalses tiene de España?
+        ¿Quién tiene la titularidad de la gestión del agua?
       </article>
 
       <form
@@ -66,7 +79,7 @@ export const Question3 = () => {
               : "border-0"
           }`}
         >
-          Cuenca de Segura
+          Titularidad privada
           <input
             type="radio"
             id="option1"
@@ -85,7 +98,7 @@ export const Question3 = () => {
               : "border-0"
           }`}
         >
-          Cuenca del Guadalquivir
+          Titularidad pública
           <input
             type="radio"
             id="option2"
@@ -94,44 +107,6 @@ export const Question3 = () => {
             onChange={handleOptionChange}
             checked={selectedOption === "option2"}
           />
-        </label>
-
-        <label
-          htmlFor="option3"
-          className={`block mx-4 mt-2vh p-3 bg-terciary rounded text-center font-semibold ${
-            selectedOption === "option3"
-              ? `border-2 ${answerResult}`
-              : "border-0"
-          }`}
-        >
-          Cuenca del Tajo
-          <input
-            type="radio"
-            id="option3"
-            name="question1"
-            className="opacity-0 absolute"
-            onChange={handleOptionChange}
-            checked={selectedOption === "option3"}
-          />
-        </label>
-
-        <label
-          htmlFor="option4"
-          className={`block mx-4 mt-2vh p-3 bg-terciary rounded text-center font-semibold ${
-            selectedOption === "option4"
-              ? `border-2 ${answerResult}`
-              : "border-0"
-          }`}
-        >
-          <input
-            type="radio"
-            id="option4"
-            name="question1"
-            onChange={handleOptionChange}
-            checked={selectedOption === "option4"}
-            className="opacity-0 absolute"
-          />
-          Cuenca del Ebro
         </label>
       </form>
 
