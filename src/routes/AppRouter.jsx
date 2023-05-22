@@ -15,7 +15,6 @@ import {
 } from "../questions/pages";
 import { GraphicPage } from "../graphic/components/pages/GraphicPage";
 
-
 export const AppRouter = () => {
   //logica de si es logueado
   return (
@@ -25,6 +24,7 @@ export const AppRouter = () => {
         <Route path="/welcome" element={<AssistantPage />} />
         <Route path="/*" element={<Navigate to={"/"} />} />
         <Route path="/intro" element={<IntroPage />} />
+
         <Route path="/graphic" element={<GraphicPage />} />
 
         <Route path="/profile" element={<UserProfilePage />} />

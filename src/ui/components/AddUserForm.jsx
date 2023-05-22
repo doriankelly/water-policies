@@ -7,8 +7,11 @@ export const AddUserForm = () => {
 
   //manage logout
   const logout = () => {
-    localStorage.removeItem("answers");
-    localStorage.removeItem("visited");
+    // localStorage.removeItem("answers");
+    // localStorage.removeItem("visited");
+    // localStorage.removeItem("uid");
+    // localStorage.removeItem("email");
+    localStorage.clear();
     navigate("/");
   };
   //capture text inputs with react hook
@@ -75,9 +78,9 @@ export const AddUserForm = () => {
         Comunidad Autónoma
       </label>
       <select
-        {...register("province", { required: "Seleccione provincia" })}
-        name="province"
-        id="province"
+        {...register("ccaa", { required: "Seleccione provincia" })}
+        name="ccaa"
+        id="ccaa"
         className="mt-1 border border-form-border tracking-wide text-sm   px-2 h-10 bg-terciary focus:outline-none focus:border-2 focus:border-solid rounded-md w-full"
       >
         <option value="">Comunidad Autónoma</option>
@@ -102,7 +105,7 @@ export const AddUserForm = () => {
         <option value="melilla">Melilla</option>
       </select>
       <p className="mb-4 font-thin italic text-emphasis">
-        {errors.province?.message}
+        {errors.ccaa?.message}
       </p>
       <label className="text-sm ps-2 font-medium tracking-wide" htmlFor="name">
         Ciudad

@@ -17,6 +17,7 @@ import { ContaminationInfo } from "../components/homepageCards/ContaminationInfo
 export const HomePage = () => {
   //collect current visited pages state
   const { visitedObject } = useSelector((state) => state.visited);
+
   const dispatch = useDispatch();
   const [infoButtons, setInfoButtons] = useState("drought");
   const [infoTopic, setInfoTopic] = useState("");
@@ -45,8 +46,15 @@ export const HomePage = () => {
   useEffect(() => {
     // set state that topic has been visited
     if (infoTopic != "") {
-      const visitedPages = { ...visitedObject, [infoTopic]: true };
-      dispatch(setVisited(visitedPages));
+      if (visitedObject[infoTopic] == false) {
+        const newScore = visitedObject.score + 5;
+        const visitedPages = {
+          ...visitedObject,
+          [infoTopic]: true,
+          score: newScore,
+        };
+        dispatch(setVisited(visitedPages));
+      }
     }
   }, [infoTopic]);
 

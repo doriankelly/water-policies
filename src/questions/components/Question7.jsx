@@ -6,9 +6,9 @@ import { setScore } from "../../store/slice/score/scoreSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { setLocal } from "../../helpers/localStorage";
 
-export const Question5 = () => {
+export const Question7 = () => {
   const navigate = useNavigate();
-  const correctAnswer = "option4";
+  const correctAnswer = "option3";
   const [selectedOption, setSelectedOption] = useState("");
 
   const [answerResult, setAnswerResult] = useState("border-black");
@@ -19,7 +19,7 @@ export const Question5 = () => {
   const { scoreObject } = useSelector((state) => state.score);
 
   const nextQuestion = () => {
-    navigate("/result/5");
+    navigate("/result/7");
   };
 
   const handleOptionChange = (event) => {
@@ -28,7 +28,6 @@ export const Question5 = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     //configure button border colour options
     if (selectedOption == correctAnswer) {
       setAnswerResult("border-green-500");
@@ -37,23 +36,23 @@ export const Question5 = () => {
     }
 
     // set answer to answer state
-    const answer = { ...answersObject, question5: selectedOption };
+    const answer = { ...answersObject, question7: selectedOption };
     dispatch(setAnswers(answer));
 
     //asign weighting
 
     switch (selectedOption) {
       case "option1":
-        dispatch(setScore({ ...scoreObject, question5: 0.2 }));
+        dispatch(setScore({ ...scoreObject, question7: 0.2 }));
         break;
       case "option2":
-        dispatch(setScore({ ...scoreObject, question5: 0.5 }));
+        dispatch(setScore({ ...scoreObject, question7: 0.5 }));
         break;
       case "option3":
-        dispatch(setScore({ ...scoreObject, question5: 0.1 }));
+        dispatch(setScore({ ...scoreObject, question7: 1 }));
         break;
       case "option4":
-        dispatch(setScore({ ...scoreObject, question5: 1 }));
+        dispatch(setScore({ ...scoreObject, question7: 0.1 }));
         break;
     }
     //after half second, move to feedback page
@@ -68,8 +67,8 @@ export const Question5 = () => {
   return (
     <section className="pb-20">
       <article className="mt-5 mx-4 px-5 py-5 text-center text-white bg-primary rounded-2xl leading-6 text-sm">
-        En mayo de 2023 ¿cuál es la comunidad autónoma que tiene los embalses
-        más vacíos?
+        ¿Cuál es el porcentaje de reutilización de aguas residuales tratadas en
+        España?
       </article>
 
       <form
@@ -86,7 +85,7 @@ export const Question5 = () => {
               : "border-0"
           }`}
         >
-          Extremadura
+          25.4%
           <input
             type="radio"
             id="option1"
@@ -105,7 +104,7 @@ export const Question5 = () => {
               : "border-0"
           }`}
         >
-          Cataluña
+          5.72%
           <input
             type="radio"
             id="option2"
@@ -115,6 +114,7 @@ export const Question5 = () => {
             checked={selectedOption === "option2"}
           />
         </label>
+
         <label
           htmlFor="option3"
           className={`block mx-4 mt-2vh p-3 bg-terciary rounded text-center font-semibold ${
@@ -123,7 +123,7 @@ export const Question5 = () => {
               : "border-0"
           }`}
         >
-          Asturias
+          9.96%
           <input
             type="radio"
             id="option3"
@@ -133,6 +133,7 @@ export const Question5 = () => {
             checked={selectedOption === "option3"}
           />
         </label>
+
         <label
           htmlFor="option4"
           className={`block mx-4 mt-2vh p-3 bg-terciary rounded text-center font-semibold ${
@@ -141,15 +142,15 @@ export const Question5 = () => {
               : "border-0"
           }`}
         >
-          Andalucía
           <input
             type="radio"
             id="option4"
             name="question1"
-            className="opacity-0 absolute"
             onChange={handleOptionChange}
             checked={selectedOption === "option4"}
+            className="opacity-0 absolute"
           />
+          50.25%
         </label>
       </form>
 

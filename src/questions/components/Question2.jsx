@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { setAnswers } from "../../store/slice/answers/answersSlice";
+import { setScore } from "../../store/slice/score/scoreSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { setLocal } from "../../helpers/localStorage";
 
 export const Question2 = () => {
   const navigate = useNavigate();
-  const correctAnswer = "option2";
+  const correctAnswer = "option1";
   const [selectedOption, setSelectedOption] = useState("");
 
   const [answerResult, setAnswerResult] = useState("border-black");
@@ -15,6 +16,7 @@ export const Question2 = () => {
 
   //collect current answers state
   const { answersObject } = useSelector((state) => state.answers);
+  const { scoreObject } = useSelector((state) => state.score);
 
   const nextQuestion = () => {
     navigate("/result/2");
@@ -23,7 +25,7 @@ export const Question2 = () => {
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.id);
   };
-  
+
   const handleSubmit = (event) => {
     event.preventDefault();
     //configure button border colour options
@@ -37,6 +39,23 @@ export const Question2 = () => {
     const answer = { ...answersObject, question2: selectedOption };
     dispatch(setAnswers(answer));
 
+    //asign weighting
+
+    switch (selectedOption) {
+      case "option1":
+        dispatch(setScore({ ...scoreObject, question2: 1 }));
+        break;
+      case "option2":
+        dispatch(setScore({ ...scoreObject, question2: 0.1 }));
+        break;
+      case "option3":
+        dispatch(setScore({ ...scoreObject, question2: 0.5 }));
+        break;
+      case "option4":
+        dispatch(setScore({ ...scoreObject, question2: 0.2 }));
+        break;
+    }
+
     //after half second, move to feedback page
     setTimeout(nextQuestion, 300);
   };
@@ -49,8 +68,7 @@ export const Question2 = () => {
   return (
     <section className="pb-20">
       <article className="mt-5 mx-4 px-5 py-5 text-center text-white bg-primary rounded-2xl leading-6 text-sm">
-        En mayo de 2023.
-        <br /> ¿Cuál es la provincia que tiene más litros de agua embalsada?
+        ¿Qué Ministerio gestiona las políticas relacionadas con el agua?
       </article>
 
       <form
@@ -67,7 +85,7 @@ export const Question2 = () => {
               : "border-0"
           }`}
         >
-          La Coruña
+          Transición Ecológica
           <input
             type="radio"
             id="option1"
@@ -86,7 +104,7 @@ export const Question2 = () => {
               : "border-0"
           }`}
         >
-          Cáceres
+          Interior
           <input
             type="radio"
             id="option2"
@@ -105,7 +123,7 @@ export const Question2 = () => {
               : "border-0"
           }`}
         >
-          Álava
+          Exteriores
           <input
             type="radio"
             id="option3"
@@ -132,7 +150,7 @@ export const Question2 = () => {
             checked={selectedOption === "option4"}
             className="opacity-0 absolute"
           />
-          Segovia
+          Consumo
         </label>
       </form>
 
