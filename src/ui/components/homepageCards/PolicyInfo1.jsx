@@ -4,7 +4,7 @@ import vector from "../../../assets/vector.png";
 import { useState } from "react";
 import { ShareButtons } from "../ShareButtons";
 
-export const DroughtConsequences = () => {
+export const PolicyInfo1 = () => {
   const [showShare, setShowShare] = useState(false);
 
   const handleClick = () => {
@@ -15,14 +15,11 @@ export const DroughtConsequences = () => {
       <div>
         <img className="w-full" src={infoCard} alt="Image of dry valley" />
       </div>
-      <h2 className="m-4 font-semibold">Sequía y sus consecuencias</h2>
+      <h2 className="m-4 font-semibold">Contaminación y sus consecuencias</h2>
       <article>
         <div className="flex flex-wrap justify-start mx-3 md:justify-center ">
           <p className="my-1 ms-2 py-1 px-3 border border-white bg-small-button/80  text-center  text-xs rounded-3xl font-semibold">
-            Políticas azules
-          </p>
-          <p className="my-1 ms-2 py-1 px-3 border border-white bg-small-button/80  text-center  text-xs rounded-3xl font-semibold">
-            Sequía
+            Contaminación
           </p>
         </div>
         <p className="m-4 py-2 border-y border-secondary text-sm">

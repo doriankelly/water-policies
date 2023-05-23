@@ -5,18 +5,26 @@ import userButton from "../../assets/userButton.svg";
 // import martillo from "../../assets/martillo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { MapContainerComp } from "../../map/components";
-import { DroughtConsequences } from "../components/homepageCards/DroughtConsequences";
 import { setVisited } from "../../store/slice/visited/visitedSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { setVisitedLocal } from "../../helpers/localStorage";
 import { DroughtCards } from "../components/homepageButtons/DroughtCards";
 import { DroughtLegislation } from "../components/homepageCards/DroughtLegislation";
-import { ContaminationCards } from "../components/homepageButtons/ContaminationCards";
-import { ContaminationInfo } from "../components/homepageCards/ContaminationInfo";
+import { PolicyCards } from "../components/homepageButtons/PolicyCards";
+import { PolicyInfo1 } from "../components/homepageCards/PolicyInfo1";
+import { EmbalsesCards } from "../components/homepageButtons/EmbalsesCards";
+import { ReutilizacionCards } from "../components/homepageButtons/ReutilizacionCards";
+import { SuministroCards } from "../components/homepageButtons/SuministroCards";
+//import info pages
+import { SequiaMeteor } from "../components/homepageCards/SequiaMeteor";
+import { SequiaAgricola } from "../components/homepageCards/SequiaAgricola";
+import { SequiaSocio } from "../components/homepageCards/SequiaSocio";
+import { SequiaHidro } from "../components/homepageCards/SequiaHidro";
 
 export const HomePage = () => {
   //collect current visited pages state
   const { visitedObject } = useSelector((state) => state.visited);
+
   const dispatch = useDispatch();
   const [infoButtons, setInfoButtons] = useState("drought");
   const [infoTopic, setInfoTopic] = useState("");
@@ -45,8 +53,15 @@ export const HomePage = () => {
   useEffect(() => {
     // set state that topic has been visited
     if (infoTopic != "") {
-      const visitedPages = { ...visitedObject, [infoTopic]: true };
-      dispatch(setVisited(visitedPages));
+      if (visitedObject[infoTopic] == false && visitedObject.score < 10) {
+        const newScore = visitedObject.score + 2;
+        const visitedPages = {
+          ...visitedObject,
+          [infoTopic]: true,
+          score: newScore,
+        };
+        dispatch(setVisited(visitedPages));
+      }
     }
   }, [infoTopic]);
 
@@ -72,7 +87,6 @@ export const HomePage = () => {
               />
             </Link>
           </hgroup>
-
           <h2 className="font-bold text-darkBlue text-xs mx-5 my-2 md:text-center">
             Selección de categoría
           </h2>
@@ -85,11 +99,11 @@ export const HomePage = () => {
               Políticas azules
             </button>
             <button
-              id="uses"
+              id="embalses"
               onClick={changeCategory}
               className="my-1 ms-2 py-1 px-3 border border-white bg-small-button/80 hover:bg-secondary  text-center  text-xs rounded-3xl font-semibold"
             >
-              Buenos usos
+              Embalses
             </button>
             <button
               id="drought"
@@ -99,28 +113,37 @@ export const HomePage = () => {
               Sequía
             </button>
             <button
-              id="contamination"
+              id="reutilizacion"
               onClick={changeCategory}
               className="my-1 ms-2  py-1 px-3 border border-white bg-small-button/80 hover:bg-secondary  text-center  text-xs rounded-3xl font-semibold"
             >
-              Contaminación
+              Reutilización de agua
             </button>
             <button
-              id="more"
+              id="suministro"
               onClick={changeCategory}
               className="my-1 ms-2 py-1 px-3 border border-white bg-small-button/80 hover:bg-secondary  text-center  text-xs rounded-3xl font-semibold"
             >
-              Mas cosas
+              Suministro de agua
             </button>
           </article>
           {infoButtons == "drought" && (
             <DroughtCards handleClick={handleClick} />
           )}
-          {infoButtons == "contamination" && (
-            <ContaminationCards handleClick={handleClick} />
+          {infoButtons == "policies" && (
+            <PolicyCards handleClick={handleClick} />
           )}
-          <div className="border-t border-secondary w-11/12 block m-auto"></div>
+          {infoButtons == "embalses" && (
+            <EmbalsesCards handleClick={handleClick} />
+          )}
+          {infoButtons == "reutilizacion" && (
+            <ReutilizacionCards handleClick={handleClick} />
+          )}
+          {infoButtons == "suministro" && (
+            <SuministroCards handleClick={handleClick} />
+          )}
 
+          <div className="border-t border-secondary w-11/12 block m-auto"></div>
           <div className="mt-3 mx-3 mb-2 flex justify-between">
             <p className="text-xs font-bold text-darkBlue">
               Reservas de agua en España
@@ -129,7 +152,6 @@ export const HomePage = () => {
               Ver mapa
             </Link>
           </div>
-
           <div className="relative bg-white h-64  w-full text-center border">
             <div className="absolute top-0 bottom-0 left-0 right-0 z-0">
               <MapContainerComp />
@@ -144,9 +166,10 @@ export const HomePage = () => {
         </section>
       </div>
       <div className="info pb-16" ref={info}>
-        {infoTopic == "droughtVisited" && <DroughtConsequences />}
-        {infoTopic == "politicsVisited" && <DroughtLegislation />}
-        {infoTopic == "contaminationVisited" && <ContaminationInfo />}
+        {infoTopic == "sequiaMeteorologica" && <SequiaMeteor />}
+        {infoTopic == "sequiaAgricola" && <SequiaAgricola />}
+        {infoTopic == "sequiaSocioeconomica" && <SequiaSocio />}
+        {infoTopic == "sequiaHidrologica" && <SequiaHidro />}
       </div>
     </>
   );
