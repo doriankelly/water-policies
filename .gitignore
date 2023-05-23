@@ -26,6 +26,7 @@ dist-ssr
 *.sw?
 .env
 
+install-state.gz
 
 .yarn/*
 !.yarn/cache
@@ -34,6 +35,6 @@ dist-ssr
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
-
 .yarn/install-state.gz
+
 
