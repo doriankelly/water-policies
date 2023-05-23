@@ -4,7 +4,9 @@ import { Graphic } from '../Graphic'
 export const GraphicPage = () => {
   return (
     <>
-    <Graphic></Graphic>
+    <section className=''>
+    <Graphic />
+    </section>
     </>
   )
 }

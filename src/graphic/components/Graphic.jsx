@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Chart } from 'chart.js/auto';
+import 'chartjs-plugin-zoom';
 
 export const Graphic = () => {
   const chartRef = useRef(null);
@@ -7,7 +8,7 @@ export const Graphic = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://13.50.249.210:8000/');
+        const response = await fetch('../../../graphic.json');
         const jsonData = await response.json();
         console.log('Datos cargados:', jsonData);
         console.log('Datos cargados:', response);
@@ -19,22 +20,33 @@ export const Graphic = () => {
           const aguaEmbalsada = Object.values(jsonData['Agua embalsada']);
           const status = Object.values(jsonData.Status);
 
+          // Obtener solo los últimos 200 datos
+          const fechasRecortadas = fechas.slice(-200);
+          const aguaEmbalsadaRecortada = aguaEmbalsada.slice(-200);
+          const statusRecortado = status.slice(-200);
+
           const realData = [];
           const predData = [];
-          for (let i = 0; i < status.length; i++) {
-            if (status[i] === 'Real') {
-              realData.push(aguaEmbalsada[i]);
+          for (let i = 0; i < statusRecortado.length; i++) {
+            if (statusRecortado[i] === 'Real') {
+              realData.push(aguaEmbalsadaRecortada[i]);
               predData.push(null);
             } else {
               realData.push(null);
-              predData.push(aguaEmbalsada[i]);
+              predData.push(aguaEmbalsadaRecortada[i]);
             }
           }
 
-          new Chart(ctx, {
+          // Destruir la instancia de Chart existente (si existe)
+          if (chartRef.current.chart) {
+            chartRef.current.chart.destroy();
+          }
+
+          // Crear una nueva instancia de Chart
+          chartRef.current.chart = new Chart(ctx, {
             type: 'line',
             data: {
-              labels: fechas,
+              labels: fechasRecortadas,
               datasets: [
                 {
                   label: 'Agua embalsada (Real)',
@@ -44,7 +56,7 @@ export const Graphic = () => {
                   fill: false,
                 },
                 {
-                  label: 'Agua embalsada (Pred)',
+                  label: 'Agua embalsada (Predicción)',
                   data: predData,
                   backgroundColor: 'rgba(0, 0, 255, 0.5)',
                   borderColor: 'blue',
@@ -53,33 +65,36 @@ export const Graphic = () => {
               ],
             },
             options: {
-              responsive: true,
-              interaction: {
-                mode: 'index',
-                intersect: false,
-              },
-              scales: {
-                x: {
-                  display: true,
-                  title: {
-                    display: true,
-                    text: 'Fecha',
-                  },
-                },
-                y: {
-                  display: true,
-                  title: {
-                    display: true,
-                    text: 'Agua embalsada',
-                  },
-                },
-              },
+              // Opciones del gráfico, incluyendo el zoom y el arrastre horizontal
               plugins: {
-                scrollbar: {
-                  mode: 'x',
-                  padding: 10,
+                zoom: {
+                  zoom: {
+                    enabled: true,
+                    mode: 'x',
+                    speed: 0.1, // Velocidad de zoom
+                    sensitivity: 0.1, // Sensibilidad del zoom
+                  },
+                  pan: {
+                    enabled: true,
+                    mode: 'x',
+                    speed: 0.1, // Velocidad de arrastre
+                    threshold: 10, // Umbral de arrastre
+                  },
                 },
               },
+              // scales: {
+              //   x: {
+              //     type: 'realtime',
+              //     realtime: {
+              //       duration: 20000, // Duración de visualización en milisegundos
+              //       refresh: 1000, // Intervalo de actualización en milisegundos
+              //       delay: 2000, // Retraso en milisegundos antes de iniciar la actualización
+              //       onRefresh: chart => {
+              //         // Lógica para actualizar los datos del gráfico en tiempo real
+              //       },
+              //     },
+              //   },
+              // },
             },
           });
         }
@@ -87,6 +102,7 @@ export const Graphic = () => {
         console.error('Error al cargar los datos:', error);
       }
     };
+
     fetchData();
   }, []);
 
