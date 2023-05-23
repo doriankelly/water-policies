@@ -1,3 +1,4 @@
+import background from "./src/assets/background.png"
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
@@ -12,7 +13,6 @@ module.exports = {
         'background': "#E6F0FE",
         'form-border': "#002966",
         'emphasis': "#FF5432"
-
       },
       height: {
         'panel': '50rem'
@@ -21,11 +21,14 @@ module.exports = {
         'boton': '28rem',
       },
       backgroundImage: {
-        'backgroundPrimary': "url('src/assets/background.png')"
+        'backgroundPrimary': "url(https://dorian-rose.github.io/h2o2_background/background.png)"
       },
       fontFamily: {
         'sans': ['Poppins', 'sans-serif'],
       },
+      borderRadius: {
+        'xxl': '1.75rem'
+      }
     },
   },
   plugins: [],
