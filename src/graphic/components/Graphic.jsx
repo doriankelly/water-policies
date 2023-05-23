@@ -53,6 +53,8 @@ export const Graphic = () => {
                   data: realData,
                   backgroundColor: 'rgba(255, 0, 0, 0.5)',
                   borderColor: 'red',
+                  borderWidth: 1,
+                  pointRadius: 0,
                   fill: false,
                 },
                 {
@@ -60,41 +62,45 @@ export const Graphic = () => {
                   data: predData,
                   backgroundColor: 'rgba(0, 0, 255, 0.5)',
                   borderColor: 'blue',
+                  borderWidth: 1,
+                  pointRadius: 0,
                   fill: false,
                 },
               ],
             },
             options: {
-              // Opciones del gráfico, incluyendo el zoom y el arrastre horizontal
               plugins: {
                 zoom: {
                   zoom: {
                     enabled: true,
                     mode: 'x',
-                    speed: 0.1, // Velocidad de zoom
-                    sensitivity: 0.1, // Sensibilidad del zoom
+                    speed: 0.1,
+                    sensitivity: 0.1,
                   },
                   pan: {
                     enabled: true,
                     mode: 'x',
-                    speed: 0.1, // Velocidad de arrastre
-                    threshold: 10, // Umbral de arrastre
+                    speed: 0.1,
+                    threshold: 10,
                   },
                 },
               },
-              // scales: {
-              //   x: {
-              //     type: 'realtime',
-              //     realtime: {
-              //       duration: 20000, // Duración de visualización en milisegundos
-              //       refresh: 1000, // Intervalo de actualización en milisegundos
-              //       delay: 2000, // Retraso en milisegundos antes de iniciar la actualización
-              //       onRefresh: chart => {
-              //         // Lógica para actualizar los datos del gráfico en tiempo real
-              //       },
-              //     },
-              //   },
-              // },
+              scales: {
+                x: {
+                  display: true,
+                  title: {
+                    display: true,
+                    text: 'Fechas',
+                  },
+                },
+                y: {
+                  display: true,
+                  title: {
+                    display: true,
+                    text: 'Agua embalsada',
+                  },
+                },
+              },
             },
           });
         }
