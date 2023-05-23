@@ -1,22 +1,30 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { consultation } from '../../api/fetch'
-import { useDispatch } from "react-redux";
-import { setUser} from "../../store/slice/user/userSlice";
+import { consultation } from "../../api/fetch";
+import { useSelector, useDispatch } from "react-redux";
+import { setVisited } from "../../store/slice/visited/visitedSlice";
+import { setUser } from "../../store/slice/user/userSlice";
 export const AddUserForm = () => {
-
   const [score, setScore] = useState(null);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  //collect current visited pages state
+  const { visitedObject } = useSelector((state) => state.visited);
+
   //manage logout
   const logout = () => {
-    // localStorage.removeItem("answers");
-    // localStorage.removeItem("visited");
-    // localStorage.removeItem("id");
-    // localStorage.removeItem("email");
+    const visitedPages = {
+      ...visitedObject,
+      droughtVisited: false,
+      contaminationVisited: false,
+      politicsVisited: false,
+      score: 0,
+    };
+    dispatch(setVisited(visitedPages));
+
     localStorage.clear();
-    dispatch(setUser(null))
+    dispatch(setUser(null));
     navigate("/");
   };
   //capture text inputs with react hook
@@ -39,7 +47,7 @@ export const AddUserForm = () => {
       if (userId) {
         const url = `https://h2ohback.onrender.com/api/v1/entries/${userId}`;
         const request = await consultation(url);
-        const score = request.data.score
+        const score = request.data.score;
         if (!isNaN(score)) {
           setScore(score);
         }
@@ -47,8 +55,8 @@ export const AddUserForm = () => {
     } catch (error) {
       console.error(error);
     }
-  }
-  
+  };
+
   useEffect(() => {
     getScore();
   }, []);
@@ -152,10 +160,14 @@ export const AddUserForm = () => {
         <label className="text-sm ps-2 font-medium tracking-wide">
           Puntuación
         </label>
-        <p type="text" placeholder="Aún no se ha obtenido un resultado" name="score" id="score"
+        <p
+          type="text"
+          placeholder="Aún no se ha obtenido un resultado"
+          name="score"
+          id="score"
           className="mt-1 pt-2 border border-form-border tracking-wide text-sm  placeholder:text-black px-3 h-10 bg-terciary focus:outline-none focus:border-2 focus:border-solid rounded-md w-full"
         >
-          {score !== null ? score : 'Aún no se ha obtenido un resultado'}
+          {score !== null ? score : "Aún no se ha obtenido un resultado"}
         </p>
       </div>
 
