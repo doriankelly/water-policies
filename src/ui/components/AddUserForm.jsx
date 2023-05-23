@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { consultation } from '../../api/fetch'
-
+import { useDispatch } from "react-redux";
+import { setUser} from "../../store/slice/user/userSlice";
 export const AddUserForm = () => {
 
   const [score, setScore] = useState(null);
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
   //manage logout
   const logout = () => {
     // localStorage.removeItem("answers");
@@ -15,6 +16,7 @@ export const AddUserForm = () => {
     // localStorage.removeItem("id");
     // localStorage.removeItem("email");
     localStorage.clear();
+    dispatch(setUser(null))
     navigate("/");
   };
   //capture text inputs with react hook
@@ -32,13 +34,9 @@ export const AddUserForm = () => {
   };
 
   const getScore = async () => {
-
     try {
-
       const userId = localStorage.getItem("id");
-
       if (userId) {
-
         const url = `https://h2ohback.onrender.com/api/v1/entries/${userId}`;
         const request = await consultation(url);
         const score = request.data.score
@@ -46,7 +44,6 @@ export const AddUserForm = () => {
           setScore(score);
         }
       }
-
     } catch (error) {
       console.error(error);
     }
