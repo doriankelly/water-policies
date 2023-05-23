@@ -1,20 +1,22 @@
 import React from "react";
-import martillo from "../../../assets/martillo.png";
+import suministro from "../../../assets/homePageButtons/suministro.png";
 
 export const SuministroCards = ({ handleClick }) => {
   return (
     <article>
       <button
-        id="droughtVisited"
+        id="suministro"
         onClick={handleClick}
-        className="m-0 z-10 mb-4 mt-7 drop-shadow w-11/12 border border-white bg-terciary hover:bg-primary text-darkBlue font-bold block  text-center m-auto shadow-lg rounded-2xl"
+        className="m-0 z-10 mb-4 mt-7 drop-shadow w-11/12 border border-terciary bg-terciary hover:bg-primary text-darkBlue font-bold block  text-center m-auto shadow-lg rounded-2xl"
       >
-        <img
-          className="w-full rounded-t-2xl"
-          src={martillo}
-          alt="drought graph"
-        />
-        <p className="my-2">e.g.Suministro de agua 1</p>
+        <div className="h-24 overflow-hidden">
+          <img
+            className="w-full rounded-t-2xl"
+            src={suministro}
+            alt="Water pouring from a tap into a large recipient"
+          />
+        </div>
+        <p className="my-2">Coste suministro por habitante</p>
       </button>
     </article>
   );

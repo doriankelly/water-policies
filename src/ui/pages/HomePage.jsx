@@ -8,25 +8,30 @@ import { MapContainerComp } from "../../map/components";
 import { setVisited } from "../../store/slice/visited/visitedSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { setVisitedLocal } from "../../helpers/localStorage";
+//import info card/buttons
 import { DroughtCards } from "../components/homepageButtons/DroughtCards";
 import { DroughtLegislation } from "../components/homepageCards/DroughtLegislation";
 import { PolicyCards } from "../components/homepageButtons/PolicyCards";
-import { PolicyInfo1 } from "../components/homepageCards/PolicyInfo1";
 import { EmbalsesCards } from "../components/homepageButtons/EmbalsesCards";
 import { ReutilizacionCards } from "../components/homepageButtons/ReutilizacionCards";
 import { SuministroCards } from "../components/homepageButtons/SuministroCards";
 //import info pages
+//--sequia
 import { SequiaMeteor } from "../components/homepageCards/SequiaMeteor";
 import { SequiaAgricola } from "../components/homepageCards/SequiaAgricola";
 import { SequiaSocio } from "../components/homepageCards/SequiaSocio";
 import { SequiaHidro } from "../components/homepageCards/SequiaHidro";
+import { PlanHidro } from "../components/homepageCards/PlanHidro";
+import { PlanCuencaHidro } from "../components/homepageCards/PlanCuenaHidro";
+import { DirectivoMarcaAgua } from "../components/homepageCards/DirectivoMarcaAgua";
+import { ProgramaReutilizacion } from "../components/homepageCards/ProgramaReutilizacion";
+//--politicas azules
 
 export const HomePage = () => {
   //collect current visited pages state
   const { visitedObject } = useSelector((state) => state.visited);
-
   const dispatch = useDispatch();
-  const [infoButtons, setInfoButtons] = useState("drought");
+  const [infoButtons, setInfoButtons] = useState("policies");
   const [infoTopic, setInfoTopic] = useState("");
   const info = useRef(null);
 
@@ -170,6 +175,10 @@ export const HomePage = () => {
         {infoTopic == "sequiaAgricola" && <SequiaAgricola />}
         {infoTopic == "sequiaSocioeconomica" && <SequiaSocio />}
         {infoTopic == "sequiaHidrologica" && <SequiaHidro />}
+        {infoTopic == "planHidroNacional" && <PlanHidro />}
+        {infoTopic == "planCuencaHidro" && <PlanCuencaHidro />}
+        {infoTopic == "directivoMarca" && <DirectivoMarcaAgua />}
+        {infoTopic == "programaReutilizacion" && <ProgramaReutilizacion />}
       </div>
     </>
   );
