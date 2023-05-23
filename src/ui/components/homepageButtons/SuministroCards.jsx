@@ -1,11 +1,11 @@
 import React from "react";
 import martillo from "../../../assets/martillo.png";
 
-export const ContaminationCards = ({ handleClick }) => {
+export const SuministroCards = ({ handleClick }) => {
   return (
     <article>
       <button
-        id="contaminationVisited"
+        id="droughtVisited"
         onClick={handleClick}
         className="m-0 z-10 mb-4 mt-7 drop-shadow w-11/12 border border-white bg-terciary hover:bg-primary text-darkBlue font-bold block  text-center m-auto shadow-lg rounded-2xl"
       >
@@ -14,7 +14,7 @@ export const ContaminationCards = ({ handleClick }) => {
           src={martillo}
           alt="drought graph"
         />
-        <p className="my-2">Contaminación</p>
+        <p className="my-2">e.g.Suministro de agua 1</p>
       </button>
     </article>
   );
