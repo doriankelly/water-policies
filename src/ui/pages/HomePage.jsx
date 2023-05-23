@@ -25,6 +25,9 @@ import { PlanHidro } from "../components/homepageCards/PlanHidro";
 import { PlanCuencaHidro } from "../components/homepageCards/PlanCuenaHidro";
 import { DirectivoMarcaAgua } from "../components/homepageCards/DirectivoMarcaAgua";
 import { ProgramaReutilizacion } from "../components/homepageCards/ProgramaReutilizacion";
+import { Reutilizacion } from "../components/homepageCards/Reutilizacion";
+import { Embalses } from "../components/homepageCards/Embalses";
+import { Suministro } from "../components/homepageCards/Suministro";
 //--politicas azules
 
 export const HomePage = () => {
@@ -179,6 +182,9 @@ export const HomePage = () => {
         {infoTopic == "planCuencaHidro" && <PlanCuencaHidro />}
         {infoTopic == "directivoMarca" && <DirectivoMarcaAgua />}
         {infoTopic == "programaReutilizacion" && <ProgramaReutilizacion />}
+        {infoTopic == "reutilizacion" && <Reutilizacion />}
+        {infoTopic == "embalses" && <Embalses />}
+        {infoTopic == "suministro" && <Suministro />}
       </div>
     </>
   );

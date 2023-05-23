@@ -16,7 +16,7 @@ export const ReutilizacionCards = ({ handleClick }) => {
             alt="Photo of an embalse taken from a high vantage point"
           />
         </div>
-        <p className="my-2">Reutilización de agua</p>
+        <p className="my-2">Reutilización</p>
       </button>
     </article>
   );
