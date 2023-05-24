@@ -15,7 +15,7 @@ import { GraphicPage } from "../graphic/components/pages/GraphicPage";
 
 export const UserRouter = () => {
   const user = localStorage.getItem("id");
-  console.log(user);
+
   return (
     <Routes>
       
