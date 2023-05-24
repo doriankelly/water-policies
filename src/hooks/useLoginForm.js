@@ -1,10 +1,14 @@
 import { useState } from "react";
-import {useNavigate} from 'react-router-dom'
+
+import { useNavigate } from "react-router-dom";
+
 
 export const useLogin = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const navigate = useNavigate()
+
+  const navigate = useNavigate();
+
 
   const login = async (email, password, provider) => {
     setLoading(true);
@@ -13,10 +17,10 @@ export const useLogin = () => {
       let url = "https://h2ohback.onrender.com/api/v1/auth";
       if (provider) {
         url += `/${provider}`;
-        console.log(url)
+        console.log(url);
       } else {
         url += "/login";
-        console.log(url)
+        console.log(url);
       }
 
       const response = await fetch(url, {
@@ -26,7 +30,7 @@ export const useLogin = () => {
         },
         body: JSON.stringify({ email, password }),
       });
-      console.log(email)
+      console.log(email);
 
       if (!response.ok) {
         throw new Error("Error al iniciar sesión");
@@ -36,14 +40,15 @@ export const useLogin = () => {
       console.log('esto es data:', data);
 
       // Guardar email y uid en localStorage
-      
       localStorage.setItem("id", data.user._id);
       localStorage.setItem("email", data.user.email);
       localStorage.setItem("date", data.user.date);
       localStorage.setItem("__v", data.user.__v);
 
-      // Redireccionar a localhost:3000
-      navigate('/welcome')
+
+      // Redireccionar a /welcome utilizando useNavigate
+      navigate("/welcome");
+
 
       setLoading(false);
     } catch (error) {
