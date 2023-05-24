@@ -47,7 +47,7 @@ export const useLogin = () => {
 
 
       // Redireccionar a /welcome utilizando useNavigate
-      navigate("/welcome");
+      window.location.href = "https://flourishing-sable-f526bd.netlify.app"
 
 
       setLoading(false);
