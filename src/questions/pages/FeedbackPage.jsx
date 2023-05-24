@@ -26,7 +26,7 @@ export const FeedbackPage = () => {
   const { scoreObject } = useSelector((state) => state.score);
 
   //after last page - send results to fetch
-  const handleClick = () => {
+  const handleClick = async () => {
     //calculate score
     const totalAnswersScore = Object.values(scoreObject).reduce(
       (acc, value) => acc + parseInt(value * 10),
@@ -40,21 +40,36 @@ export const FeedbackPage = () => {
         finalScore: totalAnswersScore + visitedObject.score,
       })
     );
-    console.log(scoreObject);
-    //collect user id
-    const user = localStorage.getItem("uid");
 
-    //define arguments for fetch
-    const url = import.meta.env.VITE_RESULT_URL;
-    const method = "POST";
+    //collect user id
+    const user = localStorage.getItem("id");
+
+    //check if user already has entry
+    const userUrl = `https://h2ohback.onrender.com/api/v1/entries/${user}`;
+    const request = await consultation(userUrl);
+    console.log(request);
+
+    //define body for fetch
     const body = {
       questions: { ...answersObject },
       status: { ...visitedObject },
       user,
       score: totalAnswersScore + visitedObject.score,
     };
+    //if use already exists, make PUT
+    if (request.ok) {
+      const url = `${import.meta.env.VITE_RESULT_URL}/${user}`;
+      console.log("in PUT", url);
+      const method = "PUT";
+      consultation(url, method, body);
+    } else {
+      //if user doens´t have entry, make POST
 
-    //consultation(url, method, body);
+      const url = import.meta.env.VITE_RESULT_URL;
+      console.log("in POST", url, body);
+      const method = "POST";
+      consultation(url, method, body);
+    }
     navigate("/final");
   };
 
@@ -82,14 +97,14 @@ export const FeedbackPage = () => {
       {number == 8 ? (
         <button
           onClick={handleClick}
-          className="fixed left-1/2 -translate-x-1/2 bottom-2 drop-shadow w-11/12 bg-primary text-white hover:bg-secondary  block  mb-10 text-center m-auto py-2 shadow-lg rounded-3xl"
+          className="fixed left-1/2 -translate-x-1/2 bottom-2 drop-shadow w-11/12 bg-primary text-white hover:bg-secondary  block  mb-10 text-center m-auto py-3 shadow-lg rounded-3xl"
         >
           Siguiente
         </button>
       ) : (
         <Link
           to={`/quiz/${parseInt(number) + 1}`}
-          className="fixed left-1/2 -translate-x-1/2 bottom-2 drop-shadow w-11/12 bg-primary text-white hover:bg-secondary  block  mb-10 text-center m-auto py-2 shadow-lg rounded-3xl"
+          className="fixed left-1/2 -translate-x-1/2 bottom-2 drop-shadow w-11/12 bg-primary text-white hover:bg-secondary  block  mb-10 text-center m-auto py-3 shadow-lg rounded-3xl"
         >
           Siguiente pregunta
         </Link>

@@ -64,7 +64,7 @@ export const AddUserForm = () => {
   //prefill form with user data
   return (
     <form
-      className="p-5 font-sans"
+      className="px-5 pb-28 pt-2 font-sans"
       onSubmit={handleSubmit((data) => sendUserInfo(data))}
     >
       <label className="text-sm ps-2 font-medium tracking-wide" htmlFor="name">
@@ -158,7 +158,7 @@ export const AddUserForm = () => {
       </p>
       <div className="mt-4 mb-20">
         <label className="text-sm ps-2 font-medium tracking-wide">
-          Puntuación
+          Nivel de conocimiento:
         </label>
         <p
           type="text"
@@ -167,21 +167,22 @@ export const AddUserForm = () => {
           id="score"
           className="mt-1 pt-2 border border-form-border tracking-wide text-sm  placeholder:text-black px-3 h-10 bg-terciary focus:outline-none focus:border-2 focus:border-solid rounded-md w-full"
         >
-          {score !== null ? score : "Aún no se ha obtenido un resultado"}
+          {score !== null ? `${score}%` : "Aún no se ha obtenido un resultado"}
         </p>
       </div>
-
-      <button
-        className="mb-5 bg-terciary text-emphasis w-full border border-emphasis px-3 h-10 rounded-2xl hover:outline-none hover:border-2 hover:border-solid"
-        onClick={logout}
-      >
-        Cerrar sesión
-      </button>
-      <input
-        className="mb-10 h-10 drop-shadow w-full bg-primary hover:bg-secondary text-white block  text-center m-auto  shadow-lg rounded-2xl"
-        type="submit"
-        value="Confirmar"
-      />
+      <div className="fixed left-1/2 -translate-x-1/2 bottom-2   w-11/12 m-auto max-w-screen-md">
+        <button
+          className="bg-terciary text-emphasis w-full border border-emphasis px-3 h-10 rounded-2xl hover:outline-none hover:border-2 hover:border-solid "
+          onClick={logout}
+        >
+          Cerrar sesión
+        </button>
+        <input
+          className="mt-2vh mb-8 h-10 drop-shadow w-full bg-primary hover:bg-secondary text-white block  text-center m-auto  shadow-lg rounded-2xl "
+          type="submit"
+          value="Confirmar"
+        />
+      </div>
     </form>
   );
 };

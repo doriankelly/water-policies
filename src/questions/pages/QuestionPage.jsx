@@ -17,7 +17,7 @@ export const QuestionPage = () => {
   const { questionNumber } = useParams();
 
   return (
-    <>
+    <div className="pb-10">
       <div className="flex pt-6 mx-5">
         <button onClick={() => navigate(-1)}>
           <h1>
@@ -43,6 +43,6 @@ export const QuestionPage = () => {
       {questionNumber == 6 && <Question6 />}
       {questionNumber == 7 && <Question7 />}
       {questionNumber == 8 && <Question8 />}
-    </>
+    </div>
   );
 };

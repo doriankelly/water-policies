@@ -72,8 +72,11 @@ export const Question1 = ({ questionNumber }) => {
 
   return (
     <section className="pb-20">
-      <article className="mt-5 mx-4 px-5 py-5 text-center text-white bg-primary rounded-2xl leading-6 text-sm">
-        ¿Qué son las políticas azules?
+      <article className="mt-5 mx-4 px-5 py-5 text-center text-white bg-primary rounded-2xl leading-6 text-sm h-40">
+        <p className="relative top-1/2 -translate-y-1/2">
+          {" "}
+          ¿Qué son las políticas azules?
+        </p>
       </article>
 
       <form
@@ -103,7 +106,7 @@ export const Question1 = ({ questionNumber }) => {
 
         <label
           htmlFor="option2"
-          className={`block mx-4 mt-2vh p-3 bg-terciary rounded text-center font-semibold ${
+          className={`block mx-4 mt-2vh p-3 bg-terciary rounded text-center font-semibold text-base ${
             selectedOption === "option2"
               ? `border-2 ${answerResult}`
               : "border-0"
@@ -161,7 +164,7 @@ export const Question1 = ({ questionNumber }) => {
 
       <button
         onClick={handleSubmit}
-        className={`mt-6 py-2 fixed bottom-4vh left-1/2 -translate-x-1/2   text-white block  text-center m-auto  shadow-lg rounded-2xl w-11/12 ${
+        className={`mt-6 py-3 fixed bottom-10  left-1/2 -translate-x-1/2   text-white block  text-center m-auto  shadow-lg rounded-2xl w-11/12 ${
           selectedOption !== ""
             ? "bg-primary hover:bg-secondary"
             : "bg-gray-400 hover:bg-gray-400"
