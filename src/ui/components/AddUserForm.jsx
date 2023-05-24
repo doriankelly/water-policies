@@ -5,11 +5,12 @@ import { consultation } from "../../api/fetch";
 import { useSelector, useDispatch } from "react-redux";
 import { setVisited } from "../../store/slice/visited/visitedSlice";
 import { useProfileForm } from "../../hooks/useProfileForm";
+import { setUser } from "../../store/slice/user/userSlice";
 
 export const AddUserForm = () => {
 
   const [score, setScore] = useState(null);
-  const [user, setUser] = useState(null);
+  const [userP, setUserP] = useState(null);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -36,7 +37,12 @@ export const AddUserForm = () => {
     register,
     formState: { errors },
   } = useForm();
-
+  {
+    mode: "all";
+  }
+  const sendUserInfo = (data) => {
+    //send user info to fetch/db
+  };
   const getScore = async () => {
     try {
       const userId = localStorage.getItem("id");
@@ -76,10 +82,12 @@ export const AddUserForm = () => {
     getUser();
   }, []);
   
-  const {handleSubmit} = useProfileForm(user?._id)
+  const {handleSubmit} = useProfileForm(userP?._id)
 
   //prefill form with user data
   return (
+
+    <>
     <form
       className="p-5 font-sans"
       onSubmit={handleSubmit}
@@ -97,7 +105,7 @@ export const AddUserForm = () => {
         })}
         type="text"
         placeholder="Nombre"
-        defaultValue={user?.username}
+        defaultValue={userP?.username}
         name="name"
         id="name"
         className="mt-1 border border-form-border tracking-wide text-sm  placeholder:text-black px-3 h-10 bg-terciary focus:outline-none focus:border-2 focus:border-solid rounded-md w-full"
@@ -118,7 +126,7 @@ export const AddUserForm = () => {
         })}
         type="text"
         placeholder="Apellido"
-        defaultValue={user?.userlastname}
+        defaultValue={userP?.userlastname}
         name="surname"
         id="surname"
         className="mt-1 border border-form-border tracking-wide text-sm  placeholder:text-black px-3 h-10 bg-terciary focus:outline-none focus:border-2 focus:border-solid rounded-md w-full"
@@ -133,7 +141,7 @@ export const AddUserForm = () => {
         {...register("ccaa", { required: "Seleccione provincia" })}
         name="ccaa"
         id="ccaa"
-        placeholder={user?.ccaa}
+        placeholder={userP?.ccaa}
         className="mt-1 border border-form-border tracking-wide text-sm   px-2 h-10 bg-terciary focus:outline-none focus:border-2 focus:border-solid rounded-md w-full"
       >
         <option value="">Comunidad Autónoma</option>
@@ -190,7 +198,6 @@ export const AddUserForm = () => {
           {score !== null ? score : "Aún no se ha obtenido un resultado"}
         </p>
       </div>
-
       <button
         className="mb-5 bg-terciary text-emphasis w-full border border-emphasis px-3 h-10 rounded-2xl hover:outline-none hover:border-2 hover:border-solid"
         onClick={logout}
@@ -203,5 +210,7 @@ export const AddUserForm = () => {
         value="Confirmar"
       />
     </form>
+   
+    </>
   );
 };
