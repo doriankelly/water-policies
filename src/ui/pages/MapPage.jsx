@@ -2,12 +2,13 @@ import React from "react";
 import { MapContainerComp } from "../../map/components";
 import backButton from "../../assets/backButton.svg";
 import logoText from "../../assets/logoText.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const MapPage = () => {
+  const navigate = useNavigate();
   return (
     <>
-      <div className="relative top-20 bg-background flex shadow-md z-10">
+      <div className="relative top-9 bg-background flex shadow-md z-10">
         <button className="ms-4" onClick={() => navigate(-1)}>
           <h1>
             <img src={backButton} alt="left arrow" />
