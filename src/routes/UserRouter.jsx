@@ -12,11 +12,13 @@ import {
   FinalResultPage,
 } from "../questions/pages";
 import { GraphicPage } from "../graphic/components/pages/GraphicPage";
+
 export const UserRouter = () => {
   const user = localStorage.getItem("id");
   console.log(user);
   return (
     <Routes>
+      
       <Route path="/" element={<HomePage />} />
       <Route path="/welcome" element={<AssistantPage />} />
       <Route path="/*" element={<Navigate to={"/"} />} />
