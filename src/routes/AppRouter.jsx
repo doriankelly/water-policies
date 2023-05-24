@@ -12,6 +12,7 @@ export const AppRouter = () => {
   const [id, setid] = useState(null)
 
   const { userObject } = useSelector((state) => state.user);
+  console.log(userObject)
   const dispatch = useDispatch();
 
   const getUser =  async () => {
@@ -35,7 +36,7 @@ export const AppRouter = () => {
   return (
     <>
       <Routes>
-      {userObject && userObject===id ? 
+      {userObject && userObject=== `"${id}"` ? 
         <Route path="/*" element={<UserRouter />} />
         :
         <Route path="/*" element={<AuthRouter />} />
