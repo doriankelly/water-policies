@@ -89,8 +89,10 @@ export const AddUserForm = () => {
 
     <>
     <form
+
       className="p-5 font-sans"
       onSubmit={handleSubmit}
+
     >
       <label className="text-sm ps-2 font-medium tracking-wide" htmlFor="name">
         Nombre
@@ -186,7 +188,7 @@ export const AddUserForm = () => {
       </p>
       <div className="mt-4 mb-20">
         <label className="text-sm ps-2 font-medium tracking-wide">
-          Puntuación
+          Nivel de conocimiento:
         </label>
         <p
           type="text"
@@ -195,9 +197,10 @@ export const AddUserForm = () => {
           id="score"
           className="mt-1 pt-2 border border-form-border tracking-wide text-sm  placeholder:text-black px-3 h-10 bg-terciary focus:outline-none focus:border-2 focus:border-solid rounded-md w-full"
         >
-          {score !== null ? score : "Aún no se ha obtenido un resultado"}
+          {score !== null ? `${score}%` : "Aún no se ha obtenido un resultado"}
         </p>
       </div>
+
       <button
         className="mb-5 bg-terciary text-emphasis w-full border border-emphasis px-3 h-10 rounded-2xl hover:outline-none hover:border-2 hover:border-solid"
         onClick={logout}
@@ -209,6 +212,7 @@ export const AddUserForm = () => {
         type="submit"
         value="Confirmar"
       />
+
     </form>
    
     </>

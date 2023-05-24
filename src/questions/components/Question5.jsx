@@ -5,6 +5,7 @@ import { setAnswers } from "../../store/slice/answers/answersSlice";
 import { setScore } from "../../store/slice/score/scoreSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { setLocal } from "../../helpers/localStorage";
+import { setScoreLocal } from "../../helpers/localStorage";
 
 export const Question5 = () => {
   const navigate = useNavigate();
@@ -65,11 +66,19 @@ export const Question5 = () => {
     setLocal(answersObject);
   }, [answersObject]);
 
+  //on any change in scoresObject state, update local storage
+  useEffect(() => {
+    setScoreLocal(scoreObject);
+  }, [scoreObject]);
+
   return (
     <section className="pb-20">
-      <article className="mt-5 mx-4 px-5 py-5 text-center text-white bg-primary rounded-2xl leading-6 text-sm">
-        En mayo de 2023 ¿cuál es la comunidad autónoma que tiene los embalses
-        más vacíos?
+      <article className="mt-5 mx-4 px-5 py-5 text-center text-white bg-primary rounded-2xl leading-6 text-sm h-40">
+        <p className="relative top-1/2 -translate-y-1/2">
+          {" "}
+          En mayo de 2023 ¿cuál es la comunidad autónoma que tiene los embalses
+          más vacíos?
+        </p>
       </article>
 
       <form
@@ -155,7 +164,7 @@ export const Question5 = () => {
 
       <button
         onClick={handleSubmit}
-        className={`mt-6 py-2 fixed bottom-4vh left-1/2 -translate-x-1/2   text-white block  text-center m-auto  shadow-lg rounded-2xl w-11/12 ${
+        className={`mt-6 py-3 fixed bottom-10  left-1/2 -translate-x-1/2   text-white block  text-center m-auto  shadow-lg rounded-2xl w-11/12 ${
           selectedOption !== ""
             ? "bg-primary hover:bg-secondary"
             : "bg-gray-400 hover:bg-gray-400"

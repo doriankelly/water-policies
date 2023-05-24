@@ -12,9 +12,17 @@ export const setLocal = (data) => {
 export const getVisitedLocal = () => {
 
     return JSON.parse(localStorage.getItem("visited")) || {
-        politicsVisited: false,
-        droughtVisited: false,
-        contaminationVisited: false,
+        sequiaMeteorologica: false,
+        sequiaAgricola: false,
+        sequiaSocioeconomica: false,
+        sequiaHidrologica: false,
+        planHidroNacional: false,
+        planCuencaHidro: false,
+        directivoMarca: false,
+        programaReutilizacion: false,
+        reutilizacion: false,
+        embalses: false,
+        suministro: false,
         score: 0
     };
 
