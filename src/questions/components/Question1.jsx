@@ -2,18 +2,22 @@ import { useState, useEffect } from "react";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { setAnswers } from "../../store/slice/answers/answersSlice";
+import { setScore } from "../../store/slice/score/scoreSlice";
+import { setScoreLocal } from "../../helpers/localStorage";
 import { useDispatch, useSelector } from "react-redux";
 import { setLocal } from "../../helpers/localStorage";
 
 export const Question1 = ({ questionNumber }) => {
   const navigate = useNavigate();
-  const correctAnswer = "option1";
+  const correctAnswer = "option2";
   const [selectedOption, setSelectedOption] = useState("");
   const [answerResult, setAnswerResult] = useState("border-black");
   const dispatch = useDispatch();
 
   //collect current answers state
   const { answersObject } = useSelector((state) => state.answers);
+  const { scoreObject } = useSelector((state) => state.score);
+  const { visitedObject } = useSelector((state) => state.visited);
 
   const nextQuestion = () => {
     navigate("/result/1");
@@ -35,6 +39,23 @@ export const Question1 = ({ questionNumber }) => {
     const answer = { question1: selectedOption };
     dispatch(setAnswers(answer));
 
+    //asign weighting
+
+    switch (selectedOption) {
+      case "option1":
+        dispatch(setScore({ ...scoreObject, question1: 0.5 }));
+        break;
+      case "option2":
+        dispatch(setScore({ ...scoreObject, question1: 1 }));
+        break;
+      case "option3":
+        dispatch(setScore({ ...scoreObject, question1: 0.1 }));
+        break;
+      case "option4":
+        dispatch(setScore({ ...scoreObject, question1: 0.2 }));
+        break;
+    }
+
     //after half second, move to feedback page
     setTimeout(nextQuestion, 300);
   };
@@ -44,11 +65,15 @@ export const Question1 = ({ questionNumber }) => {
     setLocal(answersObject);
   }, [answersObject]);
 
+  //on any change in scoresObject state, update local storage
+  useEffect(() => {
+    setScoreLocal(scoreObject);
+  }, [scoreObject]);
+
   return (
     <section className="pb-20">
       <article className="mt-5 mx-4 px-5 py-5 text-center text-white bg-primary rounded-2xl leading-6 text-sm">
-        En las últimas dos décadas. <br /> ¿Cuánta agua crees que consume de
-        media una persona en su casa? (por dia?)
+        ¿Qué son las políticas azules?
       </article>
 
       <form
@@ -65,7 +90,7 @@ export const Question1 = ({ questionNumber }) => {
               : "border-0"
           }`}
         >
-          39,3 litros
+          Las políticas relacionadas con el cielo
           <input
             type="radio"
             id="option1"
@@ -84,7 +109,7 @@ export const Question1 = ({ questionNumber }) => {
               : "border-0"
           }`}
         >
-          33,8 litros
+          Las políticas relacionadas con el agua
           <input
             type="radio"
             id="option2"
@@ -103,7 +128,7 @@ export const Question1 = ({ questionNumber }) => {
               : "border-0"
           }`}
         >
-          53,4 litros
+          Las políticas relacionadas con los colores
           <input
             type="radio"
             id="option3"
@@ -130,7 +155,7 @@ export const Question1 = ({ questionNumber }) => {
             checked={selectedOption === "option4"}
             className="opacity-0 absolute"
           />
-          68,4 litros
+          Las políticas relacionadas con la historia
         </label>
       </form>
 

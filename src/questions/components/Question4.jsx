@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { setAnswers } from "../../store/slice/answers/answersSlice";
+import { setScore } from "../../store/slice/score/scoreSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { setLocal } from "../../helpers/localStorage";
 
 export const Question4 = () => {
   const navigate = useNavigate();
-  const correctAnswer = "option2";
+  const correctAnswer = "option3";
   const [selectedOption, setSelectedOption] = useState("");
 
   const [answerResult, setAnswerResult] = useState("border-black");
@@ -15,6 +16,7 @@ export const Question4 = () => {
 
   //collect current answers state
   const { answersObject } = useSelector((state) => state.answers);
+  const { scoreObject } = useSelector((state) => state.score);
 
   const nextQuestion = () => {
     navigate("/result/4");
@@ -37,6 +39,22 @@ export const Question4 = () => {
     const answer = { ...answersObject, question4: selectedOption };
     dispatch(setAnswers(answer));
 
+    //asign weighting
+
+    switch (selectedOption) {
+      case "option1":
+        dispatch(setScore({ ...scoreObject, question4: 0.5 }));
+        break;
+      case "option2":
+        dispatch(setScore({ ...scoreObject, question4: 0.2 }));
+        break;
+      case "option3":
+        dispatch(setScore({ ...scoreObject, question4: 1 }));
+        break;
+      case "option4":
+        dispatch(setScore({ ...scoreObject, question4: 0.1 }));
+        break;
+    }
     //after half second, move to feedback page
     setTimeout(nextQuestion, 300);
   };
@@ -49,8 +67,8 @@ export const Question4 = () => {
   return (
     <section className="pb-20">
       <article className="mt-5 mx-4 px-5 py-5 text-center text-white bg-primary rounded-2xl leading-6 text-sm">
-        ¿Cuál es el porcentaje de reutilización de aguas residuales tratadas en
-        España?
+        En las últimas dos décadas, ¿cuántos litros de agua crees que consume de
+        media una persona en su casa?
       </article>
 
       <form
@@ -67,7 +85,7 @@ export const Question4 = () => {
               : "border-0"
           }`}
         >
-          25%
+          33,8
           <input
             type="radio"
             id="option1"
@@ -86,7 +104,7 @@ export const Question4 = () => {
               : "border-0"
           }`}
         >
-          9,96%
+          53,4
           <input
             type="radio"
             id="option2"
@@ -105,7 +123,7 @@ export const Question4 = () => {
               : "border-0"
           }`}
         >
-          50,3%
+          39,3
           <input
             type="radio"
             id="option3"
@@ -132,7 +150,7 @@ export const Question4 = () => {
             checked={selectedOption === "option4"}
             className="opacity-0 absolute"
           />
-          5%
+          68,4
         </label>
       </form>
 

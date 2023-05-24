@@ -1,10 +1,14 @@
 import { useState } from "react";
+
 import { useNavigate } from "react-router-dom";
+
 
 export const useLogin = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+
   const navigate = useNavigate();
+
 
   const login = async (email, password, provider) => {
     setLoading(true);
@@ -41,8 +45,10 @@ export const useLogin = () => {
       localStorage.setItem("date", data.user.date);
       localStorage.setItem("__v", data.user.__v);
 
+
       // Redireccionar a /welcome utilizando useNavigate
       navigate("/welcome");
+
 
       setLoading(false);
     } catch (error) {

@@ -4,16 +4,20 @@ import { useState, useEffect } from "react";
 import { consultation } from "../../api/fetch";
 
 export const FinalFeedback = () => {
-  const [userAnswers, setUserAnswers] = useState("");
+  //const [userAnswers, setUserAnswers] = useState("");
   const [counter, setCounter] = useState(0);
+  const [scoreCounter, setScoreCounter] = useState(0);
+
   //collect current answers state
   const { answersObject } = useSelector((state) => state.answers);
+  //collect score
+  const { scoreObject } = useSelector((state) => state.score);
   //collect current visited pages state
-  const { visitedObject } = useSelector((state) => state.visited);
+  //const { visitedObject } = useSelector((state) => state.visited);
 
-  useEffect(() => {
-    setUserAnswers({ ...answersObject });
-  }, []);
+  // useEffect(() => {
+  //   setUserAnswers({ ...answersObject });
+  // }, []);
 
   //correct answers
   const answers = {
@@ -23,14 +27,25 @@ export const FinalFeedback = () => {
     question4: "option2",
   };
 
-  //calculate score
+  //calculate number of questions correct
   useEffect(() => {
     for (const key in answers) {
-      if (userAnswers[key] === answers[key]) {
+      if (answersObject[key] === answers[key]) {
         setCounter((previousNumber) => previousNumber + 1);
       }
     }
-  }, [userAnswers]);
+  }, []);
 
-  return <p>{`final result: Acertaste ${counter} preguntas!`}</p>;
+  return (
+    <div className="relative top-1/2 -translate-y-1/2">
+      <h1 className="mb-9 font-semibold text-center text-7xl">{`${scoreObject.finalScore}%`}</h1>
+      <p className="text-center mx-3">
+        Este es tu nivel de conocimiento sobre políticas azules, buenos usos del
+        agua y su importancia.
+      </p>
+      <p className="mx-3 my-4 text-center font-bold">
+        Muchas gracias por participar.
+      </p>
+    </div>
+  );
 };

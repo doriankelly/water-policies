@@ -1,14 +1,30 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
+import { consultation } from "../../api/fetch";
+import { useSelector, useDispatch } from "react-redux";
+import { setVisited } from "../../store/slice/visited/visitedSlice";
+import { setUser } from "../../store/slice/user/userSlice";
 export const AddUserForm = () => {
+  const [score, setScore] = useState(null);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  //collect current visited pages state
+  const { visitedObject } = useSelector((state) => state.visited);
 
   //manage logout
   const logout = () => {
-    localStorage.removeItem("answers");
-    localStorage.removeItem("visited");
+    const visitedPages = {
+      ...visitedObject,
+      droughtVisited: false,
+      contaminationVisited: false,
+      politicsVisited: false,
+      score: 0,
+    };
+    dispatch(setVisited(visitedPages));
+
+    localStorage.clear();
+    dispatch(setUser(null));
     navigate("/");
   };
   //capture text inputs with react hook
@@ -24,6 +40,26 @@ export const AddUserForm = () => {
   const sendUserInfo = (data) => {
     //send user info to fetch/db
   };
+
+  const getScore = async () => {
+    try {
+      const userId = localStorage.getItem("id");
+      if (userId) {
+        const url = `https://h2ohback.onrender.com/api/v1/entries/${userId}`;
+        const request = await consultation(url);
+        const score = request.data.score;
+        if (!isNaN(score)) {
+          setScore(score);
+        }
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    getScore();
+  }, []);
 
   //prefill form with user data
   return (
@@ -75,9 +111,9 @@ export const AddUserForm = () => {
         Comunidad Autónoma
       </label>
       <select
-        {...register("province", { required: "Seleccione provincia" })}
-        name="province"
-        id="province"
+        {...register("ccaa", { required: "Seleccione provincia" })}
+        name="ccaa"
+        id="ccaa"
         className="mt-1 border border-form-border tracking-wide text-sm   px-2 h-10 bg-terciary focus:outline-none focus:border-2 focus:border-solid rounded-md w-full"
       >
         <option value="">Comunidad Autónoma</option>
@@ -102,7 +138,7 @@ export const AddUserForm = () => {
         <option value="melilla">Melilla</option>
       </select>
       <p className="mb-4 font-thin italic text-emphasis">
-        {errors.province?.message}
+        {errors.ccaa?.message}
       </p>
       <label className="text-sm ps-2 font-medium tracking-wide" htmlFor="name">
         Ciudad
@@ -117,9 +153,24 @@ export const AddUserForm = () => {
         id="city"
         className="mt-1 border border-form-border tracking-wide text-sm  placeholder:text-black px-3 h-10 bg-terciary focus:outline-none focus:border-2 focus:border-solid rounded-md w-full"
       />
-      <p className="mb-24 font-thin italic text-emphasis">
+      <p className=" font-thin italic text-emphasis">
         {errors.surname?.message}
       </p>
+      <div className="mt-4 mb-20">
+        <label className="text-sm ps-2 font-medium tracking-wide">
+          Puntuación
+        </label>
+        <p
+          type="text"
+          placeholder="Aún no se ha obtenido un resultado"
+          name="score"
+          id="score"
+          className="mt-1 pt-2 border border-form-border tracking-wide text-sm  placeholder:text-black px-3 h-10 bg-terciary focus:outline-none focus:border-2 focus:border-solid rounded-md w-full"
+        >
+          {score !== null ? score : "Aún no se ha obtenido un resultado"}
+        </p>
+      </div>
+
       <button
         className="mb-5 bg-terciary text-emphasis w-full border border-emphasis px-3 h-10 rounded-2xl hover:outline-none hover:border-2 hover:border-solid"
         onClick={logout}

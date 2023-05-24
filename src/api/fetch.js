@@ -1,8 +1,8 @@
 export const consultation = async (url, method, body = {}) => {
-  console.log("page mounted")
+
   let options = {};
   const data = { ...body };
-
+  console.log(data)
   try {
 
     if (method === 'POST' || method === 'PUT') {
