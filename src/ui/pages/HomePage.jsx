@@ -200,7 +200,7 @@ export const HomePage = () => {
           </Link>
         </section>
       </div>
-      <div className="info pb-16" ref={info}>
+      <div className="info" ref={info}>
         {infoTopic == "sequiaMeteorologica" && <SequiaMeteor />}
         {infoTopic == "sequiaAgricola" && <SequiaAgricola />}
         {infoTopic == "sequiaSocioeconomica" && <SequiaSocio />}

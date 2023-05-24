@@ -1,9 +1,9 @@
 import React from "react";
 import martillo from "../../../assets/martillo.png";
-import sequiaMeteor from "../../../assets/homePageButtons/sequiaMeteor.png";
-import sequiaAgricola from "../../../assets/homePageButtons/sequiaAgricola.png";
-import sequiaSocio from "../../../assets/homePageButtons/sequiaSocio.png";
-import sequiaHidro from "../../../assets/homePageButtons/sequiaHidro.png";
+import sequiaMeteor from "../../../assets/homePageButtons/sequiaMeteor.svg";
+import sequiaAgricola from "../../../assets/homePageButtons/sequiaAgricola.svg";
+import sequiaSocio from "../../../assets/homePageButtons/sequiaSocio.svg";
+import sequiaHidro from "../../../assets/homePageButtons/sequiaHidro.svg";
 
 export const DroughtCards = ({ handleClick }) => {
   return (
@@ -13,7 +13,7 @@ export const DroughtCards = ({ handleClick }) => {
         onClick={handleClick}
         className="m-0 z-10 mb-4 mt-7 drop-shadow w-11/12 border border-terciary bg-terciary hover:bg-primary text-darkBlue font-semibold block  text-center m-auto shadow-lg rounded-2xl"
       >
-        <div className="h-24 overflow-hidden">
+        <div className="h-24 sm:h-40 overflow-hidden">
           <img
             className="w-full rounded-t-2xl "
             src={sequiaMeteor}
@@ -27,7 +27,7 @@ export const DroughtCards = ({ handleClick }) => {
         onClick={handleClick}
         className="mb-8 drop-shadow w-11/12 border border-terciary bg-terciary hover:bg-primary text-darkBlue font-semibold block text-center m-auto shadow-lg rounded-2xl"
       >
-        <div className="h-24 overflow-hidden">
+        <div className="h-24 sm:h-40 overflow-hidden">
           <img
             className="w-full rounded-t-2xl"
             src={sequiaAgricola}
@@ -41,7 +41,7 @@ export const DroughtCards = ({ handleClick }) => {
         onClick={handleClick}
         className="mb-8 drop-shadow w-11/12 border border-terciary bg-terciary hover:bg-primary text-darkBlue font-semibold block text-center m-auto shadow-lg rounded-2xl"
       >
-        <div className="h-24 overflow-hidden">
+        <div className="h-24 sm:h-40 overflow-hidden">
           <img
             className="w-full rounded-t-2xl"
             src={sequiaSocio}
@@ -55,7 +55,7 @@ export const DroughtCards = ({ handleClick }) => {
         onClick={handleClick}
         className="mb-8 drop-shadow w-11/12 border border-terciary bg-terciary hover:bg-primary text-darkBlue font-semibold block text-center m-auto shadow-lg rounded-2xl"
       >
-        <div className="h-24 overflow-hidden">
+        <div className="h-24 sm:h-40 overflow-hidden">
           <img
             className="w-full rounded-t-2xl"
             src={sequiaHidro}
