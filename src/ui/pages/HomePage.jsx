@@ -37,7 +37,7 @@ export const HomePage = () => {
   //collect current visited pages state
   const { visitedObject } = useSelector((state) => state.visited);
   const dispatch = useDispatch();
-  const [infoButtons, setInfoButtons] = useState("policies");
+  const [infoButtons, setInfoButtons] = useState("embalses");
   const [infoTopic, setInfoTopic] = useState("");
   const info = useRef(null);
 
@@ -83,7 +83,9 @@ export const HomePage = () => {
   return (
     <>
       <div
-        className={`bg-backgroundPrimary ${infoTopic == "" && "min-h-screen"} `}
+        className={`bg-backgroundPrimary ${
+          infoTopic == "" && "min-h-screen pb-20"
+        } `}
       >
         <section className="z-101 pb-10">
           <hgroup className="flex justify-between pt-10">
@@ -105,35 +107,39 @@ export const HomePage = () => {
             <button
               id="policies"
               onClick={changeCategory}
-              className="my-1 ms-2 py-1 px-3 border border-white bg-small-button/80 hover:bg-secondary  text-center  text-xs rounded-3xl font-semibold"
+              className="my-1 ms-2 py-1 px-3 border border-white bg-small-button/80 hover:bg-secondary hover:text-white  text-center  text-xs rounded-3xl font-medium"
             >
               Políticas azules
             </button>
             <button
               id="embalses"
               onClick={changeCategory}
-              className="my-1 ms-2 py-1 px-3 border border-white bg-small-button/80 hover:bg-secondary  text-center  text-xs rounded-3xl font-semibold"
+              className={`my-1 ms-2 py-1 px-3 border border-white  ${
+                infoButtons == "embalses"
+                  ? "bg-secondary text-white"
+                  : "bg-small-button text-black"
+              }  text-center  text-xs rounded-3xl font-medium`}
             >
               Embalses
             </button>
             <button
               id="drought"
               onClick={changeCategory}
-              className="my-1 ms-2 py-1 px-3 border border-white bg-small-button/80 hover:bg-secondary  text-center  text-xs rounded-3xl font-semibold"
+              className="my-1 ms-2 py-1 px-3 border border-white bg-small-button hover:bg-secondary hover:text-white  text-center  text-xs rounded-3xl font-medium"
             >
               Sequía
             </button>
             <button
               id="reutilizacion"
               onClick={changeCategory}
-              className="my-1 ms-2  py-1 px-3 border border-white bg-small-button/80 hover:bg-secondary  text-center  text-xs rounded-3xl font-semibold"
+              className="my-1 ms-2  py-1 px-3 border border-white bg-small-button hover:bg-secondary hover:text-white  text-center  text-xs rounded-3xl font-medium"
             >
               Reutilización de agua
             </button>
             <button
               id="suministro"
               onClick={changeCategory}
-              className="my-1 ms-2 py-1 px-3 border border-white bg-small-button/80 hover:bg-secondary  text-center  text-xs rounded-3xl font-semibold"
+              className="my-1 ms-2 py-1 px-3 border border-white bg-small-button hover:bg-secondary hover:text-white  text-center  text-xs rounded-3xl font-medium"
             >
               Suministro de agua
             </button>
@@ -154,28 +160,11 @@ export const HomePage = () => {
             <SuministroCards handleClick={handleClick} />
           )}
 
-          <div className="border-t border-secondary w-11/12 block m-auto"></div>
-          <div className="mt-3 mx-3 mb-2 flex justify-between">
-            <p className="text-xs font-bold text-darkBlue">
-              Reservas de agua en España
-            </p>
-            <Link to="/viewmap" className="text-xs text-darkBlue font-semibold">
-              Ver mapa
-            </Link>
-          </div>
-          <div className="relative bg-white h-64  w-full text-center border">
-            <div className="absolute top-0 bottom-0 left-0 right-0 z-0">
-              <MapContainerComp />
-            </div>
-          </div>
-
-          <div className="border-t border-secondary w-11/12 block m-auto"></div>
+          <div className="border-t my-4 border-secondary mx-4 block m-auto"></div>
 
           <div className="mt-3 mx-3 mb-2 flex justify-between">
-            <p className="text-xs font-bold text-darkBlue">
-              Reservas de agua en España
-            </p>
-            <Link to="/viewmap" className="text-xs text-darkBlue font-semibold">
+            <p className="text-xs font-bold text-darkBlue">Modelo predictivo</p>
+            <Link to="/graphic" className="text-xs text-darkBlue font-medium">
               Ver Gráfico
             </Link>
           </div>
@@ -186,6 +175,21 @@ export const HomePage = () => {
             </div>
           </div>
 
+          <div className="border-t my-4 border-secondary mx-4 block m-auto"></div>
+
+          <div className="mt-3 mx-3 mb-2 flex justify-between">
+            <p className="text-xs font-bold text-darkBlue">
+              Reservas de agua en España
+            </p>
+            <Link to="/viewmap" className="text-xs text-darkBlue font-medium">
+              Ver mapa
+            </Link>
+          </div>
+          <div className="relative bg-white h-64  w-full text-center border">
+            <div className="absolute top-0 bottom-0 left-0 right-0 z-0">
+              <MapContainerComp />
+            </div>
+          </div>
           <Link
             to="/quiz/1"
             className="fixed left-1/2 -translate-x-1/2 bottom-2  z-10 my-10 py-3 drop-shadow  w-11/12 bg-primary hover:bg-secondary text-white block  text-center m-auto  shadow-lg rounded-3xl"

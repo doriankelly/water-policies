@@ -11,7 +11,7 @@ export const PolicyCards = ({ handleClick }) => {
       <button
         id="planHidroNacional"
         onClick={handleClick}
-        className="m-0 z-10 mb-4 mt-7 drop-shadow w-11/12 border border-terciary bg-terciary hover:bg-primary text-darkBlue font-semibold block  text-center m-auto shadow-lg rounded-3xl"
+        className="m-0 z-10 mb-2 mt-4 drop-shadow w-11/12 border border-terciary bg-terciary hover:bg-primary text-darkBlue font-medium block  text-center m-auto shadow-lg rounded-3xl"
       >
         <div className="h-24 sm:h-40 overflow-hidden">
           <img
@@ -25,7 +25,7 @@ export const PolicyCards = ({ handleClick }) => {
       <button
         id="planCuencaHidro"
         onClick={handleClick}
-        className="m-0 z-10 mb-4 mt-7 drop-shadow w-11/12 border border-terciary bg-terciary hover:bg-primary text-darkBlue font-semibold block  text-center m-auto shadow-lg rounded-3xl"
+        className="m-0 z-10 mb-2  drop-shadow w-11/12 border border-terciary bg-terciary hover:bg-primary text-darkBlue font-medium block  text-center m-auto shadow-lg rounded-3xl"
       >
         <div className="h-24  sm:h-40 overflow-hidden">
           <img
@@ -39,7 +39,7 @@ export const PolicyCards = ({ handleClick }) => {
       <button
         id="directivoMarca"
         onClick={handleClick}
-        className="m-0 z-10 mb-4 mt-7 drop-shadow w-11/12 border border-terciary bg-terciary hover:bg-primary text-darkBlue font-semibold block  text-center m-auto shadow-lg rounded-3xl"
+        className="m-0 z-10 mb-2  drop-shadow w-11/12 border border-terciary bg-terciary hover:bg-primary text-darkBlue font-medium block  text-center m-auto shadow-lg rounded-3xl"
       >
         <div className="h-24 sm:h-40 overflow-hidden">
           <img
@@ -53,7 +53,7 @@ export const PolicyCards = ({ handleClick }) => {
       <button
         id="programaReutilizacion"
         onClick={handleClick}
-        className="m-0 z-10 mb-4 mt-7 drop-shadow w-11/12 border border-terciary bg-terciary hover:bg-primary text-darkBlue font-semibold block  text-center m-auto shadow-lg rounded-3xl"
+        className="m-0 z-10 mb-7 drop-shadow w-11/12 border border-terciary bg-terciary hover:bg-primary text-darkBlue font-medium block  text-center m-auto shadow-lg rounded-3xl"
       >
         <div className="h-24 sm:h-40 overflow-hidden">
           <img
