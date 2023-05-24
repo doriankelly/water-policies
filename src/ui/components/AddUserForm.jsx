@@ -4,11 +4,16 @@ import { useNavigate } from "react-router-dom";
 import { consultation } from "../../api/fetch";
 import { useSelector, useDispatch } from "react-redux";
 import { setVisited } from "../../store/slice/visited/visitedSlice";
+import { useProfileForm } from "../../hooks/useProfileForm";
 import { setUser } from "../../store/slice/user/userSlice";
+
 export const AddUserForm = () => {
+
   const [score, setScore] = useState(null);
+  const [userP, setUserP] = useState(null);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   //collect current visited pages state
   const { visitedObject } = useSelector((state) => state.visited);
 
@@ -31,16 +36,13 @@ export const AddUserForm = () => {
   const {
     register,
     formState: { errors },
-    handleSubmit,
   } = useForm();
   {
     mode: "all";
   }
-
   const sendUserInfo = (data) => {
     //send user info to fetch/db
   };
-
   const getScore = async () => {
     try {
       const userId = localStorage.getItem("id");
@@ -61,11 +63,36 @@ export const AddUserForm = () => {
     getScore();
   }, []);
 
+  const getUser = async () => {
+    try {
+      const userId = localStorage.getItem("id");
+      if (userId) {
+        const url = `https://h2ohback.onrender.com/api/v1/auth/${userId}`;
+        const request = await consultation(url);
+        const user = request.user;
+        setUser(user)
+       
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    getUser();
+  }, []);
+  
+  const {handleSubmit} = useProfileForm(userP?._id)
+
   //prefill form with user data
   return (
+
+    <>
     <form
-      className="px-5 pb-28 pt-2 font-sans"
-      onSubmit={handleSubmit((data) => sendUserInfo(data))}
+
+      className="p-5 font-sans"
+      onSubmit={handleSubmit}
+
     >
       <label className="text-sm ps-2 font-medium tracking-wide" htmlFor="name">
         Nombre
@@ -80,6 +107,7 @@ export const AddUserForm = () => {
         })}
         type="text"
         placeholder="Nombre"
+        defaultValue={userP?.username}
         name="name"
         id="name"
         className="mt-1 border border-form-border tracking-wide text-sm  placeholder:text-black px-3 h-10 bg-terciary focus:outline-none focus:border-2 focus:border-solid rounded-md w-full"
@@ -100,6 +128,7 @@ export const AddUserForm = () => {
         })}
         type="text"
         placeholder="Apellido"
+        defaultValue={userP?.userlastname}
         name="surname"
         id="surname"
         className="mt-1 border border-form-border tracking-wide text-sm  placeholder:text-black px-3 h-10 bg-terciary focus:outline-none focus:border-2 focus:border-solid rounded-md w-full"
@@ -114,6 +143,7 @@ export const AddUserForm = () => {
         {...register("ccaa", { required: "Seleccione provincia" })}
         name="ccaa"
         id="ccaa"
+        placeholder={userP?.ccaa}
         className="mt-1 border border-form-border tracking-wide text-sm   px-2 h-10 bg-terciary focus:outline-none focus:border-2 focus:border-solid rounded-md w-full"
       >
         <option value="">Comunidad Autónoma</option>
@@ -170,19 +200,21 @@ export const AddUserForm = () => {
           {score !== null ? `${score}%` : "Aún no se ha obtenido un resultado"}
         </p>
       </div>
-      <div className="fixed left-1/2 -translate-x-1/2 bottom-2   w-11/12 m-auto max-w-screen-md">
-        <button
-          className="bg-terciary text-emphasis w-full border border-emphasis px-3 h-10 rounded-2xl hover:outline-none hover:border-2 hover:border-solid "
-          onClick={logout}
-        >
-          Cerrar sesión
-        </button>
-        <input
-          className="mt-2vh mb-8 h-10 drop-shadow w-full bg-primary hover:bg-secondary text-white block  text-center m-auto  shadow-lg rounded-2xl "
-          type="submit"
-          value="Confirmar"
-        />
-      </div>
+
+      <button
+        className="mb-5 bg-terciary text-emphasis w-full border border-emphasis px-3 h-10 rounded-2xl hover:outline-none hover:border-2 hover:border-solid"
+        onClick={logout}
+      >
+        Cerrar sesión
+      </button>
+      <input
+        className="mb-10 h-10 drop-shadow w-full bg-primary hover:bg-secondary text-white block  text-center m-auto  shadow-lg rounded-2xl"
+        type="submit"
+        value="Confirmar"
+      />
+
     </form>
+   
+    </>
   );
 };
