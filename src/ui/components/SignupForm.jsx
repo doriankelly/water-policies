@@ -143,7 +143,9 @@ export const SignupForm = () => {
         </div>
       </div>
 
-      <footer className="fixed inset-x-0 bottom-0 flex justify-center items-center">Términos y condiciones</footer>
+      <footer className="fixed inset-x-0 bottom-0 flex justify-center items-center">
+        <Link to="/terms">Términos y condiciones</Link>
+      </footer>
     </div>
   );
 };

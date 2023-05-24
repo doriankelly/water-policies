@@ -47,7 +47,7 @@ export const useLogin = () => {
 
 
       // Redireccionar a /welcome utilizando useNavigate
-      window.location.href = "https://flourishing-sable-f526bd.netlify.app"
+      window.location.href = "http://localhost:5173/"
 
 
       setLoading(false);
