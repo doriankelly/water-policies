@@ -12,8 +12,6 @@ import { setVisitedLocal } from "../../helpers/localStorage";
 import { DroughtCards } from "../components/homepageButtons/DroughtCards";
 import { DroughtLegislation } from "../components/homepageCards/DroughtLegislation";
 
-import { ContaminationCards } from "../components/homepageButtons/ContaminationCards";
-import { ContaminationInfo } from "../components/homepageCards/ContaminationInfo";
 import { Graphic } from "../../graphic/components/Graphic";
 
 import { PolicyCards } from "../components/homepageButtons/PolicyCards";
@@ -34,7 +32,6 @@ import { Reutilizacion } from "../components/homepageCards/Reutilizacion";
 import { Embalses } from "../components/homepageCards/Embalses";
 import { Suministro } from "../components/homepageCards/Suministro";
 //--politicas azules
-
 
 export const HomePage = () => {
   //collect current visited pages state
@@ -172,25 +169,22 @@ export const HomePage = () => {
             </div>
           </div>
 
-
           <div className="border-t border-secondary w-11/12 block m-auto"></div>
 
-<div className="mt-3 mx-3 mb-2 flex justify-between">
-  <p className="text-xs font-bold text-darkBlue">
-    Reservas de agua en España
-  </p>
-  <Link to="/viewmap" className="text-xs text-darkBlue font-semibold">
-    Ver Gráfico
-  </Link>
-</div>
+          <div className="mt-3 mx-3 mb-2 flex justify-between">
+            <p className="text-xs font-bold text-darkBlue">
+              Reservas de agua en España
+            </p>
+            <Link to="/viewmap" className="text-xs text-darkBlue font-semibold">
+              Ver Gráfico
+            </Link>
+          </div>
 
-<div className="relative bg-white h-64  w-full text-center border">
-  <div className="absolute top-0 bottom-0 left-0 right-0 z-0">
-    <Graphic />
-  </div>
-</div>
-
-
+          <div className="relative bg-white h-64  w-full text-center border">
+            <div className="absolute top-0 bottom-0 left-0 right-0 z-0">
+              <Graphic />
+            </div>
+          </div>
 
           <Link
             to="/quiz/1"
