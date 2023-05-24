@@ -13,6 +13,7 @@ import { DroughtCards } from "../components/homepageButtons/DroughtCards";
 import { DroughtLegislation } from "../components/homepageCards/DroughtLegislation";
 import { ContaminationCards } from "../components/homepageButtons/ContaminationCards";
 import { ContaminationInfo } from "../components/homepageCards/ContaminationInfo";
+import { Graphic } from "../../graphic/components/Graphic";
 
 export const HomePage = () => {
   //collect current visited pages state
@@ -135,6 +136,27 @@ export const HomePage = () => {
               <MapContainerComp />
             </div>
           </div>
+
+
+          <div className="border-t border-secondary w-11/12 block m-auto"></div>
+
+<div className="mt-3 mx-3 mb-2 flex justify-between">
+  <p className="text-xs font-bold text-darkBlue">
+    Reservas de agua en España
+  </p>
+  <Link to="/viewmap" className="text-xs text-darkBlue font-semibold">
+    Ver Gráfico
+  </Link>
+</div>
+
+<div className="relative bg-white h-64  w-full text-center border">
+  <div className="absolute top-0 bottom-0 left-0 right-0 z-0">
+    <Graphic />
+  </div>
+</div>
+
+
+
           <Link
             to="/quiz/1"
             className="fixed left-1/2 -translate-x-1/2 bottom-2  z-10 my-10 py-3 drop-shadow  w-11/12 bg-primary hover:bg-secondary text-white block  text-center m-auto  shadow-lg rounded-3xl"
