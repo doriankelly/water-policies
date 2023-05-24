@@ -4,11 +4,15 @@ import { useNavigate } from "react-router-dom";
 import { consultation } from "../../api/fetch";
 import { useSelector, useDispatch } from "react-redux";
 import { setVisited } from "../../store/slice/visited/visitedSlice";
-import { setUser } from "../../store/slice/user/userSlice";
+import { useProfileForm } from "../../hooks/useProfileForm";
+
 export const AddUserForm = () => {
+
   const [score, setScore] = useState(null);
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   //collect current visited pages state
   const { visitedObject } = useSelector((state) => state.visited);
 
@@ -31,15 +35,7 @@ export const AddUserForm = () => {
   const {
     register,
     formState: { errors },
-    handleSubmit,
   } = useForm();
-  {
-    mode: "all";
-  }
-
-  const sendUserInfo = (data) => {
-    //send user info to fetch/db
-  };
 
   const getScore = async () => {
     try {
@@ -61,11 +57,32 @@ export const AddUserForm = () => {
     getScore();
   }, []);
 
+  const getUser = async () => {
+    try {
+      const userId = localStorage.getItem("id");
+      if (userId) {
+        const url = `https://h2ohback.onrender.com/api/v1/auth/${userId}`;
+        const request = await consultation(url);
+        const user = request.user;
+        setUser(user)
+       
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    getUser();
+  }, []);
+  
+  const {handleSubmit} = useProfileForm(user?._id)
+
   //prefill form with user data
   return (
     <form
       className="p-5 font-sans"
-      onSubmit={handleSubmit((data) => sendUserInfo(data))}
+      onSubmit={handleSubmit}
     >
       <label className="text-sm ps-2 font-medium tracking-wide" htmlFor="name">
         Nombre
@@ -80,6 +97,7 @@ export const AddUserForm = () => {
         })}
         type="text"
         placeholder="Nombre"
+        defaultValue={user?.username}
         name="name"
         id="name"
         className="mt-1 border border-form-border tracking-wide text-sm  placeholder:text-black px-3 h-10 bg-terciary focus:outline-none focus:border-2 focus:border-solid rounded-md w-full"
@@ -100,6 +118,7 @@ export const AddUserForm = () => {
         })}
         type="text"
         placeholder="Apellido"
+        defaultValue={user?.userlastname}
         name="surname"
         id="surname"
         className="mt-1 border border-form-border tracking-wide text-sm  placeholder:text-black px-3 h-10 bg-terciary focus:outline-none focus:border-2 focus:border-solid rounded-md w-full"
@@ -114,6 +133,7 @@ export const AddUserForm = () => {
         {...register("ccaa", { required: "Seleccione provincia" })}
         name="ccaa"
         id="ccaa"
+        placeholder={user?.ccaa}
         className="mt-1 border border-form-border tracking-wide text-sm   px-2 h-10 bg-terciary focus:outline-none focus:border-2 focus:border-solid rounded-md w-full"
       >
         <option value="">Comunidad Autónoma</option>
