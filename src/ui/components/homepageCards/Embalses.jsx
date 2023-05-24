@@ -1,5 +1,5 @@
 import vector from "../../../assets/vector.png";
-import embalses from "../../../assets/homePageButtons/embalses.png";
+import embalses from "../../../assets/homePageButtons/embalses.svg";
 import embalsesCapacidad from "../../../assets/homePageButtons/embalsesCapacidad.png";
 
 import { useState } from "react";
@@ -12,7 +12,7 @@ export const Embalses = () => {
     setShowShare(!showShare);
   };
   return (
-    <section className="">
+    <section className="bg-terciary pb-16">
       <div>
         <img
           className="w-full"
@@ -23,11 +23,11 @@ export const Embalses = () => {
       <h2 className="m-4 font-semibold">Embalses </h2>
       <article>
         <div className="flex flex-wrap justify-start mx-3 md:justify-center ">
-          <p className="my-1 ms-2 py-1 px-3 border border-white bg-small-button/80  text-center  text-xs rounded-3xl font-semibold">
+          <p className="my-1 ms-2 py-1 px-4 bg-primary text-white  text-center  text-xs rounded-3xl font-medium">
             Embalses
           </p>
         </div>
-        <p className="m-4 pt-4 border-t border-secondary text-sm">
+        <p className="m-4 pt-4 border-t border-secondary text-sm ">
           España cuenta con una amplia red de embalses distribuidos por todo el
           territorio. Cumplen diversas funciones, como el abastecimiento de agua
           potable, la regulación del caudal de los ríos, la generación de
@@ -42,7 +42,7 @@ export const Embalses = () => {
           abastecen a grandes áreas y generan electricidad a gran escala.
         </p>
         <h3 className="ms-4 mb-4 text-sm font-semibold">
-          Consumo medio por habitante (m3)
+          Capacidad de los embalses en hm3 2020
         </h3>
         <div className="block m-auto mx-6">
           <img className="w-full" src={embalsesCapacidad} alt="drought graph" />

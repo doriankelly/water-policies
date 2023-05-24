@@ -1,5 +1,5 @@
 import vector from "../../../assets/vector.png";
-import recycle from "../../../assets/homePageButtons/recycle.png";
+import recycle from "../../../assets/homePageButtons/recycle.svg";
 import recycleGraph from "../../../assets/homePageButtons/recycleGraph.png";
 
 import { useState } from "react";
@@ -12,7 +12,7 @@ export const Reutilizacion = () => {
     setShowShare(!showShare);
   };
   return (
-    <section className="">
+    <section className="bg-terciary pb-16">
       <div>
         <img
           className="w-full"
@@ -23,7 +23,7 @@ export const Reutilizacion = () => {
       <h2 className="m-4 font-semibold">Reutilización de agua </h2>
       <article>
         <div className="flex flex-wrap justify-start mx-3 md:justify-center ">
-          <p className="my-1 ms-2 py-1 px-3 border border-white bg-small-button/80  text-center  text-xs rounded-3xl font-semibold">
+          <p className="my-1 ms-2 py-1 px-4 bg-primary text-white  text-center  text-xs rounded-3xl font-medium">
             Reutilización
           </p>
         </div>

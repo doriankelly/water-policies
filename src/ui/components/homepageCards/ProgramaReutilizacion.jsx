@@ -1,5 +1,5 @@
 import vector from "../../../assets/vector.png";
-import programaReutil from "../../../assets/homePageButtons/programaReutil.png";
+import programaReutil from "../../../assets/homePageButtons/programaReutil.svg";
 
 import { useState } from "react";
 import { ShareButtons } from "../ShareButtons";
@@ -11,7 +11,7 @@ export const ProgramaReutilizacion = () => {
     setShowShare(!showShare);
   };
   return (
-    <section className="">
+    <section className="bg-terciary pb-16">
       <div>
         <img
           className="w-full"
@@ -24,7 +24,7 @@ export const ProgramaReutilizacion = () => {
       </h2>
       <article>
         <div className="flex flex-wrap justify-start mx-3 md:justify-center ">
-          <p className="my-1 ms-2 py-1 px-3 border border-white bg-small-button/80  text-center  text-xs rounded-3xl font-semibold">
+          <p className="my-1 ms-2 py-1 px-4 bg-primary text-white  text-center  text-xs rounded-3xl font-medium">
             Políticas azules
           </p>
         </div>

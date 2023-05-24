@@ -1,5 +1,5 @@
 import infoCard from "../../../assets/infoCard.png";
-import sequiaMeteor from "../../../assets/homePageButtons/sequiaMeteor.png";
+import sequiaMeteor from "../../../assets/homePageButtons/sequiaMeteor.svg";
 import vector from "../../../assets/vector.png";
 import { useState } from "react";
 import { ShareButtons } from "../ShareButtons";
@@ -11,7 +11,7 @@ export const SequiaMeteor = () => {
     setShowShare(!showShare);
   };
   return (
-    <section className="">
+    <section className="bg-terciary pb-16">
       <div>
         <img
           className="w-full"
@@ -22,7 +22,7 @@ export const SequiaMeteor = () => {
       <h2 className="m-4 font-semibold">Sequía meteorológica</h2>
       <article>
         <div className="flex flex-wrap justify-start mx-3 md:justify-center ">
-          <p className="my-1 ms-2 py-1 px-3 border border-white bg-small-button/80  text-center  text-xs rounded-3xl font-semibold">
+          <p className="my-1 ms-2 py-1 px-4 bg-primary text-white  text-center  text-xs rounded-3xl font-medium">
             Sequía
           </p>
         </div>
