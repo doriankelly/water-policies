@@ -9,20 +9,18 @@ import { setUser} from '../store/slice/user/userSlice'
 
 export const AppRouter = () => {
 
-  const [id, setid] = useState(null)
-
   const { userObject } = useSelector((state) => state.user);
-  console.log(userObject)
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
+  
   const getUser =  async () => {
 
     const url = `https://h2ohback.onrender.com/api/v1/auth/${userObject}`
 
     const request = await consultation(url)
-
+    console.log(request)
     if (request.ok === true) {
-      setid(request.user._id)
+      (request.user._id)
     } else {
       dispatch(setUser(null))
     }
@@ -30,13 +28,13 @@ export const AppRouter = () => {
  
   useEffect(() => {
     getUser()
-  }, [id])
+  }, [])
   
   
   return (
     <>
       <Routes>
-      {userObject && userObject=== `"${id}"` ? 
+      {userObject  ? 
         <Route path="/*" element={<UserRouter />} />
         :
         <Route path="/*" element={<AuthRouter />} />
