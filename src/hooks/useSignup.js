@@ -28,7 +28,6 @@ export const useSignup = () => {
     try {
 
       const request = await consultation(url, 'POST', body)
-      console.log(request)
       const user = request.user
       setUserLocal(user._id)
       dispatch(setUser(user._id))

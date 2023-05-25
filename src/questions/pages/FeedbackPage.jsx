@@ -47,7 +47,7 @@ export const FeedbackPage = () => {
     //check if user already has entry
     const userUrl = `https://h2ohback.onrender.com/api/v1/entries/${user}`;
     const request = await consultation(userUrl);
-    console.log(request);
+
 
     //define body for fetch
     const body = {
@@ -59,14 +59,12 @@ export const FeedbackPage = () => {
     //if use already exists, make PUT
     if (request.ok) {
       const url = `${import.meta.env.VITE_RESULT_URL}/${user}`;
-      console.log("in PUT", url);
       const method = "PUT";
       //consultation(url, method, body);
     } else {
       //if user doens´t have entry, make POST
 
       const url = import.meta.env.VITE_RESULT_URL;
-      console.log("in POST", url, body);
       const method = "POST";
       //consultation(url, method, body);
     }
