@@ -30,7 +30,7 @@ export const useSignup = () => {
       const request = await consultation(url, 'POST', body)
       const user = request.user
       setUserLocal(user._id)
-      dispatch(setUser(user._id))
+      await dispatch(setUser(user._id))
       navigate('/welcome')
     
     } catch (error) {
