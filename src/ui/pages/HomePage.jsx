@@ -34,6 +34,12 @@ import { Suministro } from "../components/homepageCards/Suministro";
 //--politicas azules
 
 export const HomePage = () => {
+  const { userObject } = useSelector((state) => state.user);
+
+  useEffect(() => {
+    console.log("homepage", userObject);
+  }, []);
+
   //collect current visited pages state
   const { visitedObject } = useSelector((state) => state.visited);
   const dispatch = useDispatch();

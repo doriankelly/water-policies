@@ -5,42 +5,43 @@ import { AuthRouter } from "./AuthRouter";
 import { useSelector } from "react-redux";
 import { consultation } from "../api/fetch";
 import { useDispatch } from "react-redux";
-import { setUser} from '../store/slice/user/userSlice'
+import { setUser } from "../store/slice/user/userSlice";
 
 export const AppRouter = () => {
+  const [id, setid] = useState(null);
 
   const { userObject } = useSelector((state) => state.user);
-
+  console.log("userObject", userObject);
   const dispatch = useDispatch();
-  
-  const getUser =  async () => {
 
-    const url = `https://h2ohback.onrender.com/api/v1/auth/${userObject}`
+  const getUser = async () => {
+    console.log("here");
+    const url = `https://h2ohback.onrender.com/api/v1/auth/${userObject}`;
+    console.log("url", url);
+    const request = await consultation(url);
 
-    const request = await consultation(url)
-    console.log(request)
     if (request.ok === true) {
-      (request.user._id)
+      setid(request.user._id);
     } else {
-      dispatch(setUser(null))
+      dispatch(setUser(null));
     }
-  }
- 
+  };
+
   useEffect(() => {
-    getUser()
-  }, [])
-  
-  
+    getUser();
+  }, [userObject]);
+  console.log(userObject);
+  console.log("id", id);
+  // && userObject === `"${id}"`
   return (
     <>
       <Routes>
-      {userObject  ? 
-        <Route path="/*" element={<UserRouter />} />
-        :
-        <Route path="/*" element={<AuthRouter />} />
-        }
+        {userObject && userObject === id ? (
+          <Route path="/*" element={<UserRouter />} />
+        ) : (
+          <Route path="/*" element={<AuthRouter />} />
+        )}
       </Routes>
     </>
   );
 };
-
