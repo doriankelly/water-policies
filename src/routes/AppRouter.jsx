@@ -11,7 +11,6 @@ export const AppRouter = () => {
   const [id, setid] = useState(null);
 
   const { userObject } = useSelector((state) => state.user);
-  console.log("userObject", userObject);
   const dispatch = useDispatch();
 
   const getUser = async () => {
@@ -30,7 +29,7 @@ export const AppRouter = () => {
     getUser();
   }, [userObject]);
 
-  // && userObject === `"${id}"`
+
   return (
     <>
       <Routes>
