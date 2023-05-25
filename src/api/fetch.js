@@ -1,5 +1,5 @@
 export const consultation = async (url, method, body = {}) => {
-
+  console.log("fetch", url, method, body)
   let options = {};
   const data = { ...body };
   try {

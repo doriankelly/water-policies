@@ -15,9 +15,8 @@ export const AppRouter = () => {
   const dispatch = useDispatch();
 
   const getUser = async () => {
-    console.log("here");
     const url = `https://h2ohback.onrender.com/api/v1/auth/${userObject}`;
-    console.log("url", url);
+
     const request = await consultation(url);
 
     if (request.ok === true) {
@@ -30,8 +29,7 @@ export const AppRouter = () => {
   useEffect(() => {
     getUser();
   }, [userObject]);
-  console.log(userObject);
-  console.log("id", id);
+
   // && userObject === `"${id}"`
   return (
     <>
