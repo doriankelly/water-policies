@@ -1,9 +1,9 @@
 import React from "react";
 import martillo from "../../../assets/martillo.png";
-import planHidroNacional from "../../../assets/homePageButtons/planHidroNacional.svg";
-import planCuencaHidro from "../../../assets/homePageButtons/planCuencaHidro.svg";
-import directivoMarca from "../../../assets/homePageButtons/directivoMarca.svg";
-import programaReutil from "../../../assets/homePageButtons/programaReutil.svg";
+import planHidroNacional from "../../../assets/homePageButtons/planHidroNacional.png";
+import planCuencaHidro from "../../../assets/homePageButtons/planCuencaHidro.png";
+import directivoMarca from "../../../assets/homePageButtons/directivoMarca.png";
+import programaReutil from "../../../assets/homePageButtons/programaReutil.png";
 
 export const PolicyCards = ({ handleClick }) => {
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import embalses from "../../../assets/homePageButtons/embalses.svg";
+import embalses from "../../../assets/homePageButtons/embalses.png";
 
 export const EmbalsesCards = ({ handleClick }) => {
   return (

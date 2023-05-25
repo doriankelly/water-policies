@@ -1,6 +1,5 @@
-import infoCard from "../../../assets/infoCard.png";
 import vector from "../../../assets/vector.png";
-import sequiaAgricola from "../../../assets/homePageButtons/sequiaAgricola.svg";
+import sequiaAgricola from "../../../assets/homePageButtons/sequiaAgricola.png";
 import { useState } from "react";
 import { ShareButtons } from "../ShareButtons";
 
@@ -11,10 +10,10 @@ export const SequiaAgricola = () => {
     setShowShare(!showShare);
   };
   return (
-    <section className="bg-terciary pb-16">
+    <section className="bg-terciary pb-16 rounded-t-3xl">
       <div>
         <img
-          className="w-full"
+          className="w-full rounded-t-3xl"
           src={sequiaAgricola}
           alt="A pair of hands cupped around a small plant shoot growing from dry soil"
         />

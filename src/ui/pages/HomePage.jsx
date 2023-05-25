@@ -109,14 +109,18 @@ export const HomePage = () => {
             <button
               id="policies"
               onClick={changeCategory}
-              className="my-1 ms-2 py-1 px-3 border border-white bg-small-button/80 hover:bg-secondary hover:text-white  text-center  text-xs rounded-3xl font-medium"
+              className={`my-1 ms-2 py-1 px-3 border border-white hover:bg-secondary hover:text-white  ${
+                infoButtons == "policies"
+                  ? "bg-secondary text-white"
+                  : "bg-small-button text-black"
+              }  text-center  text-xs rounded-3xl font-medium`}
             >
               Políticas azules
             </button>
             <button
               id="embalses"
               onClick={changeCategory}
-              className={`my-1 ms-2 py-1 px-3 border border-white  ${
+              className={`my-1 ms-2 py-1 px-3 border border-white hover:bg-secondary hover:text-white  ${
                 infoButtons == "embalses"
                   ? "bg-secondary text-white"
                   : "bg-small-button text-black"
@@ -127,21 +131,33 @@ export const HomePage = () => {
             <button
               id="drought"
               onClick={changeCategory}
-              className="my-1 ms-2 py-1 px-3 border border-white bg-small-button hover:bg-secondary hover:text-white  text-center  text-xs rounded-3xl font-medium"
+              className={`my-1 ms-2 py-1 px-3 border border-white hover:bg-secondary hover:text-white  ${
+                infoButtons == "drought"
+                  ? "bg-secondary text-white"
+                  : "bg-small-button text-black"
+              }  text-center  text-xs rounded-3xl font-medium`}
             >
               Sequía
             </button>
             <button
               id="reutilizacion"
               onClick={changeCategory}
-              className="my-1 ms-2  py-1 px-3 border border-white bg-small-button hover:bg-secondary hover:text-white  text-center  text-xs rounded-3xl font-medium"
+              className={`my-1 ms-2 py-1 px-3 border border-white hover:bg-secondary hover:text-white  ${
+                infoButtons == "reutilizacion"
+                  ? "bg-secondary text-white"
+                  : "bg-small-button text-black"
+              }  text-center  text-xs rounded-3xl font-medium`}
             >
               Reutilización de agua
             </button>
             <button
               id="suministro"
               onClick={changeCategory}
-              className="my-1 ms-2 py-1 px-3 border border-white bg-small-button hover:bg-secondary hover:text-white  text-center  text-xs rounded-3xl font-medium"
+              className={`my-1 ms-2 py-1 px-3 border border-white hover:bg-secondary hover:text-white  ${
+                infoButtons == "suministro"
+                  ? "bg-secondary text-white"
+                  : "bg-small-button text-black"
+              }  text-center  text-xs rounded-3xl font-medium`}
             >
               Suministro de agua
             </button>
@@ -194,7 +210,7 @@ export const HomePage = () => {
           </div>
           <Link
             to="/quiz/1"
-            className="fixed left-1/2 -translate-x-1/2 bottom-2  z-10 my-10 py-3 drop-shadow  w-11/12 bg-primary hover:bg-secondary text-white block  text-center m-auto  shadow-lg rounded-3xl"
+            className="max-w-screen-md fixed left-1/2 -translate-x-1/2 bottom-2  z-10 my-10 py-3 drop-shadow  w-11/12 bg-primary hover:bg-secondary text-white block  text-center m-auto  shadow-lg rounded-3xl"
           >
             Iniciar encuesta
           </Link>

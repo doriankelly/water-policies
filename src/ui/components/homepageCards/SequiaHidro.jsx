@@ -1,4 +1,4 @@
-import sequiaHidro from "../../../assets/homePageButtons/sequiaHidro.svg";
+import sequiaHidro from "../../../assets/homePageButtons/sequiaHidro.png";
 import vector from "../../../assets/vector.png";
 import { useState } from "react";
 import { ShareButtons } from "../ShareButtons";
@@ -10,9 +10,13 @@ export const SequiaHidro = () => {
     setShowShare(!showShare);
   };
   return (
-    <section className="bg-terciary pb-16">
+    <section className="bg-terciary pb-16 rounded-t-3xl">
       <div>
-        <img className="w-full" src={sequiaHidro} alt="Image of dry valley" />
+        <img
+          className="w-full rounded-t-3xl"
+          src={sequiaHidro}
+          alt="Image of dry valley"
+        />
       </div>
       <h2 className="m-4 font-semibold">Sequía hidrológica</h2>
       <article>

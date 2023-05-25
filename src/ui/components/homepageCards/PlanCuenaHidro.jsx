@@ -1,6 +1,5 @@
-import sequiaSocio from "../../../assets/homePageButtons/sequiaSocio.png";
 import vector from "../../../assets/vector.png";
-import planCuencaHidro from "../../../assets/homePageButtons/planCuencaHidro.svg";
+import planCuencaHidro from "../../../assets/homePageButtons/planCuencaHidro.png";
 
 import { useState } from "react";
 import { ShareButtons } from "../ShareButtons";
@@ -12,10 +11,10 @@ export const PlanCuencaHidro = () => {
     setShowShare(!showShare);
   };
   return (
-    <section className="bg-terciary pb-16">
+    <section className="bg-terciary pb-16 rounded-t-3xl">
       <div>
         <img
-          className="w-full"
+          className="w-full rounded-t-3xl"
           src={planCuencaHidro}
           alt="A river winding between hills. There is bright sunlight making the water very blue."
         />

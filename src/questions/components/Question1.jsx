@@ -164,7 +164,7 @@ export const Question1 = ({ questionNumber }) => {
 
       <button
         onClick={handleSubmit}
-        className={`mt-6 py-3 fixed bottom-10  left-1/2 -translate-x-1/2   text-white block  text-center m-auto  shadow-lg rounded-2xl w-11/12 ${
+        className={`max-w-screen-md mt-6 py-3 fixed bottom-10  left-1/2 -translate-x-1/2   text-white block  text-center m-auto  shadow-lg rounded-2xl w-11/12 ${
           selectedOption !== ""
             ? "bg-primary hover:bg-secondary"
             : "bg-gray-400 hover:bg-gray-400"
