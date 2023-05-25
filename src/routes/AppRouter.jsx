@@ -11,13 +11,13 @@ export const AppRouter = () => {
   const [id, setid] = useState(null);
 
   const { userObject } = useSelector((state) => state.user);
-
-  console.log(userObject);
+  console.log("userObject", userObject);
   const dispatch = useDispatch();
 
   const getUser = async () => {
+    console.log("here");
     const url = `https://h2ohback.onrender.com/api/v1/auth/${userObject}`;
-
+    console.log("url", url);
     const request = await consultation(url);
 
     if (request.ok === true) {
@@ -29,12 +29,14 @@ export const AppRouter = () => {
 
   useEffect(() => {
     getUser();
-  }, [id]);
-
+  }, [userObject]);
+  console.log(userObject);
+  console.log("id", id);
+  // && userObject === `"${id}"`
   return (
     <>
       <Routes>
-        {userObject && userObject === `"${id}"` ? (
+        {userObject && userObject === id ? (
           <Route path="/*" element={<UserRouter />} />
         ) : (
           <Route path="/*" element={<AuthRouter />} />
