@@ -11,34 +11,37 @@ export const AppRouter = () => {
   //const [id, setid] = useState(null)
 
   const { userObject } = useSelector((state) => state.user);
-  // const dispatch = useDispatch();
 
-  // const getUser =  async () => {
+  console.log(userObject)
+  const dispatch = useDispatch();
 
-  //   const url = `https://h2ohback.onrender.com/api/v1/auth/${userObject}`
+  const getUser =  async () => {
 
-  //   const request = await consultation(url)
+    const url = `https://h2ohback.onrender.com/api/v1/auth/${userObject}`
 
-  //   if (request.ok === true) {
-  //     setid(request.user._id)
-  //   } else {
-  //     dispatch(setUser(null))
-  //   }
-  // }
+    const request = await consultation(url)
 
-  // useEffect(() => {
-  //   getUser()
-  // }, [id])
-
-  //add to line 38: && userObject===id
+    if (request.ok === true) {
+      setid(request.user._id)
+    } else {
+      dispatch(setUser(null))
+    }
+  }
+ 
+  useEffect(() => {
+    getUser()
+  }, [id])
+  
+  
   return (
     <>
       <Routes>
-        {userObject ? (
-          <Route path="/*" element={<UserRouter />} />
-        ) : (
-          <Route path="/*" element={<AuthRouter />} />
-        )}
+      {userObject && userObject=== `"${id}"` ? 
+        <Route path="/*" element={<UserRouter />} />
+        :
+        <Route path="/*" element={<AuthRouter />} />
+        }
+
       </Routes>
     </>
   );
