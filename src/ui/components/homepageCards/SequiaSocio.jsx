@@ -1,4 +1,4 @@
-import sequiaSocio from "../../../assets/homePageButtons/sequiaSocio.svg";
+import sequiaSocio from "../../../assets/homePageButtons/sequiaSocio.png";
 import vector from "../../../assets/vector.png";
 
 import { useState } from "react";
@@ -11,10 +11,10 @@ export const SequiaSocio = () => {
     setShowShare(!showShare);
   };
   return (
-    <section className="bg-terciary pb-16">
+    <section className="bg-terciary pb-16 rounded-t-3xl">
       <div>
         <img
-          className="w-full"
+          className="w-full rounded-t-3xl"
           src={sequiaSocio}
           alt="A rustic brass water tap in the foreground with a dry lakebed and a setting sun in the background"
         />

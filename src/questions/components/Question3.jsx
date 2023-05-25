@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { setLocal } from "../../helpers/localStorage";
 import { setScoreLocal } from "../../helpers/localStorage";
 
-
 export const Question3 = () => {
   const navigate = useNavigate();
   const correctAnswer = "option2";
@@ -66,7 +65,7 @@ export const Question3 = () => {
   useEffect(() => {
     setScoreLocal(scoreObject);
   }, [scoreObject]);
-  
+
   return (
     <section className="pb-20">
       <article className="mt-5 mx-4 px-5 py-5 text-center text-white bg-primary rounded-2xl leading-6 text-sm h-40">
@@ -123,7 +122,7 @@ export const Question3 = () => {
 
       <button
         onClick={handleSubmit}
-        className={`mt-6 py-3 fixed bottom-10  left-1/2 -translate-x-1/2   text-white block  text-center m-auto  shadow-lg rounded-2xl w-11/12 ${
+        className={`max-w-screen-md mt-6 py-3 fixed bottom-10  left-1/2 -translate-x-1/2   text-white block  text-center m-auto  shadow-lg rounded-2xl w-11/12 ${
           selectedOption !== ""
             ? "bg-primary hover:bg-secondary"
             : "bg-gray-400 hover:bg-gray-400"

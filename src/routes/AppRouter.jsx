@@ -5,13 +5,13 @@ import { AuthRouter } from "./AuthRouter";
 import { useSelector } from "react-redux";
 import { consultation } from "../api/fetch";
 import { useDispatch } from "react-redux";
-import { setUser} from '../store/slice/user/userSlice'
+import { setUser } from "../store/slice/user/userSlice";
 
 export const AppRouter = () => {
-
-  const [id, setid] = useState(null)
+  //const [id, setid] = useState(null)
 
   const { userObject } = useSelector((state) => state.user);
+
   console.log(userObject)
   const dispatch = useDispatch();
 
@@ -41,6 +41,7 @@ export const AppRouter = () => {
         :
         <Route path="/*" element={<AuthRouter />} />
         }
+
       </Routes>
     </>
   );

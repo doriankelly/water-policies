@@ -1,6 +1,5 @@
-import sequiaSocio from "../../../assets/homePageButtons/sequiaSocio.png";
 import vector from "../../../assets/vector.png";
-import planHidroNacional from "../../../assets/homePageButtons/planHidroNacional.svg";
+import planHidroNacional from "../../../assets/homePageButtons/planHidroNacional.png";
 
 import { useState } from "react";
 import { ShareButtons } from "../ShareButtons";
@@ -12,10 +11,10 @@ export const PlanHidro = () => {
     setShowShare(!showShare);
   };
   return (
-    <section className="bg-terciary pb-16">
+    <section className="bg-terciary pb-16 rounded-t-3xl">
       <div>
         <img
-          className="w-full"
+          className="w-full rounded-t-3xl"
           src={planHidroNacional}
           alt="An image of a lock with flowing water from a high perspective"
         />

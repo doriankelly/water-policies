@@ -1,5 +1,5 @@
 import React from "react";
-import suministro from "../../../assets/homePageButtons/suministro.svg";
+import suministro from "../../../assets/homePageButtons/suministro.png";
 
 export const SuministroCards = ({ handleClick }) => {
   return (

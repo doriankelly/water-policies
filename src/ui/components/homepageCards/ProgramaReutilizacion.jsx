@@ -1,5 +1,5 @@
 import vector from "../../../assets/vector.png";
-import programaReutil from "../../../assets/homePageButtons/programaReutil.svg";
+import programaReutil from "../../../assets/homePageButtons/programaReutil.png";
 
 import { useState } from "react";
 import { ShareButtons } from "../ShareButtons";
@@ -11,10 +11,10 @@ export const ProgramaReutilizacion = () => {
     setShowShare(!showShare);
   };
   return (
-    <section className="bg-terciary pb-16">
+    <section className="bg-terciary pb-16 rounded-t-3xl">
       <div>
         <img
-          className="w-full"
+          className="w-full rounded-t-3xl"
           src={programaReutil}
           alt="A water reutilisation plan. The water is reflective in the sun and there are green bushes in the background"
         />

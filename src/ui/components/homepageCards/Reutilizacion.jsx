@@ -1,5 +1,5 @@
 import vector from "../../../assets/vector.png";
-import recycle from "../../../assets/homePageButtons/recycle.svg";
+import recycle from "../../../assets/homePageButtons/recycle.png";
 import recycleGraph from "../../../assets/homePageButtons/recycleGraph.png";
 
 import { useState } from "react";
@@ -12,10 +12,10 @@ export const Reutilizacion = () => {
     setShowShare(!showShare);
   };
   return (
-    <section className="bg-terciary pb-16">
+    <section className="bg-terciary pb-16 rounded-t-3xl">
       <div>
         <img
-          className="w-full"
+          className="w-full rounded-t-3xl"
           src={recycle}
           alt="The three arrows of the recycle symbol are watermarked in blue over a close-up image of lake or sea water"
         />

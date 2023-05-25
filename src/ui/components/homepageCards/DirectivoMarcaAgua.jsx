@@ -1,6 +1,5 @@
-import sequiaSocio from "../../../assets/homePageButtons/sequiaSocio.png";
 import vector from "../../../assets/vector.png";
-import directivoMarca from "../../../assets/homePageButtons/directivoMarca.svg";
+import directivoMarca from "../../../assets/homePageButtons/directivoMarca.png";
 
 import { useState } from "react";
 import { ShareButtons } from "../ShareButtons";
@@ -12,10 +11,10 @@ export const DirectivoMarcaAgua = () => {
     setShowShare(!showShare);
   };
   return (
-    <section className="bg-terciary pb-16">
+    <section className="bg-terciary pb-16 rounded-t-3xl">
       <div>
         <img
-          className="w-full"
+          className="w-full rounded-t-3xl"
           src={directivoMarca}
           alt="A close up shot of a splash of blue water before a white background"
         />

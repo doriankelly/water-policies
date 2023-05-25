@@ -1,5 +1,5 @@
 import vector from "../../../assets/vector.png";
-import suministro from "../../../assets/homePageButtons/suministro.svg";
+import suministro from "../../../assets/homePageButtons/suministro.png";
 import suministroGraph from "../../../assets/homePageButtons/suministroGraph.png";
 
 import { useState } from "react";
@@ -12,10 +12,10 @@ export const Suministro = () => {
     setShowShare(!showShare);
   };
   return (
-    <section className="bg-terciary pb-16">
-      <div>
+    <section className="bg-terciary pb-16 rounded-t-3xl">
+      <div className="rounded-t-3xl">
         <img
-          className="w-full"
+          className="w-full rounded-t-3xl"
           src={suministro}
           alt="Water flowing from tap into trough"
         />

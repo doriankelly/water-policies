@@ -1,5 +1,4 @@
-import infoCard from "../../../assets/infoCard.png";
-import sequiaMeteor from "../../../assets/homePageButtons/sequiaMeteor.svg";
+import sequiaMeteor from "../../../assets/homePageButtons/sequiaMeteor.png";
 import vector from "../../../assets/vector.png";
 import { useState } from "react";
 import { ShareButtons } from "../ShareButtons";
@@ -11,10 +10,10 @@ export const SequiaMeteor = () => {
     setShowShare(!showShare);
   };
   return (
-    <section className="bg-terciary pb-16">
+    <section className="bg-terciary pb-16 rounded-t-3xl">
       <div>
         <img
-          className="w-full"
+          className="w-full rounded-t-3xl"
           src={sequiaMeteor}
           alt="Image of dry lake or bed"
         />
