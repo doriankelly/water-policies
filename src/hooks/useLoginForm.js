@@ -19,10 +19,8 @@ export const useLogin = () => {
     let url = "https://h2ohback.onrender.com/api/v1/auth";
     if (provider) {
       url += `/${provider}`;
-      console.log(url);
     } else {
       url += "/login";
-      console.log(url);
     }
     try {
 
