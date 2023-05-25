@@ -60,13 +60,13 @@ export const FeedbackPage = () => {
     if (request.ok) {
       const url = `${import.meta.env.VITE_RESULT_URL}/${user}`;
       const method = "PUT";
-      consultation(url, method, body);
+      //consultation(url, method, body);
     } else {
       //if user doens´t have entry, make POST
 
       const url = import.meta.env.VITE_RESULT_URL;
       const method = "POST";
-      consultation(url, method, body);
+      //consultation(url, method, body);
     }
     navigate("/final");
   };
@@ -95,14 +95,14 @@ export const FeedbackPage = () => {
       {number == 8 ? (
         <button
           onClick={handleClick}
-          className="fixed left-1/2 -translate-x-1/2 bottom-2 drop-shadow w-11/12 bg-primary text-white hover:bg-secondary  block  mb-10 text-center m-auto py-3 shadow-lg rounded-3xl"
+          className="max-w-screen-md fixed left-1/2 -translate-x-1/2 bottom-2 drop-shadow w-11/12 bg-primary text-white hover:bg-secondary  block  mb-10 text-center m-auto py-3 shadow-lg rounded-3xl"
         >
           Siguiente
         </button>
       ) : (
         <Link
           to={`/quiz/${parseInt(number) + 1}`}
-          className="fixed left-1/2 -translate-x-1/2 bottom-2 drop-shadow w-11/12 bg-primary text-white hover:bg-secondary  block  mb-10 text-center m-auto py-3 shadow-lg rounded-3xl"
+          className="max-w-screen-md fixed left-1/2 -translate-x-1/2 bottom-2 drop-shadow w-11/12 bg-primary text-white hover:bg-secondary  block  mb-10 text-center m-auto py-3 shadow-lg rounded-3xl"
         >
           Siguiente pregunta
         </Link>

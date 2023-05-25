@@ -1,5 +1,5 @@
 import vector from "../../../assets/vector.png";
-import embalses from "../../../assets/homePageButtons/embalses.svg";
+import embalses from "../../../assets/homePageButtons/embalses.png";
 import embalsesCapacidad from "../../../assets/homePageButtons/embalsesCapacidad.png";
 
 import { useState } from "react";
@@ -12,10 +12,10 @@ export const Embalses = () => {
     setShowShare(!showShare);
   };
   return (
-    <section className="bg-terciary pb-16">
+    <section className="bg-terciary pb-16 rounded-t-3xl">
       <div>
         <img
-          className="w-full"
+          className="w-full rounded-t-3xl"
           src={embalses}
           alt="Photo of an embalse taken from above, the water is blue-green and the wall of the embalse can be seen in the forefront"
         />

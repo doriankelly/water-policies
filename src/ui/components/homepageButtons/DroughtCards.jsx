@@ -1,9 +1,9 @@
 import React from "react";
 import martillo from "../../../assets/martillo.png";
-import sequiaMeteor from "../../../assets/homePageButtons/sequiaMeteor.svg";
-import sequiaAgricola from "../../../assets/homePageButtons/sequiaAgricola.svg";
-import sequiaSocio from "../../../assets/homePageButtons/sequiaSocio.svg";
-import sequiaHidro from "../../../assets/homePageButtons/sequiaHidro.svg";
+import sequiaMeteor from "../../../assets/homePageButtons/sequiaMeteor.png";
+import sequiaAgricola from "../../../assets/homePageButtons/sequiaAgricola.png";
+import sequiaSocio from "../../../assets/homePageButtons/sequiaSocio.png";
+import sequiaHidro from "../../../assets/homePageButtons/sequiaHidro.png";
 
 export const DroughtCards = ({ handleClick }) => {
   return (
