@@ -10,8 +10,8 @@ export const LoginForm = () => {
     ev.preventDefault();
     const body = {
       email: ev.target.email.value,
-      password: ev.target.password.value
-    }
+      password: ev.target.password.value,
+    };
     await login(body);
   };
 
@@ -29,7 +29,9 @@ export const LoginForm = () => {
         className="p-5 font-sans flex flex-col items-center my-2 w-full sm:w-3/4 md:w-2/3 lg:w-1/2"
         onSubmit={handleLogin}
       >
-        <h3 className="font-poppins text-base leading-6 flex flex-col my-2 w-full font-semibold">LOGIN</h3>
+        <h3 className="font-poppins text-base leading-6 flex flex-col my-2 w-full font-semibold">
+          LOGIN
+        </h3>
         <input
           type="email"
           placeholder="Email"
@@ -47,16 +49,15 @@ export const LoginForm = () => {
 
         {error && <p className="mb-2 text-red-500">{error}</p>}
 
-
-        <p className="mt-8">
-          ¿Olvidaste la contraseña?
-
-        </p>
+        <p className="mt-8">¿Olvidaste la contraseña?</p>
 
         <p className="mt-2 mb-4">
           ¿No tienes una cuenta?
-          <Link to="/signup" className="mx-1 text-black-500 hover:text-black-600">
-            créate una
+          <Link
+            to="/signup"
+            className="mx-1 underline text-black-500 hover:text-black-600"
+          >
+            Créate una
           </Link>
         </p>
 
@@ -68,7 +69,7 @@ export const LoginForm = () => {
         </button>
       </form>
 
-      <div className="flex flex-col items-center justify-center my-2">
+      {/* <div className="flex flex-col items-center justify-center my-2">
 
         <p className="mb-4">O entra con</p>
         <div className="flex space-x-4 mt-4">
@@ -106,8 +107,8 @@ export const LoginForm = () => {
             />
           </button>
         </div>
-      </div>
-      <footer className="fixed inset-x-0 bottom-0 flex justify-center items-center">
+      </div> */}
+      <footer className="fixed inset-x-0 bottom-4 flex justify-center items-center">
         <Link to="/terms">Términos y condiciones</Link>
       </footer>
     </div>

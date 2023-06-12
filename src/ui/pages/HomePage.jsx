@@ -68,11 +68,9 @@ export const HomePage = () => {
 
   //on change of infoTopic
   useEffect(() => {
-
     // set state that topic has been visited
     if (infoTopic != "") {
       if (visitedObject[infoTopic] === false && visitedObject.score < 10) {
-
         const newScore = visitedObject.score + 2;
         const visitedPages = {
           ...visitedObject,
@@ -186,7 +184,7 @@ export const HomePage = () => {
 
           <div className="border-t my-4 border-secondary mx-4 block m-auto"></div>
 
-          <div className="mt-3 mx-3 mb-2 flex justify-between">
+          {/* <div className="mt-3 mx-3 mb-2 flex justify-between">
             <p className="text-xs font-bold text-darkBlue">Modelo predictivo</p>
             <Link to="/graphic" className="text-xs text-darkBlue font-medium">
               Ver Gráfico
@@ -194,12 +192,12 @@ export const HomePage = () => {
           </div>
 
           <div className="relative bg-white h-64  w-full text-center border">
-            <div className="absolute top-0 bottom-0 left-0 right-0 z-0">
+            <div className="absolute top-0 bottom-0 left-0 right-0 z-0 bg-background">
               <Graphic />
             </div>
           </div>
 
-          <div className="border-t my-4 border-secondary mx-4 block m-auto"></div>
+          <div className="border-t my-4 border-secondary mx-4 block m-auto"></div> */}
 
           <div className="mt-3 mx-3 mb-2 flex justify-between">
             <p className="text-xs font-bold text-darkBlue">
