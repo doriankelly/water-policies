@@ -57,9 +57,14 @@ export const SequiaMeteor = () => {
               handleClick={handleClick}
             />
           )}
-          <button className="mb-8 px-5 py-2 drop-shadow w-content border border-terciary bg-secondary hover:bg-primary text-white text-center  shadow-lg rounded-3xl">
+          <a
+            className="mb-8 px-5 py-2 drop-shadow w-content border border-terciary bg-secondary hover:bg-primary text-white text-center  shadow-lg rounded-3xl"
+            href="https://www.miteco.gob.es/es/agua/temas/observatorio-nacional-de-la-sequia/que-es-la-sequia/default_old.aspx"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             +info
-          </button>
+          </a>
         </div>
       </article>
     </section>

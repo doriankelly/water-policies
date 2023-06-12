@@ -11,7 +11,8 @@ import {
   FeedbackPage,
   FinalResultPage,
 } from "../questions/pages";
-import { GraphicPage } from "../graphic/components/pages/GraphicPage";
+import { GraphicPage } from "../graphic/pages/GraphicPage";
+
 
 export const UserRouter = () => {
   const user = localStorage.getItem("id");
