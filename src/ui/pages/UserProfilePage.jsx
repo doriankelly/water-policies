@@ -19,6 +19,7 @@ export const UserProfilePage = () => {
           </h1>
         </div>
         <AddUserForm />
+        {/* logout button and user details in AddUserForm components */}
       </section>
     </div>
   );
