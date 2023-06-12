@@ -8,7 +8,8 @@ export const Graphic = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('../../../graphic.json');
+        const response = await fetch('../../../graphic.json'); //datos en local
+       // const response = await fetch('http://13.51.197.35:8000/'); //api de data
         const jsonData = await response.json();
         // Realiza las operaciones necesarias con los datos cargados
 

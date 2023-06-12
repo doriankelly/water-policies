@@ -1,8 +1,9 @@
 import React from "react";
-import { Graphic } from "../Graphic";
-import backButton from "../../../assets/backButton.svg";
-import logoText from "../../../assets/logoText.png";
+
+import backButton from "../../assets/backButton.svg";
+import logoText from "../../assets/logoText.png";
 import { Link, useNavigate } from "react-router-dom";
+import { Graphic } from "../components/Graphic";
 
 export const GraphicPage = () => {
   const navigate = useNavigate();
