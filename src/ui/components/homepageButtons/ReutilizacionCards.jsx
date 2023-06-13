@@ -14,7 +14,7 @@ export const ReutilizacionCards = ({ handleClick }) => {
           <img
             className="w-full rounded-t-2xl"
             src={recycleWater}
-            alt="Photo of an embalse taken from a high vantage point"
+            alt="A close up of a drop of water falling into a body of water. Ripples are seen on the surface and a ball of water hovers above"
           />
         </div>
         <p className="my-2">Reutilización</p>

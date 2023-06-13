@@ -17,7 +17,7 @@ export const DroughtCards = ({ handleClick }) => {
           <img
             className="w-full rounded-t-2xl "
             src={sequiaMeteor}
-            alt="drought graph"
+            alt="An arid, dry riverbed with mountains and a setting sun in the background"
           />
         </div>
         <p className="my-2">Sequía meteorológica</p>
@@ -31,7 +31,7 @@ export const DroughtCards = ({ handleClick }) => {
           <img
             className="w-full rounded-t-2xl"
             src={sequiaAgricola}
-            alt="drought graph"
+            alt="hands cupping a plant shoot growing from cracked, dry earth"
           />
         </div>
         <p className="my-2">Sequía agrícola</p>
@@ -45,7 +45,7 @@ export const DroughtCards = ({ handleClick }) => {
           <img
             className="w-full rounded-t-2xl"
             src={sequiaSocio}
-            alt="drought graph"
+            alt="An old fashioned brass water tap in the foreground, a dry field and setting sun in the background"
           />
         </div>
         <p className="my-2">Sequía socioeconómica</p>
@@ -59,7 +59,7 @@ export const DroughtCards = ({ handleClick }) => {
           <img
             className="w-full rounded-t-2xl"
             src={sequiaHidro}
-            alt="drought graph"
+            alt="A dry dam or river bed with cracked earth and a small body of water in the distance"
           />
         </div>
         <p className="my-2">Sequía hidrológica</p>

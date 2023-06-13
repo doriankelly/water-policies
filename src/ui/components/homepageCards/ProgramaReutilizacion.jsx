@@ -16,7 +16,7 @@ export const ProgramaReutilizacion = () => {
         <img
           className="w-full rounded-t-3xl"
           src={programaReutil}
-          alt="A water reutilisation plan. The water is reflective in the sun and there are green bushes in the background"
+          alt="A water reutilisation plant. The water is reflective in the sun and there are green bushes in the background"
         />
       </div>
       <h2 className="m-4 font-semibold">
@@ -52,13 +52,7 @@ export const ProgramaReutilizacion = () => {
           <button onClick={handleClick} className="mb-8 px-2 py-2 drop-shadow ">
             <img className="" src={vector} alt="share on social media" />
           </button>
-          {showShare && (
-            <ShareButtons
-              url={"megustalapizza.com"}
-              title={"Me gusta la pizza"}
-              handleClick={handleClick}
-            />
-          )}
+          {showShare && <ShareButtons handleClick={handleClick} />}
           <a
             className="mb-8 px-5 py-2 drop-shadow w-content border border-terciary bg-secondary hover:bg-primary text-white text-center  shadow-lg rounded-3xl"
             href="https://www.miteco.gob.es/es/agua/temas/planificacion-hidrologica/"
