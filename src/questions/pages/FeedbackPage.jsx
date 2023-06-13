@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import gota from "../../assets/gota.png";
 import { Feedback1 } from "../components/Feedback1";
 import { Feedback2 } from "../components/Feedback2";
@@ -28,19 +28,21 @@ export const FeedbackPage = () => {
   //after last page - send results to fetch
   const handleClick = async () => {
     //calculate score
-    const totalAnswersScore = Object.values(scoreObject).reduce(
-      (acc, value) => acc + parseInt(value * 10),
-      0
-    );
+    if (scoreObject.finalScore == 0) {
+      const totalAnswersScore = Object.values(scoreObject).reduce(
+        (acc, value) => acc + parseInt(value * 10),
+        0
+      );
 
-    //set final score to score redux state
-    dispatch(
-      setScore({
-        ...scoreObject,
-        finalScore: totalAnswersScore + visitedObject.score,
-      })
-    );
-
+      //set final score to score redux state
+      dispatch(
+        setScore({
+          ...scoreObject,
+          finalScore: totalAnswersScore + visitedObject.score,
+        })
+      );
+      console.log(scoreObject);
+    }
     //collect user id
     const user = localStorage.getItem("id").replaceAll('"', "");
     console.log(user);
@@ -53,8 +55,9 @@ export const FeedbackPage = () => {
       questions: { ...answersObject },
       status: { ...visitedObject },
       user,
-      score: totalAnswersScore + visitedObject.score,
+      score: scoreObject.finalScore,
     };
+    console.log("finalscore 2", scoreObject.finalScore);
     //if use already exists, make PUT
     if (request.ok) {
       const url = `https://h2ohback.onrender.com/api/v1/entries/${user}`;

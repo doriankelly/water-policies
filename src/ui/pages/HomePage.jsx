@@ -4,6 +4,8 @@ import logoText from "../../assets/logoText.png";
 import userButton from "../../assets/userButton.svg";
 // import martillo from "../../assets/martillo.png";
 import { Link, useNavigate } from "react-router-dom";
+
+import { setScore } from "../../store/slice/score/scoreSlice";
 import { MapContainerComp } from "../../map/components";
 import { setVisited } from "../../store/slice/visited/visitedSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -34,11 +36,10 @@ import { Suministro } from "../components/homepageCards/Suministro";
 //--politicas azules
 
 export const HomePage = () => {
+  const navigate = useNavigate();
+  //define current user and score states
   const { userObject } = useSelector((state) => state.user);
-
-  useEffect(() => {
-    console.log("homepage", userObject);
-  }, []);
+  const { scoreObject } = useSelector((state) => state.score);
 
   //collect current visited pages state
   const { visitedObject } = useSelector((state) => state.visited);
@@ -46,6 +47,17 @@ export const HomePage = () => {
   const [infoButtons, setInfoButtons] = useState("embalses");
   const [infoTopic, setInfoTopic] = useState("");
   const info = useRef(null);
+
+  //reset score in case redirect home from mid-test
+  const handleStartTest = () => {
+    dispatch(
+      setScore({
+        ...scoreObject,
+        finalScore: 0,
+      })
+    );
+    navigate("/quiz/1");
+  };
 
   //===="CATEGORY" LOGIC====//
   const changeCategory = ({ target }) => {
@@ -212,12 +224,12 @@ export const HomePage = () => {
               <MapContainerComp />
             </div>
           </div>
-          <Link
-            to="/quiz/1"
+          <button
+            onClick={handleStartTest}
             className="max-w-screen-md fixed left-1/2 -translate-x-1/2 bottom-2  z-10 my-10 py-3 drop-shadow  w-11/12 bg-primary hover:bg-secondary text-white block  text-center m-auto  shadow-lg rounded-3xl"
           >
             Iniciar encuesta
-          </Link>
+          </button>
         </section>
       </div>
       <div className="info" ref={info}>
