@@ -47,9 +47,13 @@ export const LoginForm = () => {
           className="mt-4 border border-form-border tracking-wide text-sm placeholder:text-black px-3 h-10 bg-blue-200 focus:outline-none focus:border-2 focus:border-solid rounded-md w-full"
         />
 
-        {error && <p className="mb-2 text-red-500">{error}</p>}
+        {error && (
+          <p className="my-4 italic text-red-500">
+            Email or password incorrect
+          </p>
+        )}
 
-        <p className="mt-8">¿Olvidaste la contraseña?</p>
+        {/* <p className="mt-8">¿Olvidaste la contraseña?</p> */}
 
         <p className="mt-2 mb-4">
           ¿No tienes una cuenta?

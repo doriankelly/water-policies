@@ -22,6 +22,7 @@ export const FinalResultPage = () => {
     navigate("/");
   };
 
+
   return (
     <div className="pt-16 bg-backgroundPrimary min-h-screen ">
       <article className="border border-white drop-shadow w-10/12 bg-primary/90 text-white block m-auto pb-24  px-4 md:px-20 h-vh60  shadow-lg rounded-lg">

@@ -10,7 +10,7 @@ import { setUser } from "../../store/slice/user/userSlice";
 export const AddUserForm = () => {
   const [score, setScore] = useState(null);
   const [userP, setUserP] = useState(null);
-  const [updateMessage, setUpdateMessage] = useState("test");
+  const [updateMessage, setUpdateMessage] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -340,7 +340,7 @@ export const AddUserForm = () => {
         <input
           className="mb-10 h-10 drop-shadow w-full bg-primary hover:bg-secondary text-white block  text-center m-auto  shadow-lg rounded-2xl"
           type="submit"
-          value="Confirmar"
+          value="Actualizar"
         />
         <button
           className="mb-5 bg-terciary text-emphasis w-full border border-emphasis px-3 h-10 rounded-2xl hover:outline-none hover:border-2 hover:border-solid"
