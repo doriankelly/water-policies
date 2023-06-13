@@ -17,7 +17,7 @@ export const PolicyCards = ({ handleClick }) => {
           <img
             className="w-full rounded-t-2xl"
             src={planHidroNacional}
-            alt="drought graph"
+            alt="An image of a lock with flowing water from a high perspective"
           />
         </div>
         <p className="my-2">Plan Hidrológico Nacional</p>
@@ -31,7 +31,7 @@ export const PolicyCards = ({ handleClick }) => {
           <img
             className="w-full rounded-t-2xl"
             src={planCuencaHidro}
-            alt="drought graph"
+            alt="A river winding between hills. There is bright sunlight making the water very blue."
           />
         </div>
         <p className="my-2">Planes de cuenca hidrográfica </p>
@@ -45,7 +45,7 @@ export const PolicyCards = ({ handleClick }) => {
           <img
             className="w-full rounded-t-2xl"
             src={directivoMarca}
-            alt="drought graph"
+            alt="A close up shot of a splash of blue water before a white background"
           />
         </div>
         <p className="my-2">Directiva marco del agua</p>
@@ -59,7 +59,7 @@ export const PolicyCards = ({ handleClick }) => {
           <img
             className="w-full rounded-t-2xl"
             src={programaReutil}
-            alt="drought graph"
+            alt="A water reutilisation plan. The water is reflective in the sun and there are green bushes in the background"
           />
         </div>
         <p className="my-2">Programas de reutilización de las aguas</p>

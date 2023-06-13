@@ -50,13 +50,7 @@ export const PlanHidro = () => {
           <button onClick={handleClick} className="mb-8 px-2 py-2 drop-shadow ">
             <img className="" src={vector} alt="drought graph" />
           </button>
-          {showShare && (
-            <ShareButtons
-              url={"megustalapizza.com"}
-              title={"Me gusta la pizza"}
-              handleClick={handleClick}
-            />
-          )}
+          {showShare && <ShareButtons handleClick={handleClick} />}
           <a
             className="mb-8 px-5 py-2 drop-shadow w-content border border-terciary bg-secondary hover:bg-primary text-white text-center  shadow-lg rounded-3xl"
             href="https://www.miteco.gob.es/es/agua/temas/planificacion-hidrologica/"

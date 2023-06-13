@@ -41,13 +41,7 @@ export const DroughtLegislation = () => {
           <button onClick={handleClick} className="mb-8 px-2 py-3 drop-shadow ">
             <img className="" src={vector} alt="drought graph" />
           </button>
-          {showShare && (
-            <ShareButtons
-              url={"megustalapizza.com"}
-              title={"Me gusta la pizza"}
-              handleClick={handleClick}
-            />
-          )}
+          {showShare && <ShareButtons handleClick={handleClick} />}
           <button className="mb-8 px-5 py-3 drop-shadow w-content border border-terciary bg-secondary hover:bg-primary text-white text-center  shadow-lg rounded-3xl">
             +info
           </button>
